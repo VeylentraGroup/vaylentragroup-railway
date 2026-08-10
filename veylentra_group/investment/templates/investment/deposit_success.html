@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit Confirmation - Veylentra Group</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #07111f;
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: #94a3b8;
+            min-height: 100vh;
+        }
+
+        .container-custom {
+            max-width: 650px;
+            margin: 40px auto;
+            background: #0d1b2a;
+            padding: 35px;
+            border-radius: 18px;
+            border: 1px solid rgba(148, 163, 184, 0.12);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Gold accent top border */
+        .container-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #c9a85c, #e2b95e, #a98237, #c9a85c);
+            background-size: 300% 100%;
+            animation: shimmer 4s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 0%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        .logo-header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.06);
+        }
+
+        .logo-header svg {
+            width: 48px;
+            height: 48px;
+            color: #c9a85c;
+        }
+
+        .logo-header .brand-text {
+            display: block;
+            margin-top: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: #f8fafc;
+        }
+
+        .logo-header .brand-text span {
+            color: #c9a85c;
+            letter-spacing: 0.46em;
+            font-size: 9px;
+            display: block;
+            margin-top: 2px;
+        }
+
+        h2 {
+            font-weight: 700;
+            color: #c9a85c;
+            font-size: 26px;
+            letter-spacing: -0.02em;
+        }
+
+        .success-icon {
+            font-size: 70px;
+            color: #34d399;
+            filter: drop-shadow(0 0 20px rgba(52, 211, 153, 0.2));
+            display: inline-block;
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .lead {
+            color: #e2e8f0;
+            font-size: 16px;
+        }
+
+        .lead .highlight {
+            color: #c9a85c;
+            font-weight: 700;
+        }
+
+        .amount-highlight {
+            color: #34d399;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .text-muted {
+            color: #94a3b8 !important;
+            font-size: 14px;
+        }
+
+        .countdown-box {
+            background: rgba(201, 168, 92, 0.06);
+            border: 1px solid rgba(201, 168, 92, 0.1);
+            border-radius: 10px;
+            padding: 12px 20px;
+            display: inline-block;
+        }
+
+        #countdown-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: #c9a85c;
+        }
+
+        .wallet-box, .qr-box {
+            background: rgba(7, 17, 31, 0.5);
+            padding: 20px 24px;
+            border-radius: 14px;
+            border: 1px solid rgba(148, 163, 184, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .wallet-box:hover, .qr-box:hover {
+            border-color: rgba(201, 168, 92, 0.2);
+        }
+
+        .wallet-box h4, .qr-box h4 {
+            color: #c9a85c;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 0.02em;
+        }
+
+        input {
+            background: #07111f !important;
+            border: 1px solid rgba(148, 163, 184, 0.15) !important;
+            color: #f8fafc !important;
+            border-radius: 8px !important;
+            padding: 12px 16px !important;
+            font-size: 14px !important;
+        }
+
+        input:focus {
+            border-color: #c9a85c !important;
+            box-shadow: 0 0 0 3px rgba(201, 168, 92, 0.1) !important;
+        }
+
+        .copy_btn {
+            background: linear-gradient(135deg, #c9a85c 0%, #e2b95e 100%) !important;
+            color: #07111f !important;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .copy_btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(201, 168, 92, 0.25);
+        }
+
+        .btn-gradient {
+            background: linear-gradient(135deg, #c9a85c 0%, #e2b95e 100%) !important;
+            border: none !important;
+            color: #07111f !important;
+            font-weight: 700;
+            padding: 12px 28px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.03em;
+            box-shadow: 0 4px 20px rgba(201, 168, 92, 0.15);
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(201, 168, 92, 0.3);
+            color: #07111f;
+        }
+
+        .qr-box img {
+            border-radius: 12px;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            background: #07111f;
+            padding: 8px;
+        }
+
+        footer {
+            text-align: center;
+            color: #64748b;
+            margin-top: 30px;
+            padding: 20px 0 10px;
+            border-top: 1px solid rgba(148, 163, 184, 0.06);
+            font-size: 13px;
+        }
+
+        footer .tagline {
+            color: #c9a85c;
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 0.05em;
+            margin-top: 4px;
+        }
+
+        footer .tagline span {
+            color: #64748b;
+            font-weight: 400;
+        }
+
+        .tradingview-widget-container {
+            max-width: 650px;
+            margin: 0 auto 20px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        @media (max-width: 600px) {
+            .container-custom { padding: 25px 20px; }
+            .logo-header svg { width: 40px; height: 40px; }
+            .logo-header .brand-text { font-size: 14px; }
+            h2 { font-size: 22px; }
+            .success-icon { font-size: 56px; }
+            #countdown-text { font-size: 18px; }
+            .wallet-box, .qr-box { padding: 16px 18px; }
+            .lead { font-size: 15px; }
+        }
+
+        @media (max-width: 400px) {
+            .container-custom { padding: 20px 14px; }
+            .logo-header svg { width: 34px; height: 34px; }
+            .logo-header .brand-text { font-size: 12px; letter-spacing: 0.15em; }
+            .logo-header .brand-text span { font-size: 8px; letter-spacing: 0.35em; }
+            h2 { font-size: 19px; }
+            .success-icon { font-size: 48px; }
+            #countdown-text { font-size: 16px; }
+            input { font-size: 12px !important; padding: 10px 12px !important; }
+            .copy_btn { padding: 8px 14px; font-size: 13px; }
+            .btn-gradient { padding: 10px 20px; font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- TradingView Crypto Ticker (Dark) -->
+<div class="tradingview-widget-container">
+    <script src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+      "symbols": [
+        {"proName": "BITSTAMP:BTCUSD", "title": "Bitcoin"},
+        {"proName": "BITSTAMP:ETHUSD", "title": "Ethereum"},
+        {"proName": "BINANCE:DOGEUSD", "title": "Dogecoin"}
+      ],
+      "showSymbolLogo": true,
+      "colorTheme": "dark",
+      "isTransparent": true,
+      "displayMode": "adaptive",
+      "locale": "en"
+    }
+    </script>
+</div>
+
+<br>
+
+<div class="container container-custom">
+
+    <!-- Veylentra Logo -->
+    <div class="logo-header">
+        <svg viewBox="0 0 48 48" fill="none" style="margin:0 auto; display:block; color:#c9a85c;">
+            <path d="M6 11 17 7l7 9-7 2-6 8-5-15Z" stroke="currentColor" stroke-width="3" />
+            <path d="m21 8 7 6-5 20-8-7 6-19Z" fill="currentColor" opacity=".95" />
+            <path d="m28 13 13-6-4 20-9 8-7-7 7-15Z" stroke="currentColor" stroke-width="3" />
+        </svg>
+        <span class="brand-text">
+            VEY LENTRA
+            <span>GROUP</span>
+        </span>
+    </div>
+
+    <!-- Main Content -->
+    <div class="text-center mb-4">
+        <div class="success-icon">
+            <i class="fas fa-circle-check"></i>
+        </div>
+
+        <h2 class="mt-3">
+            <i class="bi bi-wallet" style="color:#c9a85c;"></i> Deposit Initiated
+        </h2>
+
+        <p class="lead mt-3">
+            Hello <span class="highlight">{{ user_name|capfirst }}</span>, your deposit of  
+            <span class="amount-highlight">${{ deposit_amount }}</span>  
+            is awaiting completion.
+        </p>
+
+        <p class="text-muted">Please send the exact amount to the wallet address below.</p>
+
+        <div class="countdown-box mt-3">
+            <span style="color:#94a3b8; font-size:14px;">⏳ Expires in:</span>
+            <span id="countdown-text">01:00:00</span>
+        </div>
+    </div>
+
+    <!-- Wallet Address Section -->
+    <div class="wallet-box mt-4">
+        <h4><i class="fas fa-qrcode me-2" style="color:#c9a85c;"></i> Wallet Address</h4>
+        <div class="input-group mt-3">
+            <input type="text" id="walletAddress" value="{{ wallet_address }}" class="form-control" readonly>
+            <button class="copy_btn" onclick="copyWalletAddress()">
+                <i class="fas fa-copy me-1"></i> Copy
+            </button>
+        </div>
+        <small class="text-muted mt-2 d-block">Click copy to avoid mistakes.</small>
+    </div>
+
+    <!-- Wallet Network -->
+    <div class="wallet-box mt-4 text-center">
+        <h4><i class="fas fa-network-wired me-2" style="color:#c9a85c;"></i> Wallet Network</h4>
+        <p class="lead mt-2" style="color:#f8fafc; font-size:18px; font-weight:600;">{{ wallet_name }}</p>
+    </div>
+
+    <!-- QR Code -->
+    <div class="qr-box mt-4 text-center">
+        <h4><i class="fas fa-camera me-2" style="color:#c9a85c;"></i> Scan to Pay</h4>
+        <img src="{{ wallet.icon.url }}" class="img-fluid mt-3" style="width:200px;height:200px;object-fit:contain;">
+        <p class="text-muted mt-3" style="font-size:14px;">Scan using your crypto wallet to complete payment instantly.</p>
+    </div>
+
+    <!-- Return Button -->
+    <div class="text-center mt-4">
+        <a href="{% url 'userprofile:dashboard' %}" class="btn-gradient">
+            <i class="fas fa-arrow-left me-2"></i> Back to Dashboard
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p style="margin:0 0 4px; color:#94a3b8;">Veylentra Group — Building the Future of Digital Finance</p>
+        <p style="margin:4px 0; font-size:12px; color:#475569;">&copy; {{ year }} Veylentra Group. All rights reserved.</p>
+        <p class="tagline">✦ <span>Security • Transparency • Innovation</span> ✦</p>
+    </footer>
+
+</div>
+
+<script>
+    function copyWalletAddress() {
+        const walletAddress = document.getElementById("walletAddress");
+        walletAddress.select();
+        walletAddress.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(walletAddress.value);
+        
+        // Visual feedback
+        const btn = document.querySelector('.copy_btn');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check me-1"></i> Copied!';
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+        }, 2000);
+    }
+</script>
+
+<!-- Countdown Timer -->
+<script>
+    let totalTime = 3600;
+    function formatTime(seconds) {
+        const h = String(Math.floor(seconds / 3600)).padStart(2, '0');
+        const m = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+        const s = String(seconds % 60).padStart(2, '0');
+        return `${h}:${m}:${s}`;
+    }
+    function updateCountdown() {
+        if (totalTime <= 0) {
+            document.getElementById('countdown-text').textContent = '00:00:00';
+            document.getElementById('countdown-text').style.color = '#f87171';
+            return;
+        }
+        totalTime--;
+        document.getElementById('countdown-text').textContent = formatTime(totalTime);
+    }
+    setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>

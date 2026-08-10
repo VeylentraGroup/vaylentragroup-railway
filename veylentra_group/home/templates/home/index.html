@@ -1,0 +1,751 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Veylentra Group — Digital Finance</title>
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+/>
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: "#07111F",
+              navy2: "#0D1B2A",
+              slate: "#94A3B8",
+              gold: "#C9A85C",
+              gold2: "#E2B95E",
+              emerald: "#22C55E",
+              white2: "#F8FAFC",
+            },
+            boxShadow: {
+              gold: "0 0 30px rgba(201,168,92,.12)",
+              panel: "0 12px 40px rgba(0,0,0,.22)",
+              'gold-hover': "0 8px 30px rgba(201,168,92,.25)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* ===== GLOBAL ===== */
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: #07111f;
+        color: #f8fafc;
+      }
+      .glass {
+        background: rgba(7, 17, 31, 0.76);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .border-soft {
+        border-color: rgba(148, 163, 184, 0.2);
+      }
+      .gold-gradient {
+        background: linear-gradient(135deg, #e7c46d 0%, #c9a85c 45%, #a98237 100%);
+      }
+
+      /* ===== HERO IMAGE ===== */
+      .veylentra-hero__bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background-size: cover;
+        background-position: 52% center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+      }
+      .veylentra-hero__overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 10;
+        pointer-events: none;
+        background:
+          linear-gradient(90deg, rgba(7,17,31,0.92) 0%, rgba(7,17,31,0.78) 24%, rgba(7,17,31,0.48) 42%, rgba(7,17,31,0.20) 68%, rgba(7,17,31,0.60) 100%),
+          linear-gradient(180deg, rgba(7,17,31,0.04) 0%, rgba(7,17,31,0.08) 48%, rgba(7,17,31,0.92) 100%);
+      }
+      .veylentra-hero__atmosphere {
+        position: absolute;
+        inset: 0;
+        z-index: 11;
+        pointer-events: none;
+        background: radial-gradient(circle at 76% 34%, rgba(42,112,180,0.10), transparent 38%);
+      }
+
+      /* ===== CARDS ===== */
+      .card-hover {
+        transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-4px);
+        border-color: rgba(201, 168, 92, 0.6);
+        background: rgba(13, 27, 42, 0.95);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+      }
+
+      /* ===== INVESTMENT PLAN ===== */
+      .plan-card {
+        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid rgba(148,163,184,0.12);
+        background: rgba(13, 27, 42, 0.6);
+        backdrop-filter: blur(4px);
+      }
+      .plan-card:hover {
+        transform: translateY(-8px) scale(1.01);
+        border-color: #c9a85c;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,92,0.12);
+        background: rgba(13, 27, 42, 0.85);
+      }
+
+      /* ===== PROFESSIONAL COMPACT INVEST BUTTON ===== */
+      .invest-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.55rem 1.4rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        border-radius: 50px;
+        background: linear-gradient(135deg, #e7c46d 0%, #c9a85c 45%, #a98237 100%);
+        color: #07111f;
+        border: none;
+        box-shadow: 0 4px 20px rgba(201,168,92,0.15);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        min-width: 130px;
+      }
+      .invest-btn::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, #f5d98a 0%, #dbb45c 50%, #b8933a 100%);
+        opacity: 0;
+        transition: opacity 0.35s ease;
+        border-radius: 50px;
+      }
+      .invest-btn:hover {
+        transform: translateY(-2px) scale(1.04);
+        box-shadow: 0 8px 35px rgba(201,168,92,0.4);
+      }
+      .invest-btn:hover::after {
+        opacity: 1;
+      }
+      .invest-btn span,
+      .invest-btn .arrow {
+        position: relative;
+        z-index: 2;
+      }
+      .invest-btn .arrow {
+        display: inline-block;
+        transition: transform 0.3s ease;
+        font-size: 0.9rem;
+        line-height: 1;
+      }
+      .invest-btn:hover .arrow {
+        transform: translateX(5px);
+      }
+
+      /* ===== ROI CALCULATOR BADGE ===== */
+      .roi-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.2rem 0.7rem;
+        border-radius: 50px;
+        background: rgba(201,168,92,0.12);
+        border: 1px solid rgba(201,168,92,0.2);
+        font-size: 0.6rem;
+        font-weight: 600;
+        color: #c9a85c;
+        letter-spacing: 0.02em;
+        transition: all 0.3s ease;
+      }
+      .plan-card:hover .roi-badge {
+        background: rgba(201,168,92,0.2);
+        border-color: #c9a85c;
+      }
+
+      /* ===== CERTIFICATE BUTTON ===== */
+      .cert-btn {
+        transition: all 0.3s ease;
+        border: 1px solid rgba(201,168,92,0.3);
+      }
+      .cert-btn:hover {
+        background: rgba(201,168,92,0.12);
+        border-color: #c9a85c;
+        box-shadow: 0 0 30px rgba(201,168,92,0.08);
+        transform: translateY(-2px);
+      }
+
+      /* ===== MOBILE MENU TOGGLE ===== */
+      #menuBtn .icon-bar {
+        transition: all 0.3s ease;
+      }
+      #menuBtn.active .icon-bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      #menuBtn.active .icon-bar:nth-child(2) {
+        opacity: 0;
+      }
+      #menuBtn.active .icon-bar:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      /* ===== HERO BUTTONS - SIDE BY SIDE ON MOBILE & COMPACT ===== */
+      .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        width: 100%;
+      }
+      .hero-buttons a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.65rem 1.2rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+        flex: 1 1 auto;
+        min-width: 140px;
+      }
+      /* On mobile (≤480px) side by side */
+      @media (min-width: 380px) {
+        .hero-buttons {
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
+        .hero-buttons a {
+          flex: 1 1 auto;
+          min-width: 140px;
+          max-width: 220px;
+        }
+      }
+      /* On desktop reduce length further */
+      @media (min-width: 1024px) {
+        .hero-buttons a {
+          padding: 0.6rem 1rem;
+          font-size: 0.65rem;
+          min-width: 120px;
+          max-width: 180px;
+        }
+        .hero-buttons a span.text-base {
+          font-size: 0.85rem;
+        }
+      }
+
+      /* ===== FOOTER LINKS SIDE BY SIDE ON MOBILE ===== */
+      @media (max-width: 640px) {
+        .footer-grid-mobile {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1.5rem 0.75rem;
+        }
+        .footer-grid-mobile > div {
+          margin-bottom: 0;
+        }
+      }
+
+      /* ===== RESPONSIVE HERO OVERLAY ===== */
+      @media (max-width: 767px) {
+        .veylentra-hero__bg { background-position: 50% center; }
+        .veylentra-hero__overlay {
+          background:
+            linear-gradient(180deg, rgba(7,17,31,0.28) 0%, rgba(7,17,31,0.36) 12%, rgba(7,17,31,0.48) 24%, rgba(7,17,31,0.70) 39%, rgba(7,17,31,0.92) 55%, #07111f 72%, #07111f 100%);
+        }
+        .veylentra-hero__atmosphere {
+          background: radial-gradient(circle at 72% 20%, rgba(42,112,180,0.10), transparent 40%);
+        }
+        .veylentra-hero h1 { font-size: clamp(2.2rem, 10vw, 3.25rem); line-height: 1.05; }
+        .veylentra-hero p { line-height: 1.65; }
+        .hero-buttons a {
+          font-size: 0.65rem;
+          padding: 0.55rem 0.9rem;
+          min-width: 120px;
+        }
+      }
+      @media (max-width: 380px) {
+        .veylentra-hero__overlay {
+          background:
+            linear-gradient(180deg, rgba(7,17,31,0.32) 0%, rgba(7,17,31,0.42) 12%, rgba(7,17,31,0.56) 24%, rgba(7,17,31,0.78) 38%, rgba(7,17,31,0.96) 53%, #07111f 70%, #07111f 100%);
+        }
+        .hero-buttons a {
+          font-size: 0.6rem;
+          padding: 0.5rem 0.7rem;
+          min-width: 100px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * { transition: none !important; }
+        html { scroll-behavior: auto; }
+      }
+    </style>
+  </head>
+  <body class="min-h-screen overflow-x-hidden">
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 border-b border-soft glass">
+      <div class="mx-auto flex h-[70px] max-w-[1440px] items-center justify-between px-5 lg:px-8">
+        <a href="#" class="flex shrink-0 items-center gap-2">
+          <div class="relative flex h-10 w-10 items-center justify-center">
+            <svg viewBox="0 0 48 48" class="h-10 w-10 text-gold" fill="none">
+              <path d="M6 11 17 7l7 9-7 2-6 8-5-15Z" stroke="currentColor" stroke-width="3" />
+              <path d="m21 8 7 6-5 20-8-7 6-19Z" fill="currentColor" opacity=".95" />
+              <path d="m28 13 13-6-4 20-9 8-7-7 7-15Z" stroke="currentColor" stroke-width="3" />
+            </svg>
+          </div>
+          <div class="leading-none">
+            <div class="text-[16px] font-semibold tracking-[.20em]">VEY LENTRA</div>
+            <div class="mt-1 text-[9px] font-semibold tracking-[.46em] text-gold">GROUP</div>
+          </div>
+        </a>
+        <nav class="hidden items-center gap-7 text-[12px] font-medium text-white/90 lg:flex">
+          <a class="hover:text-gold transition-colors" href="#">Home</a>
+          <a class="hover:text-gold transition-colors" href="#about">About</a>
+          <a class="hover:text-gold transition-colors" href="#services">Services <span class="ml-1">⌄</span></a>
+          <a class="hover:text-gold transition-colors" href="#investments">Investments</a>
+          <a class="hover:text-gold transition-colors" href="#lending">Lending <span class="ml-1 rounded bg-gold px-1.5 py-0.5 text-[8px] text-navy">NEW</span></a>
+          <a class="hover:text-gold transition-colors" href="https://www.tradingview.com/markets/">Market</a>
+          <a class="hover:text-gold transition-colors" href="#resources">Resources <span class="ml-1">⌄</span></a>
+          <a class="hover:text-gold transition-colors" href="#contact">Contact</a>
+        </nav>
+        <div class="hidden items-center gap-3 sm:flex">
+
+  {% if request.user.is_authenticated %}
+
+<a
+  href="{% url 'userprofile:dashboard' %}"
+  class="rounded-md border border-slate/40 px-4 py-2 text-[12px] transition hover:border-gold hover:text-gold"
+>
+  <i class="fa-solid fa-circle-user mr-1"></i>
+  {{ request.user.username|capfirst }}
+</a>
+
+<a
+  href="{% url 'userprofile:dashboard' %}"
+  class="gold-gradient rounded-md px-4 py-2 text-[12px] font-semibold text-navy shadow-gold transition hover:brightness-110 hover:scale-[1.02]"
+>
+  <i class="fa-solid fa-gauge-high mr-1"></i>
+  Dashboard
+</a>
+
+{% else %}
+
+<a
+  href="{% url 'userprofile:login' %}"
+  class="rounded-md border border-slate/40 px-4 py-2 text-[12px] transition hover:border-gold hover:text-gold"
+>
+  <i class="fa-solid fa-right-to-bracket mr-1"></i>
+  Login
+</a>
+
+<a
+  href="{% url 'userprofile:register' %}"
+  class="gold-gradient rounded-md px-4 py-2 text-[12px] font-semibold text-navy shadow-gold transition hover:brightness-110 hover:scale-[1.02]"
+>
+  <i class="fa-solid fa-wallet mr-1"></i>
+  Create Wallet
+</a>
+
+{% endif %}
+</div>
+        <button id="menuBtn" class="relative flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-md border border-white/20 p-2 lg:hidden" aria-label="Toggle menu">
+          <span class="icon-bar block h-0.5 w-5 rounded-full bg-white"></span>
+          <span class="icon-bar block h-0.5 w-5 rounded-full bg-white"></span>
+          <span class="icon-bar block h-0.5 w-5 rounded-full bg-white"></span>
+        </button>
+      </div>
+     <div id="mobileMenu" class="hidden border-t border-soft bg-navy px-5 py-5 lg:hidden">
+  <div class="grid gap-4 text-sm text-white/85">
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#investments">Investments</a>
+    <a href="#lending">Lending</a>
+    <a href="#insights">Insights</a>
+    <a href="#resources">Resources</a>
+    <a href="#contact">Contact</a>
+
+    <div class="mt-2 flex gap-2 sm:hidden">
+
+      {% if request.user.is_authenticated %}
+
+        <a
+          href="{% url 'userprofile:dashboard' %}"
+          class="flex-1 rounded border border-white/20 py-2 text-center"
+        >
+          <i class="fa-solid fa-user-circle mr-1"></i>
+          {{ request.user.username|capfirst }}
+        </a>
+
+        <a
+          href="{% url 'userprofile:dashboard' %}"
+          class="flex-1 rounded gold-gradient py-2 text-center font-semibold text-navy"
+        >
+          <i class="fa-solid fa-wallet mr-1"></i>
+          My Wallet
+        </a>
+
+      {% else %}
+
+        <a
+          href="{% url 'userprofile:login' %}"
+          class="flex-1 rounded border border-white/20 py-2 text-center"
+        >
+          <i class="fa-solid fa-right-to-bracket mr-1"></i>
+          Login
+        </a>
+
+        <a
+          href="{% url 'userprofile:register' %}"
+          class="flex-1 rounded gold-gradient py-2 text-center font-semibold text-navy"
+        >
+          <i class="fa-solid fa-wallet mr-1"></i>
+          Create Wallet
+        </a>
+
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+    </header>
+
+    <main>
+      <!-- HERO SECTION -->
+      <section id="home" class="veylentra-hero relative overflow-hidden bg-[#07111f]">
+        <div class="veylentra-hero__bg" style="background-image: url('{% static "images/hero-image.png" %}');"></div>
+        <div class="veylentra-hero__overlay"></div>
+        <div class="veylentra-hero__atmosphere"></div>
+
+        <div class="relative z-20 mx-auto grid min-h-[720px] max-w-[1440px] gap-6 px-5 py-6 sm:px-6 lg:grid-cols-[1.7fr_1fr] lg:px-8 lg:py-7">
+          <!-- LEFT -->
+          <div class="flex flex-col justify-between rounded-xl border border-white/10 bg-[#07111f]/25 p-7 backdrop-blur-[2px] sm:p-9 lg:p-10">
+            <div class="max-w-[690px] pt-4 lg:pt-8">
+              <p class="mb-4 text-[11px] font-semibold uppercase tracking-[0.25em] text-[#c9a85c]">Veylentra Group</p>
+              <h1 class="text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-[46px] xl:text-[52px]">Building the Future <br class="hidden sm:block" /> of <span class="text-[#c9a85c]">Digital Finance</span></h1>
+              <p class="mt-5 max-w-[600px] text-sm leading-6 text-[#94a3b8] sm:text-[15px]">Veylentra Group combines digital-asset expertise, financial technology, and research to help individuals and businesses navigate an evolving financial landscape.</p>
+              <!-- HERO BUTTONS - SIDE BY SIDE ON MOBILE & COMPACT -->
+              <div class="hero-buttons mt-7">
+                <a href="#services" class="rounded-md bg-gradient-to-r from-[#c9a85c] to-[#e2b95e] text-[#07111f] shadow-lg shadow-[#c9a85c]/10 transition duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#c9a85c]/20">
+                  Explore Services <span class="text-base">→</span>
+                </a>
+                <a href="#about" class="rounded-md border border-white/30 bg-[#07111f]/20 text-white transition duration-300 hover:border-[#c9a85c] hover:text-[#c9a85c]">
+                  About Veylentra <span class="flex h-3.5 w-3.5 items-center justify-center rounded-full border border-white/50 text-[6px]">▶</span>
+                </a>
+              </div>
+            </div>
+            <!-- Trust -->
+            <div class="mt-12 grid grid-cols-2 gap-5 border-t border-white/10 pt-5 sm:grid-cols-4">
+              <div class="flex items-center gap-3"><div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#c9a85c]/30 bg-[#07111f]/60 text-[#c9a85c]">♢</div><div><div class="text-[10px] font-semibold text-white">Security First</div><div class="mt-0.5 text-[8px] text-[#94a3b8]">Institutional Grade</div></div></div>
+              <div class="flex items-center gap-3"><div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#c9a85c]/30 bg-[#07111f]/60 text-[#c9a85c]">◉</div><div><div class="text-[10px] font-semibold text-white">Transparency</div><div class="mt-0.5 text-[8px] text-[#94a3b8]">You Can Trust</div></div></div>
+              <div class="flex items-center gap-3"><div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#c9a85c]/30 bg-[#07111f]/60 text-[#c9a85c]">◫</div><div><div class="text-[10px] font-semibold text-white">Research Driven</div><div class="mt-0.5 text-[8px] text-[#94a3b8]">Data. Insights. Edge.</div></div></div>
+              <div class="flex items-center gap-3"><div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#c9a85c]/30 bg-[#07111f]/60 text-[#c9a85c]">♧</div><div><div class="text-[10px] font-semibold text-white">Client Focused</div><div class="mt-0.5 text-[8px] text-[#94a3b8]">Your Goals. Our Priority.</div></div></div>
+            </div>
+          </div>
+
+          <!-- RIGHT LENDING -->
+          <aside id="lending" class="rounded-xl border border-white/10 bg-[#07111f]/80 p-5 shadow-2xl backdrop-blur-md sm:p-6">
+            <div class="flex items-start justify-between gap-4">
+              <div><div class="flex items-center gap-2"><h2 class="text-base font-semibold text-white sm:text-lg">Veylentra Lending</h2><span class="rounded border border-[#c9a85c]/40 bg-[#c9a85c]/10 px-1.5 py-0.5 text-[8px] font-bold text-[#c9a85c]">NEW</span></div><p class="mt-1 text-[10px] leading-4 text-[#94a3b8] sm:text-xs">Flexible loans. Transparent terms. Fast access to funds.</p></div>
+              <div class="hidden h-16 w-16 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-[#0d1b2a] text-3xl text-[#c9a85c] sm:flex">🔐</div>
+            </div>
+            <div class="mt-4 space-y-2">
+              <div class="flex items-center gap-2 text-[9px] text-[#e2e8f0]"><span class="text-[#c9a85c]">✥</span>Competitive Interest Rates</div>
+              <div class="flex items-center gap-2 text-[9px] text-[#e2e8f0]"><span class="text-[#c9a85c]">◷</span>Flexible Repayment Plans</div>
+              <div class="flex items-center gap-2 text-[9px] text-[#e2e8f0]"><span class="text-[#c9a85c]">♢</span>Secure &amp; Easy Process</div>
+            </div>
+            <a href="{% url 'loan:apply' %}" class="mt-5 inline-flex items-center justify-center gap-2 rounded-md bg-gradient-to-r from-[#c9a85c] to-[#e2b95e] px-4 py-2.5 text-[10px] font-bold text-[#07111f] transition hover:-translate-y-0.5">Apply Now<span class="text-sm">→</span></a>
+            <div id="loan-options" class="mt-6">
+              <div class="mb-2 text-[10px] text-[#94a3b8]">Loan Options</div>
+              <div class="grid grid-cols-2 gap-2 xl:grid-cols-4">
+                <div class="rounded border border-white/10 bg-[#0d1b2a]/80 p-3 text-center transition hover:border-[#c9a85c]/40 hover:bg-[#0d1b2a]"><div class="text-lg text-[#c9a85c]">♙</div><div class="mt-2 text-[9px] font-semibold text-white">Personal Loan</div><div class="mt-2 text-[9px] text-[#94a3b8]">Up to $100,000</div><div class="mt-1 text-[8px] text-[#64748b]">Flexible terms</div></div>
+                <div class="rounded border border-white/10 bg-[#0d1b2a]/80 p-3 text-center transition hover:border-[#c9a85c]/40 hover:bg-[#0d1b2a]"><div class="text-lg text-[#c9a85c]">▦</div><div class="mt-2 text-[9px] font-semibold text-white">Business Loan</div><div class="mt-2 text-[9px] text-[#94a3b8]">Up to $500,000</div><div class="mt-1 text-[8px] text-[#64748b]">Grow your business</div></div>
+                <div class="rounded border border-white/10 bg-[#0d1b2a]/80 p-3 text-center transition hover:border-[#c9a85c]/40 hover:bg-[#0d1b2a]"><div class="text-lg text-[#c9a85c]">✥</div><div class="mt-2 text-[9px] font-semibold text-white">Asset Backed</div><div class="mt-2 text-[9px] text-[#94a3b8]">Up to $1,000,000</div><div class="mt-1 text-[8px] text-[#64748b]">Secure with assets</div></div>
+                <div class="rounded border border-white/10 bg-[#0d1b2a]/80 p-3 text-center transition hover:border-[#c9a85c]/40 hover:bg-[#0d1b2a]"><div class="text-lg text-[#c9a85c]">▤</div><div class="mt-2 text-[9px] font-semibold text-white">Invoice Financing</div><div class="mt-2 text-[9px] text-[#94a3b8]">Up to $250,000</div><div class="mt-1 text-[8px] text-[#64748b]">Unlock cash flow</div></div>
+              </div>
+            </div>
+            <div class="mt-5 border-t border-white/10 pt-4 text-[8px] text-[#64748b]">Representative Example: <span class="text-[#94a3b8]">$10,000 loan at 12% APR for 12 months</span> <a href="#loan-details" class="float-right text-[#c9a85c] hover:underline">Learn more →</a></div>
+            <!-- Market Snapshot -->
+            <div id="market" class="mt-5 rounded-lg border border-white/10 bg-[#0a1727]/80 p-4">
+              <div class="flex items-center justify-between"><div class="text-[10px] font-semibold text-white">Market Snapshot</div><a href="#insights" class="text-[8px] text-[#c9a85c] hover:underline">View all insights →</a></div>
+              <div class="mt-3 grid gap-4 md:grid-cols-[1fr_1.2fr]">
+                <div class="space-y-3">
+                  <div class="flex items-center justify-between"><span class="text-[9px] text-[#94a3b8]">🟠 Bitcoin BTC</span><div class="text-right"><div class="text-[9px] font-semibold text-white">$66,842.21</div><div class="text-[8px] text-emerald-400">+2.35%</div></div></div>
+                  <div class="flex items-center justify-between"><span class="text-[9px] text-[#94a3b8]">🔵 Ethereum ETH</span><div class="text-right"><div class="text-[9px] font-semibold text-white">$3,215.62</div><div class="text-[8px] text-emerald-400">+1.85%</div></div></div>
+                  <div class="flex items-center justify-between"><span class="text-[9px] text-[#94a3b8]">🟣 Solana SOL</span><div class="text-right"><div class="text-[9px] font-semibold text-white">$151.34</div><div class="text-[8px] text-emerald-400">+3.42%</div></div></div>
+                  <div class="flex items-center justify-between"><span class="text-[9px] text-[#94a3b8]">🟢 Market Cap</span><div class="text-right"><div class="text-[9px] font-semibold text-white">$2.48T</div><div class="text-[8px] text-emerald-400">+2.10%</div></div></div>
+                </div>
+                <div>
+                  <div class="mb-2 flex items-center justify-end gap-1 text-[7px] text-[#64748b]"><span>1D</span><span class="rounded bg-white/10 px-2 py-1 text-white">7D</span><span>1M</span><span>3M</span><span>1Y</span></div>
+                  <div class="h-[100px] overflow-hidden rounded border border-white/5 bg-[#07111f]/60"><svg viewBox="0 0 330 100" class="h-full w-full" preserveAspectRatio="none"><defs><linearGradient id="marketGradient" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#22c55e" stop-opacity=".20"/><stop offset="100%" stop-color="#22c55e" stop-opacity="0"/></linearGradient></defs><path d="M0 78 L12 74 L24 77 L36 62 L48 66 L60 54 L72 58 L84 42 L96 48 L108 36 L120 41 L132 28 L144 36 L156 24 L168 30 L180 40 L192 25 L204 34 L216 21 L228 27 L240 18 L252 24 L264 14 L276 22 L288 16 L300 9 L312 16 L324 7 L330 12 L330 100 L0 100 Z" fill="url(#marketGradient)"/><path d="M0 78 L12 74 L24 77 L36 62 L48 66 L60 54 L72 58 L84 42 L96 48 L108 36 L120 41 L132 28 L144 36 L156 24 L168 30 L180 40 L192 25 L204 34 L216 21 L228 27 L240 18 L252 24 L264 14 L276 22 L288 16 L300 9 L312 16 L324 7 L330 12" fill="none" stroke="#22c55e" stroke-width="2"/></svg></div>
+                  <div class="mt-2 flex items-center justify-between text-[8px] text-[#94a3b8]"><span>Market Sentiment</span><span class="font-semibold text-emerald-400">72%</span></div>
+                  <div class="mt-1 h-1.5 rounded-full bg-white/10"><div class="h-full w-[72%] rounded-full bg-emerald-500"></div></div>
+                  <div class="mt-1 text-[8px] text-emerald-400">Greed</div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ABOUT US SECTION -->
+      <section id="about" class="mx-auto max-w-[1440px] px-5 py-12 lg:px-8">
+        <div class="rounded-2xl border border-soft bg-navy2/60 p-6 backdrop-blur-sm sm:p-10">
+          <div class="grid gap-8 lg:grid-cols-2 lg:gap-12">
+            <div>
+              <span class="text-[11px] font-semibold uppercase tracking-[0.25em] text-gold">About Veylentra</span>
+              <h2 class="mt-3 text-3xl font-semibold leading-tight text-white sm:text-4xl">Trusted Partner in <span class="text-gold">Digital Finance</span></h2>
+              <p class="mt-4 text-sm leading-relaxed text-slate">Veylentra Group was founded on the belief that financial technology and digital assets can create a more inclusive, transparent, and efficient financial system. We combine deep research, cutting-edge technology, and a client-first approach to deliver solutions that stand the test of time.</p>
+              <p class="mt-3 text-sm leading-relaxed text-slate">With a presence in over 30 countries and a team of seasoned professionals, we guide individuals, institutions, and businesses through the complexities of modern finance — from digital asset investment to strategic lending and technology ventures.</p>
+              <div class="mt-6 flex flex-wrap gap-4">
+                <button class="cert-btn inline-flex items-center gap-2 rounded-lg border border-gold/30 px-5 py-2.5 text-xs font-semibold text-gold transition hover:bg-gold/10 hover:shadow-gold"><span>📜</span> Download Company Certificate</button>
+                <a href="#services" class="inline-flex items-center gap-2 text-xs font-medium text-white/70 transition hover:text-gold">Explore our services →</a>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="rounded-xl border border-soft bg-navy/50 p-5 text-center transition hover:border-gold/40 hover:bg-navy/80"><div class="text-3xl text-gold">◎</div><div class="mt-2 text-lg font-semibold text-white">8+</div><div class="text-[10px] text-slate">Years of Excellence</div></div>
+              <div class="rounded-xl border border-soft bg-navy/50 p-5 text-center transition hover:border-gold/40 hover:bg-navy/80"><div class="text-3xl text-gold">◈</div><div class="mt-2 text-lg font-semibold text-white">$1.2B+</div><div class="text-[10px] text-slate">Total Transactions</div></div>
+              <div class="rounded-xl border border-soft bg-navy/50 p-5 text-center transition hover:border-gold/40 hover:bg-navy/80"><div class="text-3xl text-gold">▣</div><div class="mt-2 text-lg font-semibold text-white">150+</div><div class="text-[10px] text-slate">Team Members</div></div>
+              <div class="rounded-xl border border-soft bg-navy/50 p-5 text-center transition hover:border-gold/40 hover:bg-navy/80"><div class="text-3xl text-gold">♢</div><div class="mt-2 text-lg font-semibold text-white">99.99%</div><div class="text-[10px] text-slate">Uptime & Security</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES / CORE CARDS -->
+      <section id="services" class="mx-auto max-w-[1440px] px-5 py-7 lg:px-8">
+        <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="card-hover rounded-xl border border-soft bg-navy2 p-5"><div class="mb-5 text-3xl text-gold">◎</div><h3 class="font-semibold">Digital Assets</h3><p class="mt-2 text-[11px] leading-5 text-slate">Research, analysis, and investment solutions across the digital asset ecosystem.</p><a class="mt-4 inline-block text-[10px] font-semibold text-gold transition hover:translate-x-1" href="#">Learn more →</a></article>
+          <article class="card-hover rounded-xl border border-soft bg-navy2 p-5"><div class="mb-5 text-3xl text-gold">▣</div><h3 class="font-semibold">Financial Technology</h3><p class="mt-2 text-[11px] leading-5 text-slate">Innovative technology solutions for modern financial infrastructure.</p><a class="mt-4 inline-block text-[10px] font-semibold text-gold transition hover:translate-x-1" href="#">Learn more →</a></article>
+          <article id="investments" class="card-hover rounded-xl border border-soft bg-navy2 p-5"><div class="mb-5 text-3xl text-gold">▥</div><h3 class="font-semibold">Market Research</h3><p class="mt-2 text-[11px] leading-5 text-slate">Data-driven market intelligence to support smarter decisions.</p><a class="mt-4 inline-block text-[10px] font-semibold text-gold transition hover:translate-x-1" href="#">Learn more →</a></article>
+          <article class="card-hover rounded-xl border border-soft bg-navy2 p-5"><div class="mb-5 text-3xl text-gold">↗</div><h3 class="font-semibold">Technology Ventures</h3><p class="mt-2 text-[11px] leading-5 text-slate">Investing in and supporting the next generation of technology companies.</p><a class="mt-4 inline-block text-[10px] font-semibold text-gold transition hover:translate-x-1" href="#">Learn more →</a></article>
+        </div>
+        <div class="mt-3 grid grid-cols-2 gap-3 rounded-xl border border-soft bg-navy2 p-4 sm:grid-cols-4">
+          <div class="flex items-center gap-3 border-b border-white/10 pb-3 sm:border-b-0 sm:border-r sm:pb-0"><span class="text-2xl text-gold">♙</span><div><div class="text-lg font-semibold">25K+</div><div class="text-[9px] text-slate">Global Clients</div></div></div>
+          <div class="flex items-center gap-3 border-b border-white/10 pb-3 sm:border-b-0 sm:border-r sm:pb-0"><span class="text-2xl text-gold">◎</span><div><div class="text-lg font-semibold">30+</div><div class="text-[9px] text-slate">Countries</div></div></div>
+          <div class="flex items-center gap-3 sm:border-r sm:border-white/10"><span class="text-2xl text-gold">▥</span><div><div class="text-lg font-semibold">$500M+</div><div class="text-[9px] text-slate">Assets Under Insight</div></div></div>
+          <div class="flex items-center gap-3"><span class="text-2xl text-gold">♢</span><div><div class="text-lg font-semibold">99.9%</div><div class="text-[9px] text-slate">Security Commitment</div></div></div>
+        </div>
+      </section>
+
+      <!-- INVESTMENT PLANS (6 plans, 3 per row) with min/max deposit & ROI -->
+      <section id="investment-plans" class="mx-auto max-w-[1440px] px-5 py-10 lg:px-8">
+        <div class="text-center">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.25em] text-gold">Investment Plans</span>
+          <h2 class="mt-2 text-3xl font-semibold text-white sm:text-4xl">Choose Your <span class="text-gold">Growth Path</span></h2>
+          <p class="mx-auto mt-3 max-w-2xl text-sm text-slate">Tailored investment strategies designed for different risk appetites and financial goals.</p>
+        </div>
+        <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Plan 1 -->
+          <div class="plan-card rounded-2xl p-6 text-center transition">
+            <div class="text-3xl text-gold">♢</div>
+            <h3 class="mt-3 text-lg font-semibold text-white">Stable Growth</h3>
+            <div class="mt-1 text-2xl font-bold text-gold">6.5%</div>
+            <div class="text-[10px] text-slate">Expected Annual Return</div>
+            <div class="mt-3 flex items-center justify-center gap-3 text-[10px]">
+              <span class="text-slate">Min <span class="text-white font-medium">$60</span></span>
+              <span class="text-slate">|</span>
+              <span class="text-slate">Max <span class="text-white font-medium">$25K</span></span>
+            </div>
+            <div class="mt-2 flex justify-center">
+              <span class="roi-badge">📊 ROI: 6.5% APY</span>
+            </div>
+            <ul class="mt-4 space-y-1 text-xs text-slate">
+              <li>• Low risk profile</li>
+              <li>• Monthly dividends</li>
+              <li>• Capital preservation</li>
+            </ul>
+            <button class="invest-btn mt-5"> <span>Invest Now</span> <span class="arrow">→</span> </button>
+          </div>
+          <!-- Plan 2 -->
+          <div class="plan-card rounded-2xl p-6 text-center transition">
+            <div class="text-3xl text-gold">◈</div>
+            <h3 class="mt-3 text-lg font-semibold text-white">Balanced Plus</h3>
+            <div class="mt-1 text-2xl font-bold text-gold">9.2%</div>
+            <div class="text-[10px] text-slate">Expected Annual Return</div>
+            <div class="mt-3 flex items-center justify-center gap-3 text-[10px]">
+              <span class="text-slate">Min <span class="text-white font-medium">$500</span></span>
+              <span class="text-slate">|</span>
+              <span class="text-slate">Max <span class="text-white font-medium">$25K</span></span>
+            </div>
+            <div class="mt-2 flex justify-center">
+              <span class="roi-badge">📊 ROI: 9.2% APY</span>
+            </div>
+            <ul class="mt-4 space-y-1 text-xs text-slate">
+              <li>• Moderate risk</li>
+              <li>• Quarterly dividends</li>
+              <li>• Diversified assets</li>
+            </ul>
+            <button class="invest-btn mt-5"> <span>Invest Now</span> <span class="arrow">→</span> </button>
+          </div>
+          <!-- Plan 3 -->
+          <div class="plan-card rounded-2xl p-6 text-center transition">
+            <div class="text-3xl text-gold">▣</div>
+            <h3 class="mt-3 text-lg font-semibold text-white">Alpha Growth</h3>
+            <div class="mt-1 text-2xl font-bold text-gold">12.8%</div>
+            <div class="text-[10px] text-slate">Expected Annual Return</div>
+            <div class="mt-3 flex items-center justify-center gap-3 text-[10px]">
+              <span class="text-slate">Min <span class="text-white font-medium">$1,000</span></span>
+              <span class="text-slate">|</span>
+              <span class="text-slate">Max <span class="text-white font-medium">$25K</span></span>
+            </div>
+            <div class="mt-2 flex justify-center">
+              <span class="roi-badge">📊 ROI: 12.8% APY</span>
+            </div>
+            <ul class="mt-4 space-y-1 text-xs text-slate">
+              <li>• Higher risk</li>
+              <li>• Semi-annual dividends</li>
+              <li>• Tech & digital focus</li>
+            </ul>
+            <button class="invest-btn mt-5"> <span>Invest Now</span> <span class="arrow">→</span> </button>
+          </div>
+          <!-- Plan 4 -->
+          <div class="plan-card rounded-2xl p-6 text-center transition">
+            <div class="text-3xl text-gold">▥</div>
+            <h3 class="mt-3 text-lg font-semibold text-white">Income Shield</h3>
+            <div class="mt-1 text-2xl font-bold text-gold">5.8%</div>
+            <div class="text-[10px] text-slate">Expected Annual Return</div>
+            <div class="mt-3 flex items-center justify-center gap-3 text-[10px]">
+              <span class="text-slate">Min <span class="text-white font-medium">$60</span></span>
+              <span class="text-slate">|</span>
+              <span class="text-slate">Max <span class="text-white font-medium">$25K</span></span>
+            </div>
+            <div class="mt-2 flex justify-center">
+              <span class="roi-badge">📊 ROI: 5.8% APY</span>
+            </div>
+            <ul class="mt-4 space-y-1 text-xs text-slate">
+              <li>• Very low risk</li>
+              <li>• Monthly dividends</li>
+              <li>• Fixed income focus</li>
+            </ul>
+            <button class="invest-btn mt-5"> <span>Invest Now</span> <span class="arrow">→</span> </button>
+          </div>
+          <!-- Plan 5 -->
+          <div class="plan-card rounded-2xl p-6 text-center transition">
+            <div class="text-3xl text-gold">↗</div>
+            <h3 class="mt-3 text-lg font-semibold text-white">Venture Catalyst</h3>
+            <div class="mt-1 text-2xl font-bold text-gold">18.0%</div>
+            <div class="text-[10px] text-slate">Expected Annual Return</div>
+            <div class="mt-3 flex items-center justify-center gap-3 text-[10px]">
+              <span class="text-slate">Min <span class="text-white font-medium">$2,500</span></span>
+              <span class="text-slate">|</span>
+              <span class="text-slate">Max <span class="text-white font-medium">$25K</span></span>
+            </div>
+            <div class="mt-2 flex justify-center">
+              <span class="roi-badge">📊 ROI: 18.0% APY</span>
+            </div>
+            <ul class="mt-4 space-y-1 text-xs text-slate">
+              <li>• High risk</li>
+              <li>• Annual dividends</li>
+              <li>• Early-stage ventures</li>
+            </ul>
+            <button class="invest-btn mt-5"> <span>Invest Now</span> <span class="arrow">→</span> </button>
+          </div>
+          <!-- Plan 6 -->
+          <div class="plan-card rounded-2xl p-6 text-center transition">
+            <div class="text-3xl text-gold">◉</div>
+            <h3 class="mt-3 text-lg font-semibold text-white">ESG Future</h3>
+            <div class="mt-1 text-2xl font-bold text-gold">8.5%</div>
+            <div class="text-[10px] text-slate">Expected Annual Return</div>
+            <div class="mt-3 flex items-center justify-center gap-3 text-[10px]">
+              <span class="text-slate">Min <span class="text-white font-medium">$250</span></span>
+              <span class="text-slate">|</span>
+              <span class="text-slate">Max <span class="text-white font-medium">$25K</span></span>
+            </div>
+            <div class="mt-2 flex justify-center">
+              <span class="roi-badge">📊 ROI: 8.5% APY</span>
+            </div>
+            <ul class="mt-4 space-y-1 text-xs text-slate">
+              <li>• Sustainable</li>
+              <li>• Quarterly dividends</li>
+              <li>• ESG screened</li>
+            </ul>
+            <button class="invest-btn mt-5"> <span>Invest Now</span> <span class="arrow">→</span> </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER (side-by-side on mobile) -->
+<footer id="contact" class="border-t border-soft">
+  <div class="mx-auto max-w-[1440px] px-5 py-8 lg:px-8">
+    <div class="footer-grid-mobile grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+      <div><div class="mb-3 text-xs font-semibold text-gold">Company</div><div class="space-y-2 text-[10px] text-slate"><a href="#about" class="block transition hover:text-white">About Us</a><a class="block transition hover:text-white">Leadership</a><a class="block transition hover:text-white">Careers</a><a class="block transition hover:text-white">Press & Media</a><a class="block transition hover:text-white">Partners</a></div></div>
+      <div id="resources"><div class="mb-3 text-xs font-semibold text-gold">Services</div><div class="space-y-2 text-[10px] text-slate"><a class="block transition hover:text-white">Digital Assets</a><a class="block transition hover:text-white">Financial Technology</a><a class="block transition hover:text-white">Technology Ventures</a><a class="block transition hover:text-white">Market Research</a></div></div>
+      <div><div class="mb-3 text-xs font-semibold text-gold">Investments</div><div class="space-y-2 text-[10px] text-slate"><a class="block transition hover:text-white">Investment Approach</a><a class="block transition hover:text-white">Asset Classes</a><a class="block transition hover:text-white">Performance</a><a class="block transition hover:text-white">Risk Management</a></div></div>
+      <div><div class="mb-3 text-xs font-semibold text-gold">Lending <span class="rounded bg-gold px-1 text-[7px] text-navy">NEW</span></div><div class="space-y-2 text-[10px] text-slate"><a class="block transition hover:text-white">Loan Overview</a><a class="block transition hover:text-white">Personal Loans</a><a class="block transition hover:text-white">Business Loans</a><a class="block transition hover:text-white">Loan Calculator</a></div></div>
+      <div><div class="mb-3 text-xs font-semibold text-gold">Support</div><div class="space-y-2 text-[10px] text-slate"><a class="block transition hover:text-white">Help Center</a><a class="block transition hover:text-white">Contact Us</a><a class="block transition hover:text-white">Security Center</a><a class="block transition hover:text-white">Report an Issue</a></div></div>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-[1440px] border-t border-soft px-5 py-7 lg:px-8">
+    <div class="grid gap-7 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
+      <div id="about"><div class="flex items-center gap-2"><span class="text-2xl text-gold">◈</span><span class="text-sm font-semibold tracking-[.18em]">VEY LENTRA</span><span class="text-[8px] tracking-[.35em] text-gold">GROUP</span></div><p class="mt-3 max-w-md text-[10px] leading-5 text-slate">Veylentra Group is a financial technology and digital asset research firm. We provide data, insights, and solutions to help clients navigate a changing financial world.</p></div>
+      <div><h4 class="text-xs font-semibold">Contact Us</h4><div class="mt-3 space-y-2 text-[10px] text-slate"><p>Email: support@veylentragroup.com</p><p>Phone: +1 (888) 123-4567</p><p>Address: 123 Finance Street, <br />New York, NY 10001, USA</p></div></div>
+      <div>
+        <h4 class="text-xs font-semibold">Follow Us</h4>
+        <div class="mt-3 flex gap-2">
+          <a href="https://x.com/veylentragroup?s=11&t=GwZ4iHWLoOQaWaAx11HJGA" target="_blank" rel="noopener noreferrer" class="flex h-7 w-7 items-center justify-center rounded-full border border-white/15 text-[10px] transition hover:border-gold hover:text-gold hover:bg-gold/10" aria-label="Twitter/X">
+            <i class="fab fa-x-twitter"></i>
+          </a>
+          <a href="https://t.me/VeylentraGroup" target="_blank" rel="noopener noreferrer" class="flex h-7 w-7 items-center justify-center rounded-full border border-white/15 text-[10px] transition hover:border-gold hover:text-gold hover:bg-gold/10" aria-label="Telegram">
+            <i class="fab fa-telegram-plane"></i>
+          </a>
+          <a href="#" class="flex h-7 w-7 items-center justify-center rounded-full border border-white/15 text-[10px] transition hover:border-gold hover:text-gold hover:bg-gold/10" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" class="flex h-7 w-7 items-center justify-center rounded-full border border-white/15 text-[10px] transition hover:border-gold hover:text-gold hover:bg-gold/10" aria-label="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+      <div><h4 class="text-xs font-semibold">Legal</h4><div class="mt-3 space-y-2 text-[10px] text-slate"><p class="transition hover:text-white">Terms of Service</p><p class="transition hover:text-white">Privacy Policy</p><p class="transition hover:text-white">Risk Disclosure</p><p class="transition hover:text-white">AML Policy</p></div></div>
+    </div>
+  </div>
+  <div class="border-t border-soft"><div class="mx-auto flex max-w-[1440px] flex-col gap-2 px-5 py-3 text-[8px] text-slate sm:flex-row sm:items-center sm:justify-between lg:px-8"><span>© 2024 Veylentra Group. All rights reserved.</span><span>Built for a secure and transparent future. <span class="text-gold">♢</span></span></div></div>
+</footer>
+
+    <script>
+      (function() {
+        const btn = document.getElementById('menuBtn');
+        const menu = document.getElementById('mobileMenu');
+        if (btn && menu) {
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            menu.classList.toggle('hidden');
+            btn.classList.toggle('active');
+          });
+          menu.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+              menu.classList.add('hidden');
+              btn.classList.remove('active');
+            });
+          });
+          document.addEventListener('click', function(e) {
+            if (!menu.classList.contains('hidden') && !btn.contains(e.target) && !menu.contains(e.target)) {
+              menu.classList.add('hidden');
+              btn.classList.remove('active');
+            }
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

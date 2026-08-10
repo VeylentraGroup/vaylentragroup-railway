@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deposit Rejected - Veylentra Group</title>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #07111f;
+      margin: 0;
+      padding: 0;
+      color: #94a3b8;
+    }
+
+    .wrapper {
+      max-width: 650px;
+      margin: 40px auto;
+      background: #0d1b2a;
+      border-radius: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+
+    /* Gold accent top border */
+    .wrapper::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #c9a85c, #e2b95e, #a98237, #c9a85c);
+      background-size: 300% 100%;
+      animation: shimmer 4s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 0%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    .header {
+      background: #07111f;
+      padding: 30px 20px 25px;
+      text-align: center;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.06);
+    }
+
+    .header table {
+      display: inline-block;
+    }
+
+    .header svg {
+      width: 48px;
+      height: 48px;
+      vertical-align: middle;
+      margin-right: 14px;
+      color: #c9a85c;
+    }
+
+    .brand-text {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1.2;
+    }
+
+    .brand-text .vey {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      color: #f8fafc;
+      display: block;
+    }
+
+    .brand-text .group {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.46em;
+      color: #c9a85c;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .content {
+      padding: 35px 35px 40px;
+      line-height: 1.7;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 700;
+      color: #f87171;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #94a3b8;
+      font-size: 15px;
+      margin-top: -8px;
+      margin-bottom: 25px;
+    }
+
+    p {
+      font-size: 15px;
+      color: #94a3b8;
+      margin-bottom: 15px;
+      line-height: 1.8;
+    }
+
+    p strong {
+      color: #f8fafc;
+    }
+
+    .info-box {
+      background: rgba(7, 17, 31, 0.5);
+      border-left: 4px solid #f87171;
+      padding: 20px 24px;
+      border-radius: 10px;
+      margin: 20px 0 25px;
+      border: 1px solid rgba(148, 163, 184, 0.06);
+    }
+
+    .info-box p {
+      margin: 8px 0;
+      color: #e2e8f0;
+      font-size: 15px;
+    }
+
+    .info-box .label {
+      color: #94a3b8;
+      font-weight: 400;
+    }
+
+    .info-box .value {
+      color: #f8fafc;
+      font-weight: 600;
+    }
+
+    .info-box .amount {
+      color: #f87171;
+      font-weight: 700;
+      font-size: 17px;
+    }
+
+    .reason-box {
+      background: rgba(248, 113, 113, 0.04);
+      border: 1px solid rgba(248, 113, 113, 0.08);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+
+    .reason-box p {
+      margin: 4px 0;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    .reason-box p strong {
+      color: #f8fafc;
+    }
+
+    .btn-area {
+      text-align: center;
+      margin: 30px 0 25px;
+    }
+
+    .button {
+      background: linear-gradient(135deg, #c9a85c 0%, #e2b95e 100%);
+      padding: 14px 38px;
+      border-radius: 8px;
+      color: #07111f !important;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      letter-spacing: 0.03em;
+      box-shadow: 0 4px 20px rgba(201, 168, 92, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201, 168, 92, 0.3);
+    }
+
+    .security-notice {
+      background: rgba(201, 168, 92, 0.05);
+      border: 1px solid rgba(201, 168, 92, 0.1);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 25px 0 10px;
+      color: #c9a85c;
+      font-size: 14px;
+    }
+
+    .security-notice strong {
+      color: #e2b95e;
+    }
+
+    .security-notice a {
+      color: #c9a85c;
+      text-decoration: underline;
+    }
+
+    .footer {
+      background: #07111f;
+      padding: 25px 20px 30px;
+      text-align: center;
+      font-size: 13px;
+      color: #64748b;
+      border-top: 1px solid rgba(148, 163, 184, 0.06);
+    }
+
+    .footer .tagline {
+      color: #c9a85c;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      margin-top: 6px;
+    }
+
+    .footer .tagline span {
+      color: #64748b;
+      font-weight: 400;
+    }
+
+    @media (max-width: 600px) {
+      .content { padding: 25px 20px; }
+      .header svg { width: 40px; height: 40px; margin-right: 10px; }
+      .brand-text .vey { font-size: 16px; }
+      .brand-text .group { font-size: 9px; }
+      h2 { font-size: 20px; }
+      .info-box { padding: 16px 18px; }
+      .button { padding: 12px 28px; font-size: 14px; }
+      .reason-box { padding: 14px 16px; }
+    }
+
+    @media (max-width: 400px) {
+      .content { padding: 20px 14px; }
+      .header { padding: 20px 15px; }
+      .header svg { width: 34px; height: 34px; margin-right: 8px; }
+      .brand-text .vey { font-size: 14px; letter-spacing: 0.15em; }
+      .brand-text .group { font-size: 8px; letter-spacing: 0.35em; }
+      h2 { font-size: 18px; }
+      .info-box p { font-size: 14px; }
+      .button { padding: 10px 22px; font-size: 13px; }
+      .reason-box p { font-size: 13px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <!-- HEADER with Veylentra Logo -->
+    <div class="header">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td style="vertical-align:middle; padding-right:14px;">
+            <!-- Veylentra SVG Logo -->
+            <svg viewBox="0 0 48 48" fill="none">
+              <path d="M6 11 17 7l7 9-7 2-6 8-5-15Z" stroke="currentColor" stroke-width="3"/>
+              <path d="m21 8 7 6-5 20-8-7 6-19Z" fill="currentColor" opacity=".95"/>
+              <path d="m28 13 13-6-4 20-9 8-7-7 7-15Z" stroke="currentColor" stroke-width="3"/>
+            </svg>
+          </td>
+          <td style="vertical-align:middle;">
+            <span class="brand-text">
+              <span class="vey">VEY LENTRA</span>
+              <span class="group">GROUP</span>
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+      <!-- Rejection Icon -->
+      <table cellpadding="0" cellspacing="0" border="0" style="margin:0 auto 20px;">
+        <tr>
+          <td align="center" style="width:64px; height:64px; border-radius:50%; border:2px solid rgba(248,113,113,0.2); background:rgba(248,113,113,0.06);">
+            <span style="font-size:28px; color:#f87171;">✕</span>
+          </td>
+        </tr>
+      </table>
+
+      <h2>Deposit Rejected</h2>
+      <p class="subtitle">Your deposit could not be approved</p>
+
+      <p style="color:#e2e8f0;">Hello <strong style="color:#c9a85c;">{{ username }}</strong>,</p>
+
+      <p>
+        We were unable to approve your recent deposit. Below are the details of the transaction:
+      </p>
+
+      <div class="info-box">
+        <p style="font-weight:700; color:#f87171; font-size:16px; margin-bottom:10px;">Deposit Details</p>
+        <p><span class="label">💰 Amount:</span> <span class="amount">${{ amount }}</span></p>
+        <p><span class="label">📝 Transaction ID:</span> <span class="value">{{ transaction_id }}</span></p>
+        <p><span class="label">📅 Date Submitted:</span> <span class="value">{{ approval_date }}</span></p>
+        <p><span class="label">📌 Status:</span> <span style="color:#f87171; font-weight:700;">✕ Rejected</span></p>
+      </div>
+
+      <div class="reason-box">
+        <p><strong style="color:#f87171;">Possible reasons include:</strong></p>
+        <p>• Invalid or unclear payment proof</p>
+        <p>• Blockchain transaction could not be verified</p>
+        <p>• Insufficient confirmation from the payment network</p>
+      </div>
+
+      <p>
+        If you believe this decision was made in error, please contact our Support team for assistance.
+      </p>
+
+      <div class="btn-area">
+        <a href="https://veylentragroup.com/userprofile/dashboard/" class="button">
+          Return to Dashboard →
+        </a>
+      </div>
+
+      <!-- Security Notice -->
+      <div class="security-notice">
+        <strong>🔒 Need Help?</strong> Contact our support team at <a href="mailto:support@veylentragroup.com">support@veylentragroup.com</a> for assistance with your deposit.
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <p style="margin:0 0 4px; color:#94a3b8;">Veylentra Group — Building the Future of Digital Finance</p>
+      <p style="margin:4px 0; font-size:12px; color:#475569;">This is an automated notification — please do not reply.</p>
+      <p style="margin:8px 0 0; color:#475569; font-size:12px;">&copy; 2025 Veylentra Group. All rights reserved.</p>
+      <p class="tagline">✦ <span>Security • Transparency • Innovation</span> ✦</p>
+    </div>
+
+  </div>
+</body>
+</html>

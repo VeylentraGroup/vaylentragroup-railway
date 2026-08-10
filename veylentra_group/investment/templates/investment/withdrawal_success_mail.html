@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Withdrawal Submitted - Veylentra Group</title>
+
+  <style>
+    body {
+      background: #07111f;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #94a3b8;
+    }
+
+    .wrapper {
+      max-width: 650px;
+      margin: 40px auto;
+      background: #0d1b2a;
+      border-radius: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+
+    /* Gold accent top border */
+    .wrapper::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #c9a85c, #e2b95e, #a98237, #c9a85c);
+      background-size: 300% 100%;
+      animation: shimmer 4s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 0%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    .header {
+      background: #07111f;
+      padding: 30px 20px 25px;
+      text-align: center;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.06);
+    }
+
+    .header table {
+      display: inline-block;
+    }
+
+    .header svg {
+      width: 48px;
+      height: 48px;
+      vertical-align: middle;
+      margin-right: 14px;
+      color: #c9a85c;
+    }
+
+    .brand-text {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1.2;
+    }
+
+    .brand-text .vey {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      color: #f8fafc;
+      display: block;
+    }
+
+    .brand-text .group {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.46em;
+      color: #c9a85c;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .content {
+      padding: 35px 35px 40px;
+      line-height: 1.7;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #c9a85c;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #94a3b8;
+      font-size: 15px;
+      margin-top: -8px;
+      margin-bottom: 25px;
+    }
+
+    .status {
+      display: inline-block;
+      background: rgba(251, 191, 36, 0.1);
+      border: 1px solid rgba(251, 191, 36, 0.2);
+      padding: 8px 24px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fbbf24;
+      margin: 0 auto 25px;
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+
+    .status-wrapper {
+      text-align: center;
+    }
+
+    p {
+      font-size: 15px;
+      color: #94a3b8;
+      margin-bottom: 18px;
+      line-height: 1.8;
+    }
+
+    p strong {
+      color: #f8fafc;
+    }
+
+    .transaction-card {
+      background: rgba(7, 17, 31, 0.5);
+      border: 1px solid rgba(148, 163, 184, 0.06);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin: 25px 0;
+    }
+
+    .tx-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.06);
+    }
+
+    .tx-row:last-child {
+      border-bottom: none;
+    }
+
+    .tx-label {
+      color: #94a3b8;
+      font-weight: 400;
+    }
+
+    .tx-value {
+      font-weight: 600;
+      color: #f8fafc;
+    }
+
+    .tx-value.amount {
+      color: #fbbf24;
+      font-size: 1.1em;
+    }
+
+    .info-box {
+      background: rgba(251, 191, 36, 0.05);
+      border-left: 4px solid #fbbf24;
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    .info-box strong {
+      color: #fbbf24;
+    }
+
+    .info-box p {
+      margin: 0;
+      color: #e2e8f0;
+      font-size: 14px;
+    }
+
+    .btn-area {
+      text-align: center;
+      margin: 30px 0 25px;
+    }
+
+    .button {
+      background: linear-gradient(135deg, #c9a85c 0%, #e2b95e 100%);
+      padding: 14px 38px;
+      border-radius: 8px;
+      color: #07111f !important;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      letter-spacing: 0.03em;
+      box-shadow: 0 4px 20px rgba(201, 168, 92, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201, 168, 92, 0.3);
+    }
+
+    .security-note {
+      background: rgba(7, 17, 31, 0.5);
+      padding: 14px 18px;
+      border-radius: 8px;
+      margin-top: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.06);
+      color: #64748b;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .footer {
+      background: #07111f;
+      padding: 25px 20px 30px;
+      text-align: center;
+      font-size: 13px;
+      color: #64748b;
+      border-top: 1px solid rgba(148, 163, 184, 0.06);
+    }
+
+    .footer .tagline {
+      color: #c9a85c;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      margin-top: 6px;
+    }
+
+    .footer .tagline span {
+      color: #64748b;
+      font-weight: 400;
+    }
+
+    .footer-links a {
+      color: #c9a85c;
+      text-decoration: none;
+      margin: 0 8px;
+      font-weight: 500;
+      font-size: 13px;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+    }
+
+    .footer-links a:hover {
+      border-bottom-color: #c9a85c;
+    }
+
+    @media (max-width: 600px) {
+      .content { padding: 25px 20px; }
+      .header svg { width: 40px; height: 40px; margin-right: 10px; }
+      .brand-text .vey { font-size: 16px; }
+      .brand-text .group { font-size: 9px; }
+      h2 { font-size: 20px; }
+      .transaction-card { padding: 16px 18px; }
+      .tx-row { flex-direction: column; gap: 2px; }
+      .tx-row .tx-value { margin-bottom: 4px; }
+      .button { padding: 12px 28px; font-size: 14px; }
+      .status { font-size: 13px; padding: 6px 20px; }
+    }
+
+    @media (max-width: 400px) {
+      .content { padding: 20px 14px; }
+      .header { padding: 20px 15px; }
+      .header svg { width: 34px; height: 34px; margin-right: 8px; }
+      .brand-text .vey { font-size: 14px; letter-spacing: 0.15em; }
+      .brand-text .group { font-size: 8px; letter-spacing: 0.35em; }
+      h2 { font-size: 18px; }
+      .transaction-card { padding: 14px 14px; }
+      .tx-row { font-size: 14px; }
+      .button { padding: 10px 22px; font-size: 13px; }
+      .info-box { padding: 14px 16px; }
+      .info-box p { font-size: 13px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrapper">
+
+    <!-- HEADER with Veylentra Logo -->
+    <div class="header">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td style="vertical-align:middle; padding-right:14px;">
+            <!-- Veylentra SVG Logo -->
+            <svg viewBox="0 0 48 48" fill="none">
+              <path d="M6 11 17 7l7 9-7 2-6 8-5-15Z" stroke="currentColor" stroke-width="3"/>
+              <path d="m21 8 7 6-5 20-8-7 6-19Z" fill="currentColor" opacity=".95"/>
+              <path d="m28 13 13-6-4 20-9 8-7-7 7-15Z" stroke="currentColor" stroke-width="3"/>
+            </svg>
+          </td>
+          <td style="vertical-align:middle;">
+            <span class="brand-text">
+              <span class="vey">VEY LENTRA</span>
+              <span class="group">GROUP</span>
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+      <!-- Withdrawal Icon -->
+      <table cellpadding="0" cellspacing="0" border="0" style="margin:0 auto 20px;">
+        <tr>
+          <td align="center" style="width:64px; height:64px; border-radius:50%; border:2px solid rgba(251,191,36,0.2); background:rgba(251,191,36,0.06);">
+            <span style="font-size:28px; color:#fbbf24;">↗</span>
+          </td>
+        </tr>
+      </table>
+
+      <h2>Withdrawal Request Received</h2>
+      <p class="subtitle">Your withdrawal has been submitted for processing</p>
+
+      <div class="status-wrapper">
+        <span class="status">⏳ Pending Approval</span>
+      </div>
+
+      <p style="color:#e2e8f0;">Hello <strong style="color:#c9a85c;">{{ username }}</strong>,</p>
+
+      <p>Your withdrawal request has been successfully submitted and is now awaiting review by our finance team.</p>
+
+      <div class="transaction-card">
+        <div class="tx-row">
+          <span class="tx-label">💰 Amount:</span>
+          <span class="tx-value amount">${{ amount }}</span>
+        </div>
+
+        <div class="tx-row">
+          <span class="tx-label">📝 Wallet Address:</span>
+          <span class="tx-value" style="font-size:14px; word-break:break-all;">{{ wallet_address }}</span>
+        </div>
+
+        <div class="tx-row">
+          <span class="tx-label">📅 Date Submitted:</span>
+          <span class="tx-value">{{ payment_date }}</span>
+        </div>
+
+        <div class="tx-row">
+          <span class="tx-label">📌 Transaction ID:</span>
+          <span class="tx-value">#{{ transaction_id }}</span>
+        </div>
+
+        <div class="tx-row">
+          <span class="tx-label">📌 Status:</span>
+          <span style="color:#fbbf24; font-weight:700;">⏳ Pending</span>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <p>⏱️ Withdrawals are usually processed within <strong>2–6 business hours</strong>.</p>
+      </div>
+
+      <p>You will receive another email once your withdrawal has been approved and released.</p>
+
+      <div class="btn-area">
+        <a href="https://veylentragroup.com/userprofile/dashboard/" class="button">
+          View Dashboard →
+        </a>
+      </div>
+
+      <div class="security-note">
+        🔒 This message is intended only for the account owner. Please do not share or forward this email.
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <p style="margin:0 0 4px; color:#94a3b8;">Veylentra Group — Building the Future of Digital Finance</p>
+      <p style="margin:4px 0; font-size:12px; color:#475569;">This is an automated notification — please do not reply.</p>
+      <p style="margin:8px 0 0; color:#475569; font-size:12px;">&copy; {{ year }} Veylentra Group. All rights reserved.</p>
+      
+      <div class="footer-links" style="margin-top:8px;">
+        <a href="https://veylentragroup.com">Website</a> |
+        <a href="mailto:support@veylentragroup.com">Support</a> |
+        <a href="https://veylentragroup.com/contact">Contact</a>
+      </div>
+
+      <p class="tagline" style="margin-top:10px;">✦ <span>Security • Transparency • Innovation</span> ✦</p>
+    </div>
+
+  </div>
+
+</body>
+</html>

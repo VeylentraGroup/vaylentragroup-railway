@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transaction Notification - Veylentra Group</title>
+
+  <style>
+    body { 
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
+      background: #07111f; 
+      margin: 0; 
+      padding: 20px; 
+      color: #f8fafc;
+    }
+
+    .container { 
+      max-width: 650px; 
+      margin: 30px auto; 
+      background: #0d1b2a; 
+      border-radius: 16px; 
+      overflow: hidden; 
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5); 
+      border: 1px solid rgba(148, 163, 184, 0.15);
+    }
+
+    /* Gold accent top border */
+    .container::before {
+      content: '';
+      display: block;
+      height: 3px;
+      background: linear-gradient(90deg, #c9a85c, #e2b95e, #a98237, #c9a85c);
+      background-size: 300% 100%;
+      animation: shimmer 4s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 0%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    .header {
+      background: #07111f;
+      padding: 30px 0 25px;
+      text-align: center;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+    }
+
+    .brand-logo {
+      display: inline-block;
+    }
+
+    .brand-logo svg {
+      width: 48px;
+      height: 48px;
+      display: block;
+      margin: 0 auto 8px;
+      color: #c9a85c;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      color: #f8fafc;
+      display: block;
+    }
+
+    .brand-name span {
+      color: #c9a85c;
+      letter-spacing: 0.46em;
+      font-size: 10px;
+      display: block;
+      margin-top: 2px;
+    }
+
+    h2 {
+      font-size: 24px;
+      text-align: center;
+      color: #f8fafc;
+      margin: 20px 0 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 16px;
+      color: #94a3b8;
+      margin-bottom: 25px;
+    }
+
+    .subtitle strong {
+      color: #34d399;
+    }
+
+    .content {
+      padding: 30px 35px 35px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #e2e8f0;
+    }
+
+    .content p {
+      color: #94a3b8;
+    }
+
+    .content p strong {
+      color: #f8fafc;
+    }
+
+    .amount {
+      font-size: 28px;
+      font-weight: 700;
+      color: #34d399;
+      text-align: center;
+      margin: 20px 0;
+      padding: 15px;
+      background: rgba(52, 211, 153, 0.06);
+      border-radius: 12px;
+      border: 1px solid rgba(52, 211, 153, 0.1);
+    }
+
+    .transaction-box {
+      background: rgba(7, 17, 31, 0.6);
+      border-left: 4px solid #c9a85c;
+      padding: 22px 24px;
+      border-radius: 10px;
+      margin: 25px 0;
+    }
+
+    .transaction-box h3 {
+      margin-top: 0;
+      font-size: 17px;
+      color: #c9a85c;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+      letter-spacing: 0.02em;
+    }
+
+    .transaction-detail {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding: 4px 0;
+    }
+
+    .detail-label { 
+      color: #94a3b8; 
+    }
+
+    .detail-value { 
+      color: #f8fafc; 
+      font-weight: 600; 
+    }
+
+    .detail-value.completed {
+      color: #34d399;
+    }
+
+    .reference-number {
+      text-align: center;
+      background: linear-gradient(135deg, #c9a85c 0%, #e2b95e 100%);
+      color: #07111f;
+      font-weight: 700;
+      padding: 12px 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      font-size: 15px;
+      letter-spacing: 0.03em;
+    }
+
+    .button {
+      display: inline-block;
+      background: linear-gradient(135deg, #c9a85c 0%, #e2b95e 100%);
+      color: #07111f;
+      padding: 13px 35px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      margin: 20px auto;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(201, 168, 92, 0.15);
+      letter-spacing: 0.03em;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201, 168, 92, 0.3);
+    }
+
+    .button i {
+      margin-right: 8px;
+    }
+
+    .security-notice {
+      background: rgba(201, 168, 92, 0.06);
+      border: 1px solid rgba(201, 168, 92, 0.15);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 25px 0;
+      color: #c9a85c;
+      font-size: 14px;
+    }
+
+    .security-notice strong {
+      color: #e2b95e;
+    }
+
+    .security-notice a {
+      color: #c9a85c;
+      text-decoration: underline;
+    }
+
+    .footer {
+      background: #07111f;
+      padding: 25px 20px;
+      text-align: center;
+      font-size: 13px;
+      color: #64748b;
+      border-top: 1px solid rgba(148, 163, 184, 0.08);
+    }
+
+    .footer p {
+      margin: 4px 0;
+    }
+
+    .footer .tagline {
+      color: #c9a85c;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      margin-top: 8px;
+    }
+
+    .footer .tagline span {
+      color: #64748b;
+      font-weight: 400;
+    }
+
+    @media (max-width: 600px) {
+      .content { padding: 22px 20px; }
+      h2 { font-size: 20px; }
+      .amount { font-size: 22px; }
+      .transaction-box { padding: 18px 16px; }
+      .transaction-detail { flex-direction: column; gap: 2px; }
+      .transaction-detail .detail-value { margin-bottom: 6px; }
+      .brand-logo svg { width: 38px; height: 38px; }
+      .brand-name { font-size: 15px; }
+      .button { padding: 11px 25px; font-size: 14px; }
+      .reference-number { font-size: 13px; padding: 10px 16px; }
+    }
+
+    @media (max-width: 400px) {
+      .content { padding: 18px 14px; }
+      .amount { font-size: 19px; padding: 12px; }
+      h2 { font-size: 18px; }
+      .transaction-box { padding: 14px 12px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Header with Veylentra Logo -->
+    <div class="header">
+      <div class="brand-logo">
+        <!-- Veylentra SVG Logo -->
+        <svg viewBox="0 0 48 48" fill="none">
+          <path d="M6 11 17 7l7 9-7 2-6 8-5-15Z" stroke="currentColor" stroke-width="3" />
+          <path d="m21 8 7 6-5 20-8-7 6-19Z" fill="currentColor" opacity=".95" />
+          <path d="m28 13 13-6-4 20-9 8-7-7 7-15Z" stroke="currentColor" stroke-width="3" />
+        </svg>
+        <span class="brand-name">
+          VEY LENTRA
+          <span>GROUP</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <h2>Transaction Notification</h2>
+      <p class="subtitle">Deposit <strong>Successfully Processed</strong></p>
+
+      <p>Dear <strong>{{ username }}</strong>,</p>
+      <p>Your deposit has been <strong style="color: #34d399;">successfully processed</strong> and credited to your Veylentra Group account.</p>
+
+      <div class="amount">${{ amount }}</div>
+
+      <div class="transaction-box">
+        <h3>Transaction Details</h3>
+        <div class="transaction-detail">
+          <span class="detail-label">Account Holder:</span>
+          <span class="detail-value">{{ username }}</span>
+        </div>
+        <div class="transaction-detail">
+          <span class="detail-label">Transaction Type:</span>
+          <span class="detail-value">Deposit</span>
+        </div>
+        <div class="transaction-detail">
+          <span class="detail-label">Transaction ID:</span>
+          <span class="detail-value">{{ transaction_id }}</span>
+        </div>
+        <div class="transaction-detail">
+          <span class="detail-label">Date Processed:</span>
+          <span class="detail-value">{{ approval_date }}</span>
+        </div>
+        <div class="transaction-detail">
+          <span class="detail-label">Status:</span>
+          <span class="detail-value completed">✓ Completed</span>
+        </div>
+      </div>
+
+      <div class="reference-number">
+        Reference: VG{{ transaction_id }}
+      </div>
+
+      <div style="text-align:center;">
+        <a href="https://veylentragroup.com/userprofile/dashboard/" class="button">
+          <i class="fas fa-home" style="font-family: 'Font Awesome 6 Free'; font-weight: 900;"></i> View Dashboard
+        </a>
+      </div>
+
+      <div class="security-notice">
+        <strong>🔒 Security Notice:</strong> If you did not authorize this transaction, please contact Veylentra Group support immediately at <a href="mailto:support@veylentragroup.com">support@veylentragroup.com</a>.
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>Veylentra Group — Building the Future of Digital Finance</p>
+      <p style="font-size: 12px; color: #475569;">This is an automated message. Please do not reply.</p>
+      <p style="font-size: 12px; color: #475569;">&copy; {{ now|date:"Y" }} Veylentra Group. All rights reserved.</p>
+      <p class="tagline">✦ <span>Security • Transparency • Innovation</span> ✦</p>
+    </div>
+
+  </div>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</body>
+</html>

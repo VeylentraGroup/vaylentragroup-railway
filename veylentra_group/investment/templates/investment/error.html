@@ -1,0 +1,289 @@
+<!-- templates/investment/error.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Error | Veylentra Group</title>
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: #07111f;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .error-card {
+      background: rgba(13, 27, 42, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      padding: 45px 35px;
+      max-width: 460px;
+      width: 100%;
+      animation: fadeIn 0.5s ease-in-out;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Gold accent top border */
+    .error-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #c9a85c, #e2b95e, #a98237, #c9a85c);
+      background-size: 300% 100%;
+      animation: shimmer 4s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 0%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    /* Veylentra Logo */
+    .logo-container {
+      margin-bottom: 20px;
+    }
+
+    .logo-container svg {
+      width: 48px;
+      height: 48px;
+      color: #c9a85c;
+    }
+
+    .logo-container .brand-text {
+      display: block;
+      margin-top: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      color: #f8fafc;
+    }
+
+    .logo-container .brand-text span {
+      color: #c9a85c;
+      letter-spacing: 0.46em;
+      font-size: 8px;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .error-icon {
+      font-size: 3.5rem;
+      color: #f87171;
+      background: rgba(248, 113, 113, 0.08);
+      width: 85px;
+      height: 85px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      border: 2px solid rgba(248, 113, 113, 0.15);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      color: #f87171;
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .error-message {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 8px;
+    }
+
+    .support-link {
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    .support-link a {
+      color: #c9a85c;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+    }
+
+    .support-link a:hover {
+      border-bottom-color: #c9a85c;
+    }
+
+    .dashboard_btn {
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 8px;
+      padding: 12px 32px;
+      color: #07111f;
+      background: linear-gradient(135deg, #c9a85c 0%, #e2b95e 100%) !important;
+      cursor: pointer;
+      border: none;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: 0.03em;
+      box-shadow: 0 4px 20px rgba(201, 168, 92, 0.15);
+    }
+
+    .dashboard_btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201, 168, 92, 0.3);
+      color: #07111f;
+    }
+
+    @media (max-width: 480px) {
+      .error-card {
+        padding: 30px 20px;
+      }
+      
+      .error-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2.8rem;
+      }
+      
+      h2 {
+        font-size: 1.3rem;
+      }
+      
+      .dashboard_btn {
+        padding: 10px 24px;
+        font-size: 14px;
+      }
+
+      .logo-container svg {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .error-card {
+        padding: 24px 16px;
+      }
+      
+      h2 {
+        font-size: 1.1rem;
+      }
+      
+      .error-message {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="error-card">
+    
+    <!-- Veylentra Logo -->
+    <div class="logo-container">
+      <svg viewBox="0 0 48 48" fill="none" style="margin:0 auto; display:block;">
+        <path d="M6 11 17 7l7 9-7 2-6 8-5-15Z" stroke="currentColor" stroke-width="3" />
+        <path d="m21 8 7 6-5 20-8-7 6-19Z" fill="currentColor" opacity=".95" />
+        <path d="m28 13 13-6-4 20-9 8-7-7 7-15Z" stroke="currentColor" stroke-width="3" />
+      </svg>
+      <span class="brand-text">
+        VEY LENTRA
+        <span>GROUP</span>
+      </span>
+    </div>
+
+    <!-- Error Icon -->
+    <div class="error-icon">
+      <i class="fas fa-exclamation-triangle"></i>
+    </div>
+
+    <h2>Something Went Wrong</h2>
+
+    <p class="error-message">
+      {{ error_message|default:"An unexpected error occurred. Please try again later." }}
+    </p>
+
+    <p class="support-link">
+      If this issue persists, please contact  
+      <a href="mailto:support@veylentragroup.com"><strong>support@veylentragroup.com</strong></a>
+    </p>
+
+    <a href="{% url 'userprofile:dashboard' %}" class="dashboard_btn">
+      <i class="fas fa-arrow-left"></i> Return to Dashboard
+    </a>
+  </div>
+
+  <!-- 🌍 Auto Detect + Remember + Translate -->
+  <div id="google_translate_element" style="display:none;"></div>
+
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        autoDisplay: false
+      }, 'google_translate_element');
+
+      setTimeout(() => {
+        const supportedLangs = ['en','es','fr','de','it','pt','ru','zh-CN','ja','ar'];
+
+        let userLang = localStorage.getItem('userLang');
+
+        if (!userLang) {
+          userLang = (navigator.language || navigator.userLanguage || 'en').split('-')[0];
+          if (!supportedLangs.includes(userLang)) userLang = 'en';
+        }
+
+        const select = document.querySelector('select.goog-te-combo');
+        if (select && userLang !== 'en') {
+          select.value = userLang;
+          select.dispatchEvent(new Event('change'));
+        }
+
+        if (select) {
+          select.addEventListener('change', () => {
+            localStorage.setItem('userLang', select.value);
+          });
+        }
+      }, 1000);
+    }
+  </script>
+
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>

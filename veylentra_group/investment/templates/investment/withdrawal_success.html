@@ -1,0 +1,483 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Withdrawal Successful - Veylentra Group</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Veylentra Theme */
+        :root {
+            --vey-bg: #07111f;
+            --vey-card: #0d1b2a;
+            --vey-gold: #c9a85c;
+            --vey-gold2: #e2b95e;
+            --vey-gold-dark: #a98237;
+            --vey-slate: #94a3b8;
+            --vey-text: #f8fafc;
+            --vey-border: rgba(148, 163, 184, 0.12);
+            --vey-success: #34d399;
+            --vey-pending: #fbbf24;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Inter', sans-serif;
+            background: var(--vey-bg);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: var(--vey-slate);
+        }
+
+        .tradingview-widget-container {
+            margin-bottom: 0;
+        }
+
+        .main-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 650px;
+            background: var(--vey-card);
+            padding: 40px 35px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--vey-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Gold accent top border */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--vey-gold), var(--vey-gold2), var(--vey-gold-dark), var(--vey-gold));
+            background-size: 300% 100%;
+            animation: shimmer 4s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 0%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        /* Veylentra Logo */
+        .logo-container {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--vey-border);
+        }
+
+        .logo-container svg {
+            width: 48px;
+            height: 48px;
+            color: var(--vey-gold);
+        }
+
+        .logo-container .brand-text {
+            display: block;
+            margin-top: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: var(--vey-text);
+        }
+
+        .logo-container .brand-text span {
+            color: var(--vey-gold);
+            letter-spacing: 0.46em;
+            font-size: 9px;
+            display: block;
+            margin-top: 2px;
+        }
+
+        .success-icon {
+            font-size: 72px;
+            margin-bottom: 15px;
+            color: var(--vey-success);
+            display: inline-block;
+            animation: successPulse 2.5s ease-in-out infinite;
+            filter: drop-shadow(0 0 25px rgba(52, 211, 153, 0.2));
+        }
+
+        @keyframes successPulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.08); opacity: 0.9; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        h2 {
+            color: var(--vey-gold);
+            font-weight: 700;
+            font-size: 2rem;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .lead {
+            color: var(--vey-text);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .lead strong {
+            color: var(--vey-gold);
+        }
+
+        .amount-highlight {
+            color: var(--vey-success);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .text-secondary-custom {
+            color: var(--vey-slate);
+            font-size: 0.95rem;
+        }
+
+        .auto-withdraw-link {
+            color: var(--vey-gold) !important;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px dotted var(--vey-gold);
+            transition: all 0.3s ease;
+        }
+
+        .auto-withdraw-link:hover {
+            color: var(--vey-gold2) !important;
+            border-bottom: 2px solid var(--vey-gold2);
+        }
+
+        .wallet-card {
+            background: rgba(7, 17, 31, 0.5);
+            padding: 22px 24px;
+            border-radius: 14px;
+            border-left: 4px solid var(--vey-gold);
+            margin: 25px 0;
+            border: 1px solid var(--vey-border);
+        }
+
+        .wallet-title {
+            color: var(--vey-gold);
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+        }
+
+        .wallet-address {
+            font-family: 'Courier New', monospace;
+            background: rgba(7, 17, 31, 0.6);
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--vey-border);
+            font-weight: 600;
+            color: var(--vey-text);
+            word-break: break-all;
+            font-size: 14px;
+        }
+
+        .support-note {
+            background: rgba(251, 191, 36, 0.05);
+            border: 1px solid rgba(251, 191, 36, 0.1);
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin: 20px 0;
+            color: var(--vey-pending);
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        .support-note i {
+            color: var(--vey-pending);
+        }
+
+        .dashboard_btn {
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 10px;
+            padding: 14px 32px;
+            color: #07111f !important;
+            background: linear-gradient(135deg, var(--vey-gold) 0%, var(--vey-gold2) 100%) !important;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none !important;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 25px rgba(201, 168, 92, 0.2);
+            letter-spacing: 0.03em;
+        }
+
+        .dashboard_btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 35px rgba(201, 168, 92, 0.35);
+            color: #07111f !important;
+        }
+
+        .dashboard_btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .dashboard_btn:hover i {
+            transform: translateX(-4px);
+        }
+
+        footer {
+            margin-top: auto;
+            text-align: center;
+            padding: 25px 20px;
+            background: var(--vey-bg);
+            color: #64748b;
+            border-top: 1px solid var(--vey-border);
+        }
+
+        footer .tagline {
+            color: var(--vey-gold);
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 0.05em;
+            margin-top: 4px;
+        }
+
+        footer .tagline span {
+            color: #64748b;
+            font-weight: 400;
+        }
+
+        footer a {
+            color: var(--vey-gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+        }
+
+        footer a:hover {
+            color: var(--vey-gold2);
+            border-bottom-color: var(--vey-gold2);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 25px;
+                margin: 15px;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .success-icon {
+                font-size: 60px;
+            }
+
+            .lead {
+                font-size: 0.95rem;
+            }
+
+            .wallet-card {
+                padding: 18px 16px;
+            }
+
+            .wallet-address {
+                font-size: 13px;
+            }
+
+            .dashboard_btn {
+                padding: 12px 24px;
+                font-size: 15px;
+            }
+
+            .logo-container svg {
+                width: 40px;
+                height: 40px;
+            }
+
+            .logo-container .brand-text {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .container {
+                padding: 22px 16px;
+                margin: 10px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .success-icon {
+                font-size: 50px;
+            }
+
+            .logo-container svg {
+                width: 34px;
+                height: 34px;
+            }
+
+            .logo-container .brand-text {
+                font-size: 12px;
+                letter-spacing: 0.15em;
+            }
+
+            .logo-container .brand-text span {
+                font-size: 8px;
+                letter-spacing: 0.35em;
+            }
+
+            .wallet-address {
+                font-size: 12px;
+                padding: 10px 12px;
+            }
+
+            .dashboard_btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<section>
+    <div class="tradingview-widget-container">
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      {
+        "symbols": [
+          { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500 Index" },
+          { "proName": "FOREXCOM:NSXUSD", "title": "US 100" },
+          { "proName": "FX_IDC:EURUSD",  "title": "EUR/USD" },
+          { "proName": "BITSTAMP:BTCUSD","title": "Bitcoin" },
+          { "proName": "BITSTAMP:ETHUSD","title": "Ethereum" }
+        ],
+        "showSymbolLogo": true,
+        "colorTheme": "dark",
+        "isTransparent": true,
+        "locale": "en"
+      }
+      </script>
+    </div>
+</section>
+
+<div class="main-container">
+    <div class="container">
+        
+        <!-- Veylentra Logo -->
+        <div class="logo-container">
+            <svg viewBox="0 0 48 48" fill="none" style="margin:0 auto; display:block;">
+                <path d="M6 11 17 7l7 9-7 2-6 8-5-15Z" stroke="currentColor" stroke-width="3" />
+                <path d="m21 8 7 6-5 20-8-7 6-19Z" fill="currentColor" opacity=".95" />
+                <path d="m28 13 13-6-4 20-9 8-7-7 7-15Z" stroke="currentColor" stroke-width="3" />
+            </svg>
+            <span class="brand-text">
+                VEY LENTRA
+                <span>GROUP</span>
+            </span>
+        </div>
+
+        <div class="text-center mb-4">
+            <i class="fas fa-circle-check success-icon"></i>
+            <h2>Withdrawal Successful!</h2>
+
+            <p class="lead">
+                Hi <strong>{{ user_name|capfirst }}</strong>, your withdrawal of  
+                <span class="amount-highlight">${{ amount_withdrawn }}</span>
+                has been successfully placed and is pending approval.
+            </p>
+
+            <p class="text-secondary-custom">
+                If your funds don't arrive within 24 hours, please contact our support team.<br>
+                You can also withdraw  
+                <a href="{% url 'select_wallet' %}" class="auto-withdraw-link">automatically</a>.
+            </p>
+        </div>
+
+        <div class="wallet-card">
+            <h4 class="wallet-title">
+                <i class="fas fa-wallet"></i> Wallet Address
+            </h4>
+            <div class="wallet-address">
+                {{ wallet_address }}
+            </div>
+        </div>
+
+        <div class="support-note">
+            <i class="fas fa-clock me-2"></i>
+            <strong>Processing Time:</strong> Withdrawals are typically processed within 2-6 business hours.
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="{% url 'userprofile:dashboard' %}" class="dashboard_btn">
+                <i class="fas fa-arrow-left"></i> Return to Dashboard
+            </a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p style="margin:0 0 4px; color:#94a3b8;">Veylentra Group — Building the Future of Digital Finance</p>
+    <p style="margin:4px 0; font-size:12px; color:#475569;">&copy; 2025 Veylentra Group. All rights reserved.</p>
+    <p style="margin:4px 0;">Contact: <a href="mailto:support@veylentragroup.com">support@veylentragroup.com</a></p>
+    <p class="tagline">✦ <span>Security • Transparency • Innovation</span> ✦</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<div id="google_translate_element" style="display:none;"></div>
+
+<script>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      autoDisplay: false
+    }, 'google_translate_element');
+
+    setTimeout(() => {
+      const supportedLangs = ['en','es','fr','de','it','pt','ru','zh-CN','ja','ar'];
+      let userLang = localStorage.getItem('userLang') || navigator.language.split('-')[0];
+      if (!supportedLangs.includes(userLang)) userLang = 'en';
+
+      const select = document.querySelector('select.goog-te-combo');
+      if (select && userLang !== 'en') {
+        select.value = userLang;
+        select.dispatchEvent(new Event('change'));
+      }
+
+      if (select) {
+        select.addEventListener('change', () => {
+          localStorage.setItem('userLang', select.value);
+        });
+      }
+    }, 1000);
+  }
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
+{% endblock %}

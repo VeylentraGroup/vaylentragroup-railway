@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wallet Connected - Veylentra Group</title>
+
+  <!-- Font & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --vey-bg: #07111f;
+      --vey-card: #0d1b2a;
+      --vey-gold: #c9a85c;
+      --vey-gold2: #e2b95e;
+      --vey-gold-dark: #a98237;
+      --vey-slate: #94a3b8;
+      --vey-text: #f8fafc;
+      --vey-border: rgba(148, 163, 184, 0.12);
+      --vey-success: #34d399;
+      --vey-card-bg: rgba(13, 27, 42, 0.85);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--vey-bg);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', 'Poppins', sans-serif;
+      color: var(--vey-text);
+      overflow: hidden;
+      margin: 0;
+      transition: all 0.5s ease;
+      padding: 20px;
+    }
+
+    /* Loader container */
+    #loader {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--vey-bg);
+      z-index: 9999;
+      transition: opacity 0.6s ease;
+    }
+
+    /* Animated spinner - Gold theme */
+    .spinner {
+      border: 5px solid rgba(201, 168, 92, 0.15);
+      border-top: 5px solid var(--vey-gold);
+      border-right: 5px solid var(--vey-gold2);
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      animation: spin 1s ease-in-out infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    #loader p {
+      font-size: 1.1rem;
+      color: var(--vey-slate);
+      letter-spacing: 0.5px;
+      margin-top: 10px;
+    }
+
+    #loader .loader-text {
+      font-size: 1.3rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--vey-gold), var(--vey-gold2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Main content */
+    .success-box {
+      background: var(--vey-card-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 45px 40px 40px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      max-width: 500px;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+      border: 1px solid var(--vey-border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Gold accent top border */
+    .success-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--vey-gold), var(--vey-gold2), var(--vey-gold-dark), var(--vey-gold));
+      background-size: 300% 100%;
+      animation: shimmer 4s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 0%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    .success-box.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Veylentra Logo */
+    .logo-container {
+      margin-bottom: 20px;
+    }
+
+    .logo-container svg {
+      width: 48px;
+      height: 48px;
+      color: var(--vey-gold);
+    }
+
+    .logo-container .brand-text {
+      display: block;
+      margin-top: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      color: var(--vey-text);
+    }
+
+    .logo-container .brand-text span {
+      color: var(--vey-gold);
+      letter-spacing: 0.46em;
+      font-size: 8px;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .success-icon {
+      font-size: 60px;
+      color: var(--vey-success);
+      margin-bottom: 20px;
+      display: inline-block;
+      animation: float 3s ease-in-out infinite;
+      filter: drop-shadow(0 0 25px rgba(52, 211, 153, 0.2));
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .success-box h2 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      color: var(--vey-gold);
+      letter-spacing: -0.02em;
+    }
+
+    .success-box p {
+      color: var(--vey-slate);
+      font-size: 1rem;
+      margin-bottom: 25px;
+      line-height: 1.7;
+    }
+
+    .success-box strong {
+      color: var(--vey-gold);
+    }
+
+    .info-section {
+      margin-top: 25px;
+      padding: 20px 22px;
+      background: rgba(7, 17, 31, 0.5);
+      border-radius: 12px;
+      text-align: left;
+      border: 1px solid var(--vey-border);
+    }
+
+    .info-section h3 {
+      font-size: 1rem;
+      margin-bottom: 12px;
+      color: var(--vey-gold);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+    }
+
+    .info-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .info-section li {
+      padding: 6px 0;
+      color: var(--vey-slate);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.04);
+    }
+
+    .info-section li:last-child {
+      border-bottom: none;
+    }
+
+    .info-section i {
+      color: var(--vey-success);
+      font-size: 0.8rem;
+      width: 18px;
+    }
+
+    .btn-wallet {
+      background: linear-gradient(135deg, var(--vey-gold) 0%, var(--vey-gold2) 100%);
+      color: #07111f !important;
+      border: none;
+      border-radius: 10px;
+      padding: 14px 28px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      margin-top: 5px;
+      letter-spacing: 0.03em;
+      box-shadow: 0 4px 20px rgba(201, 168, 92, 0.15);
+    }
+
+    .btn-wallet:hover {
+      background: linear-gradient(135deg, #dbb45c 0%, #e8c86a 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201, 168, 92, 0.3);
+      color: #07111f !important;
+    }
+
+    .btn-wallet i {
+      transition: transform 0.3s ease;
+    }
+
+    .btn-wallet:hover i {
+      transform: translateX(-4px);
+    }
+
+    @media (max-width: 600px) {
+      .success-box {
+        margin: 15px;
+        padding: 30px 20px;
+      }
+      
+      .success-box h2 {
+        font-size: 1.5rem;
+      }
+
+      .success-icon {
+        font-size: 50px;
+      }
+
+      .logo-container svg {
+        width: 40px;
+        height: 40px;
+      }
+
+      .logo-container .brand-text {
+        font-size: 12px;
+      }
+
+      .info-section {
+        padding: 16px 16px;
+      }
+
+      .info-section li {
+        font-size: 0.85rem;
+      }
+
+      .btn-wallet {
+        padding: 12px 22px;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .success-box {
+        padding: 24px 16px;
+      }
+
+      .success-box h2 {
+        font-size: 1.3rem;
+      }
+
+      .success-icon {
+        font-size: 42px;
+      }
+
+      .logo-container svg {
+        width: 34px;
+        height: 34px;
+      }
+
+      .logo-container .brand-text {
+        font-size: 11px;
+        letter-spacing: 0.15em;
+      }
+
+      .logo-container .brand-text span {
+        font-size: 7px;
+        letter-spacing: 0.35em;
+      }
+
+      .info-section h3 {
+        font-size: 0.9rem;
+      }
+
+      .btn-wallet {
+        padding: 10px 18px;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Loader -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <p class="loader-text">Veylentra Group</p>
+    <p>Processing your wallet connection...</p>
+  </div>
+
+  <!-- Success content -->
+  <div class="container">
+    <div class="success-box" id="successBox">
+      
+      <!-- Veylentra Logo -->
+      <div class="logo-container">
+        <svg viewBox="0 0 48 48" fill="none" style="margin:0 auto; display:block;">
+          <path d="M6 11 17 7l7 9-7 2-6 8-5-15Z" stroke="currentColor" stroke-width="3" />
+          <path d="m21 8 7 6-5 20-8-7 6-19Z" fill="currentColor" opacity=".95" />
+          <path d="m28 13 13-6-4 20-9 8-7-7 7-15Z" stroke="currentColor" stroke-width="3" />
+        </svg>
+        <span class="brand-text">
+          VEY LENTRA
+          <span>GROUP</span>
+        </span>
+      </div>
+
+      <i class="fas fa-check-circle success-icon"></i>
+      <h2>Wallet Connected Successfully!</h2>
+      <p>Your wallet has been securely linked to <strong>Veylentra Group</strong>. You can now withdraw your assets seamlessly.</p>
+      
+      <div class="info-section">
+        <h3><i class="fas fa-shield-alt"></i> What's Next?</h3>
+        <ul>
+          <li><i class="fas fa-check"></i> Your wallet is now ready for transactions</li>
+          <li><i class="fas fa-check"></i> Secure encryption is active</li>
+          <li><i class="fas fa-check"></i> Auto-payouts are enabled</li>
+          <li><i class="fas fa-check"></i> 24/7 monitoring is active</li>
+        </ul>
+      </div>
+      
+      <a href="{% url 'userprofile:dashboard' %}" class="btn-wallet">
+        <i class="fas fa-arrow-left"></i> Go to Dashboard
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Show loader, then reveal success box
+    document.addEventListener("DOMContentLoaded", function () {
+      const loader = document.getElementById("loader");
+      const successBox = document.getElementById("successBox");
+
+      setTimeout(() => {
+        loader.style.opacity = "0";
+        setTimeout(() => {
+          loader.style.display = "none";
+          successBox.classList.add("show");
+        }, 600);
+      }, 2000); // Loader duration (2 seconds)
+    });
+  </script>
+</body>
+</html>

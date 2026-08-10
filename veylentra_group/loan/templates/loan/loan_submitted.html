@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Application Submitted</title>
+</head>
+<body style="margin:0; padding:0; font-family:'Segoe UI', Arial, sans-serif; background-color:#07111f; color:#94a3b8; line-height:1.7;">
+
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#07111f">
+        <tr>
+            <td align="center">
+
+                <table width="650" cellpadding="0" cellspacing="0" border="0" bgcolor="#0d1b2a" style="border-radius:16px; overflow:hidden; border:1px solid rgba(148,163,184,0.12); box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+                    
+                    <!-- Gold accent top border -->
+                    <tr>
+                        <td style="padding:0; height:3px; background:linear-gradient(90deg, #c9a85c, #e2b95e, #a98237, #c9a85c); background-size:300% 100%;"></td>
+                    </tr>
+
+                    <!-- HEADER -->
+                    <tr>
+                        <td align="center" bgcolor="#07111f" style="padding:35px 20px 30px; border-bottom:1px solid rgba(148,163,184,0.06);">
+                            <table cellpadding="0" cellspacing="0" border="0" style="display:inline-block;">
+                                <tr>
+                                    <td style="vertical-align:middle; padding-right:14px;">
+                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                            <path d="M6 11 17 7l7 9-7 2-6 8-5-15Z" stroke="#C9A85C" stroke-width="3"/>
+                                            <path d="m21 8 7 6-5 20-8-7 6-19Z" fill="#C9A85C" opacity=".95"/>
+                                            <path d="m28 13 13-6-4 20-9 8-7-7 7-15Z" stroke="#C9A85C" stroke-width="3"/>
+                                        </svg>
+                                    </td>
+                                    <td style="vertical-align:middle; line-height:1.2;">
+                                        <span style="font-size:20px; font-weight:600; letter-spacing:0.2em; color:#f8fafc; display:block;">VEY LENTRA</span>
+                                        <span style="font-size:10px; font-weight:600; letter-spacing:0.46em; color:#C9A85C; display:block;">GROUP</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- CONTENT -->
+                    <tr>
+                        <td style="padding:40px 38px; color:#94a3b8;">
+                            
+                            <table cellpadding="0" cellspacing="0" border="0" style="margin:0 auto 20px;">
+                                <tr>
+                                    <td align="center" style="width:64px; height:64px; border-radius:50%; border:2px solid rgba(52,211,153,0.2); background:rgba(52,211,153,0.06);">
+                                        <span style="font-size:28px; color:#34d399;">✓</span>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <h2 style="margin:0 0 8px; font-size:26px; font-weight:700; color:#34d399; text-align:center; letter-spacing:-0.02em;">
+                                Loan Application Submitted
+                            </h2>
+                            
+                            <p style="text-align:center; color:#94a3b8; font-size:15px; margin-top:0; margin-bottom:25px;">
+                                Your loan application has been received
+                            </p>
+
+                            <p style="color:#e2e8f0; font-size:15px;">Dear <strong style="color:#C9A85C;">{{ username }}</strong>,</p>
+
+                            <p style="color:#94a3b8; font-size:15px;">
+                                Thank you for submitting your loan application. We have received your request and our team will review it shortly.
+                            </p>
+
+                            <!-- Loan Details Box -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:rgba(7,17,31,0.5); border-left:4px solid #C9A85C; border-radius:10px; margin:25px 0; border:1px solid rgba(148,163,184,0.06);">
+                                <tr>
+                                    <td style="padding:22px 24px;">
+                                        <p style="margin-top:0; margin-bottom:12px; font-size:16px; font-weight:700; color:#C9A85C; letter-spacing:0.02em;">Loan Application Details</p>
+                                        
+                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                            <tr>
+                                                <td style="padding:4px 0; color:#94a3b8; font-size:14px;">Application ID:</td>
+                                                <td style="padding:4px 0; text-align:right; color:#f8fafc; font-weight:600; font-size:14px;">#{{ application.id }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding:4px 0; color:#94a3b8; font-size:14px;">Amount Requested:</td>
+                                                <td style="padding:4px 0; text-align:right; color:#34d399; font-weight:700; font-size:17px;">${{ amount }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding:4px 0; color:#94a3b8; font-size:14px;">Duration:</td>
+                                                <td style="padding:4px 0; text-align:right; color:#f8fafc; font-weight:600; font-size:14px;">{{ duration_months }} months</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding:4px 0; color:#94a3b8; font-size:14px;">Status:</td>
+                                                <td style="padding:4px 0; text-align:right; color:#fbbf24; font-weight:600; font-size:14px;">⏳ Pending</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding:4px 0; color:#94a3b8; font-size:14px;">Submitted:</td>
+                                                <td style="padding:4px 0; text-align:right; color:#f8fafc; font-weight:600; font-size:14px;">{{ created_at|date:"F d, Y" }}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p style="color:#94a3b8; font-size:15px;">
+                                We will review your application and notify you of the decision within 24-48 business hours.
+                            </p>
+
+                            <p style="text-align:center; margin:30px 0 25px;">
+                                <a href="{{ site_url }}/userprofile/dashboard/" style="background:linear-gradient(135deg, #C9A85C 0%, #E2B95E 100%); color:#07111f; text-decoration:none; padding:14px 42px; border-radius:8px; display:inline-block; font-weight:700; font-size:15px; letter-spacing:0.03em; box-shadow:0 4px 25px rgba(201,168,92,0.2);">
+                                    View Application Status →
+                                </a>
+                            </p>
+
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:rgba(201,168,92,0.05); border:1px solid rgba(201,168,92,0.1); border-radius:8px; margin:25px 0 10px;">
+                                <tr>
+                                    <td style="padding:14px 18px; color:#C9A85C; font-size:14px;">
+                                        <strong style="color:#E2B95E;">📋 What happens next?</strong><br>
+                                        Our team will review your application within 24-48 hours. You will receive an email notification once a decision has been made.
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+
+                    <!-- FOOTER -->
+                    <tr>
+                        <td bgcolor="#07111f" style="text-align:center; padding:28px 20px 32px; color:#64748b; font-size:13px; border-top:1px solid rgba(148,163,184,0.06);">
+                            <p style="margin:0 0 4px; color:#94a3b8; font-weight:500;">Veylentra Group — Building the Future of Digital Finance</p>
+                            <p style="margin:4px 0; font-size:12px; color:#475569;">This is an automated message, please do not reply.</p>
+                            <p style="margin:8px 0 0; color:#475569; font-size:12px;">&copy; 2024 Veylentra Group. All rights reserved.</p>
+                            <p style="margin:6px 0 0; font-size:11px; color:#C9A85C; letter-spacing:0.05em;">✦ Security • Transparency • Innovation ✦</p>
+                        </td>
+                    </tr>
+
+                </table>
+
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>
