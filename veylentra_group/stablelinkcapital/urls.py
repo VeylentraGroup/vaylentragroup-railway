@@ -3,19 +3,46 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('home.urls')),
-    path('userprofile/', include('userprofile.urls')),
-    path('investment/', include('investment.urls')),
-    path('connectwallet/', include('connectwallet.urls')),
-    path( "loan/", include("loan.urls"), ),
 
+urlpatterns = [
+    path("admin/", admin.site.urls),
+
+    path("", include("home.urls")),
+    path("userprofile/", include("userprofile.urls")),
+    path("investment/", include("investment.urls")),
+    path("connectwallet/", include("connectwallet.urls")),
+    path("loan/", include("loan.urls")),
 ]
 
-# Serve media files in production (only for testing, not recommended for real production)
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# ============================================================
+# LOCAL DEVELOPMENT MEDIA
+# ============================================================
+
+if settings.DEBUG:
+    urlpatterns += static(
+        settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT,
+    )
+
+# from django.contrib import admin
+# from django.urls import path, include
+# from django.conf import settings
+# from django.conf.urls.static import static
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('', include('home.urls')),
+#     path('userprofile/', include('userprofile.urls')),
+#     path('investment/', include('investment.urls')),
+#     path('connectwallet/', include('connectwallet.urls')),
+#     path( "loan/", include("loan.urls"), ),
+
+# ]
+
+# # Serve media files in production (only for testing, not recommended for real production)
+# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
-# if settings.DEBUG:
-#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# # if settings.DEBUG:
+# #     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
