@@ -299,6 +299,281 @@
     </style>
   </head>
   <body class="min-h-screen overflow-x-hidden">
+    <!-- Add this right after the opening <body> tag -->
+<!-- ====== PROFESSIONAL PRELOADER FOR VEYLENTRA GROUP ====== -->
+<div id="preloader">
+  <div class="preloader-container">
+    <!-- Animated Logo -->
+    <div class="preloader-logo">
+      <svg viewBox="0 0 48 48" class="preloader-svg" fill="none">
+        <path d="M6 11 17 7l7 9-7 2-6 8-5-15Z" stroke="currentColor" stroke-width="3" />
+        <path d="m21 8 7 6-5 20-8-7 6-19Z" fill="currentColor" opacity=".95" />
+        <path d="m28 13 13-6-4 20-9 8-7-7 7-15Z" stroke="currentColor" stroke-width="3" />
+      </svg>
+    </div>
+
+    <!-- Brand Name -->
+    <div class="preloader-brand">
+      <span class="preloader-name">VEYLENTRA</span>
+      <span class="preloader-group">GROUP</span>
+    </div>
+
+    <!-- Animated Progress Bar -->
+    <div class="preloader-progress">
+      <div class="preloader-progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Loading Percentage -->
+    <div class="preloader-percentage" id="percentageText">0%</div>
+
+    <!-- Loading Dots -->
+    <div class="preloader-dots">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</div>
+
+<style>
+/* ====== PROFESSIONAL PRELOADER STYLES ====== */
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #07111f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.preloader-container {
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Animated Logo */
+.preloader-logo {
+  display: inline-block;
+  color: #c9a85c;
+  animation: preloaderPulse 1.5s ease-in-out infinite;
+}
+
+.preloader-svg {
+  width: 72px;
+  height: 72px;
+  filter: drop-shadow(0 0 30px rgba(201, 168, 92, 0.3));
+}
+
+@keyframes preloaderPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.8;
+  }
+}
+
+/* Brand Name */
+.preloader-brand {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.preloader-name {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.preloader-group {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5em;
+  color: #c9a85c;
+  text-transform: uppercase;
+}
+
+/* Progress Bar */
+.preloader-progress {
+  width: 200px;
+  height: 3px;
+  background: rgba(148, 163, 184, 0.15);
+  border-radius: 4px;
+  margin: 1.5rem auto 0.75rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.preloader-progress-bar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #c9a85c, #e2b95e, #c9a85c);
+  background-size: 200% 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Percentage */
+.preloader-percentage {
+  font-size: 13px;
+  font-weight: 600;
+  color: #94a3b8;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+/* Loading Dots */
+.preloader-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.preloader-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c9a85c;
+  animation: dotBounce 1.4s ease-in-out infinite;
+}
+
+.preloader-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.preloader-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes dotBounce {
+  0%, 80%, 100% {
+    transform: scale(0.6);
+    opacity: 0.3;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Optional: Glow effect behind the logo */
+.preloader-container::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(201, 168, 92, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+  .preloader-svg {
+    width: 56px;
+    height: 56px;
+  }
+  .preloader-name {
+    font-size: 18px;
+    letter-spacing: 0.2em;
+  }
+  .preloader-group {
+    font-size: 9px;
+    letter-spacing: 0.4em;
+  }
+  .preloader-progress {
+    width: 160px;
+  }
+}
+</style>
+
+<script>
+/* ====== PRELOADER JAVASCRIPT ====== */
+
+(function() {
+  'use strict';
+
+  const preloader = document.getElementById('preloader');
+  const progressBar = document.getElementById('progressBar');
+  const percentageText = document.getElementById('percentageText');
+
+  let progress = 0;
+  const duration = 2000; // 2 seconds
+  const interval = 30; // Update every 30ms
+  const steps = duration / interval;
+  const increment = 100 / steps;
+
+  function updatePreloader() {
+    progress += increment;
+    if (progress >= 100) {
+      progress = 100;
+      progressBar.style.width = '100%';
+      percentageText.textContent = '100%';
+
+      // Fade out preloader
+      setTimeout(function() {
+        preloader.classList.add('fade-out');
+
+        // Remove preloader from DOM after animation
+        setTimeout(function() {
+          preloader.style.display = 'none';
+        }, 800);
+      }, 400);
+
+      return;
+    }
+
+    progressBar.style.width = progress + '%';
+    percentageText.textContent = Math.round(progress) + '%';
+    setTimeout(updatePreloader, interval);
+  }
+
+  // Start the preloader animation
+  updatePreloader();
+
+  // Fallback: Hide preloader after 5 seconds if something goes wrong
+  setTimeout(function() {
+    if (!preloader.classList.contains('fade-out')) {
+      preloader.classList.add('fade-out');
+      setTimeout(function() {
+        preloader.style.display = 'none';
+      }, 800);
+    }
+  }, 5000);
+
+})();
+</script>
     <!-- HEADER -->
     <header class="sticky top-0 z-50 border-b border-soft glass">
       <div class="mx-auto flex h-[70px] max-w-[1440px] items-center justify-between px-5 lg:px-8">
@@ -378,7 +653,7 @@
     <a href="#services">Services</a>
     <a href="#investments">Investments</a>
     <a href="#lending">Lending</a>
-    <a href="#insights">Insights</a>
+    <a href="https://www.tradingview.com/markets/">Market</a>
     <a href="#resources">Resources</a>
     <a href="#contact">Contact</a>
 
@@ -543,9 +818,7 @@
           <div class="flex items-center gap-3 sm:border-r sm:border-white/10"><span class="text-2xl text-gold">▥</span><div><div class="text-lg font-semibold">$500M+</div><div class="text-[9px] text-slate">Assets Under Insight</div></div></div>
           <div class="flex items-center gap-3"><span class="text-2xl text-gold">♢</span><div><div class="text-lg font-semibold">99.9%</div><div class="text-[9px] text-slate">Security Commitment</div></div></div>
         </div>
-      </section>
-
-      <!-- INVESTMENT PLANS (6 plans, 3 per row) with min/max deposit & ROI -->
+      </section><!-- INVESTMENT PLANS (6 plans, 3 per row) with min/max deposit & ROI -->
       <section id="investment-plans" class="mx-auto max-w-[1440px] px-5 py-10 lg:px-8">
         <div class="text-center">
           <span class="text-[11px] font-semibold uppercase tracking-[0.25em] text-gold">Investment Plans</span>
@@ -553,135 +826,686 @@
           <p class="mx-auto mt-3 max-w-2xl text-sm text-slate">Tailored investment strategies designed for different risk appetites and financial goals.</p>
         </div>
         <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          <!-- Plan 1 -->
+          <!-- Plan 1 - Stable Growth -->
           <div class="plan-card rounded-2xl p-6 text-center transition">
             <div class="text-3xl text-gold">♢</div>
             <h3 class="mt-3 text-lg font-semibold text-white">Stable Growth</h3>
-            <div class="mt-1 text-2xl font-bold text-gold">6.5%</div>
-            <div class="text-[10px] text-slate">Expected Annual Return</div>
+            <div class="mt-1 text-2xl font-bold text-gold">10%</div>
+            <div class="text-[10px] text-slate">Profit Return</div>
             <div class="mt-3 flex items-center justify-center gap-3 text-[10px]">
-              <span class="text-slate">Min <span class="text-white font-medium">$60</span></span>
+              <span class="text-slate">Min <span class="text-white font-medium">$150</span></span>
               <span class="text-slate">|</span>
-              <span class="text-slate">Max <span class="text-white font-medium">$25K</span></span>
+              <span class="text-slate">Max <span class="text-white font-medium">$6,500</span></span>
             </div>
             <div class="mt-2 flex justify-center">
-              <span class="roi-badge">📊 ROI: 6.5% APY</span>
+              <span class="roi-badge">⏱️ 24 Hours</span>
             </div>
             <ul class="mt-4 space-y-1 text-xs text-slate">
               <li>• Low risk profile</li>
-              <li>• Monthly dividends</li>
-              <li>• Capital preservation</li>
+              <li>• Fast returns</li>
+              <li>• Perfect for beginners</li>
             </ul>
-            <button class="invest-btn mt-5"> <span>Invest Now</span> <span class="arrow">→</span> </button>
+            <a href="{% url 'userprofile:dashboard' %}" class="invest-btn mt-5 inline-flex"> <span>Invest Now</span> <span class="arrow">→</span> </a>
           </div>
-          <!-- Plan 2 -->
+          <!-- Plan 2 - Balanced Plus -->
           <div class="plan-card rounded-2xl p-6 text-center transition">
             <div class="text-3xl text-gold">◈</div>
             <h3 class="mt-3 text-lg font-semibold text-white">Balanced Plus</h3>
-            <div class="mt-1 text-2xl font-bold text-gold">9.2%</div>
-            <div class="text-[10px] text-slate">Expected Annual Return</div>
+            <div class="mt-1 text-2xl font-bold text-gold">15%</div>
+            <div class="text-[10px] text-slate">Profit Return</div>
             <div class="mt-3 flex items-center justify-center gap-3 text-[10px]">
-              <span class="text-slate">Min <span class="text-white font-medium">$500</span></span>
+              <span class="text-slate">Min <span class="text-white font-medium">$1,200</span></span>
               <span class="text-slate">|</span>
-              <span class="text-slate">Max <span class="text-white font-medium">$25K</span></span>
+              <span class="text-slate">Max <span class="text-white font-medium">$15,000</span></span>
             </div>
             <div class="mt-2 flex justify-center">
-              <span class="roi-badge">📊 ROI: 9.2% APY</span>
+              <span class="roi-badge">⏱️ 2 Days</span>
             </div>
             <ul class="mt-4 space-y-1 text-xs text-slate">
               <li>• Moderate risk</li>
-              <li>• Quarterly dividends</li>
+              <li>• Balanced returns</li>
               <li>• Diversified assets</li>
             </ul>
-            <button class="invest-btn mt-5"> <span>Invest Now</span> <span class="arrow">→</span> </button>
+            <a href="{% url 'userprofile:dashboard' %}" class="invest-btn mt-5 inline-flex"> <span>Invest Now</span> <span class="arrow">→</span> </a>
           </div>
-          <!-- Plan 3 -->
+          <!-- Plan 3 - Alpha Growth -->
           <div class="plan-card rounded-2xl p-6 text-center transition">
             <div class="text-3xl text-gold">▣</div>
             <h3 class="mt-3 text-lg font-semibold text-white">Alpha Growth</h3>
-            <div class="mt-1 text-2xl font-bold text-gold">12.8%</div>
-            <div class="text-[10px] text-slate">Expected Annual Return</div>
-            <div class="mt-3 flex items-center justify-center gap-3 text-[10px]">
-              <span class="text-slate">Min <span class="text-white font-medium">$1,000</span></span>
-              <span class="text-slate">|</span>
-              <span class="text-slate">Max <span class="text-white font-medium">$25K</span></span>
-            </div>
-            <div class="mt-2 flex justify-center">
-              <span class="roi-badge">📊 ROI: 12.8% APY</span>
-            </div>
-            <ul class="mt-4 space-y-1 text-xs text-slate">
-              <li>• Higher risk</li>
-              <li>• Semi-annual dividends</li>
-              <li>• Tech & digital focus</li>
-            </ul>
-            <button class="invest-btn mt-5"> <span>Invest Now</span> <span class="arrow">→</span> </button>
-          </div>
-          <!-- Plan 4 -->
-          <div class="plan-card rounded-2xl p-6 text-center transition">
-            <div class="text-3xl text-gold">▥</div>
-            <h3 class="mt-3 text-lg font-semibold text-white">Income Shield</h3>
-            <div class="mt-1 text-2xl font-bold text-gold">5.8%</div>
-            <div class="text-[10px] text-slate">Expected Annual Return</div>
-            <div class="mt-3 flex items-center justify-center gap-3 text-[10px]">
-              <span class="text-slate">Min <span class="text-white font-medium">$60</span></span>
-              <span class="text-slate">|</span>
-              <span class="text-slate">Max <span class="text-white font-medium">$25K</span></span>
-            </div>
-            <div class="mt-2 flex justify-center">
-              <span class="roi-badge">📊 ROI: 5.8% APY</span>
-            </div>
-            <ul class="mt-4 space-y-1 text-xs text-slate">
-              <li>• Very low risk</li>
-              <li>• Monthly dividends</li>
-              <li>• Fixed income focus</li>
-            </ul>
-            <button class="invest-btn mt-5"> <span>Invest Now</span> <span class="arrow">→</span> </button>
-          </div>
-          <!-- Plan 5 -->
-          <div class="plan-card rounded-2xl p-6 text-center transition">
-            <div class="text-3xl text-gold">↗</div>
-            <h3 class="mt-3 text-lg font-semibold text-white">Venture Catalyst</h3>
-            <div class="mt-1 text-2xl font-bold text-gold">18.0%</div>
-            <div class="text-[10px] text-slate">Expected Annual Return</div>
+            <div class="mt-1 text-2xl font-bold text-gold">35%</div>
+            <div class="text-[10px] text-slate">Profit Return</div>
             <div class="mt-3 flex items-center justify-center gap-3 text-[10px]">
               <span class="text-slate">Min <span class="text-white font-medium">$2,500</span></span>
               <span class="text-slate">|</span>
-              <span class="text-slate">Max <span class="text-white font-medium">$25K</span></span>
+              <span class="text-slate">Max <span class="text-white font-medium">$30,000</span></span>
             </div>
             <div class="mt-2 flex justify-center">
-              <span class="roi-badge">📊 ROI: 18.0% APY</span>
+              <span class="roi-badge">⏱️ 3 Days</span>
             </div>
             <ul class="mt-4 space-y-1 text-xs text-slate">
-              <li>• High risk</li>
-              <li>• Annual dividends</li>
-              <li>• Early-stage ventures</li>
+              <li>• Higher returns</li>
+              <li>• Premium support</li>
+              <li>• Advanced strategies</li>
             </ul>
-            <button class="invest-btn mt-5"> <span>Invest Now</span> <span class="arrow">→</span> </button>
+            <a href="{% url 'userprofile:dashboard' %}" class="invest-btn mt-5 inline-flex"> <span>Invest Now</span> <span class="arrow">→</span> </a>
           </div>
-          <!-- Plan 6 -->
+          <!-- Plan 4 - Income Shield -->
+          <div class="plan-card rounded-2xl p-6 text-center transition">
+            <div class="text-3xl text-gold">▥</div>
+            <h3 class="mt-3 text-lg font-semibold text-white">Income Shield</h3>
+            <div class="mt-1 text-2xl font-bold text-gold">50%</div>
+            <div class="text-[10px] text-slate">Profit Return</div>
+            <div class="mt-3 flex items-center justify-center gap-3 text-[10px]">
+              <span class="text-slate">Min <span class="text-white font-medium">$4,000</span></span>
+              <span class="text-slate">|</span>
+              <span class="text-slate">Max <span class="text-white font-medium">$45,000</span></span>
+            </div>
+            <div class="mt-2 flex justify-center">
+              <span class="roi-badge">⏱️ 4 Days</span>
+            </div>
+            <ul class="mt-4 space-y-1 text-xs text-slate">
+              <li>• Maximum returns</li>
+              <li>• VIP support</li>
+              <li>• Premium strategies</li>
+            </ul>
+            <a href="{% url 'userprofile:dashboard' %}" class="invest-btn mt-5 inline-flex"> <span>Invest Now</span> <span class="arrow">→</span> </a>
+          </div>
+          <!-- Plan 5 - Venture Catalyst -->
+          <div class="plan-card rounded-2xl p-6 text-center transition">
+            <div class="text-3xl text-gold">↗</div>
+            <h3 class="mt-3 text-lg font-semibold text-white">Venture Catalyst</h3>
+            <div class="mt-1 text-2xl font-bold text-gold">20%</div>
+            <div class="text-[10px] text-slate">Profit Return</div>
+            <div class="mt-3 flex items-center justify-center gap-3 text-[10px]">
+              <span class="text-slate">Min <span class="text-white font-medium">$1,500</span></span>
+              <span class="text-slate">|</span>
+              <span class="text-slate">Max <span class="text-white font-medium">$5,000</span></span>
+            </div>
+            <div class="mt-2 flex justify-center">
+              <span class="roi-badge">⏱️ 24 Hours</span>
+            </div>
+            <ul class="mt-4 space-y-1 text-xs text-slate">
+              <li>• Holiday special</li>
+              <li>• Quick returns</li>
+              <li>• Limited time offer</li>
+            </ul>
+            <a href="{% url 'userprofile:dashboard' %}" class="invest-btn mt-5 inline-flex"> <span>Invest Now</span> <span class="arrow">→</span> </a>
+          </div>
+          <!-- Plan 6 - ESG Future -->
           <div class="plan-card rounded-2xl p-6 text-center transition">
             <div class="text-3xl text-gold">◉</div>
             <h3 class="mt-3 text-lg font-semibold text-white">ESG Future</h3>
-            <div class="mt-1 text-2xl font-bold text-gold">8.5%</div>
-            <div class="text-[10px] text-slate">Expected Annual Return</div>
+            <div class="mt-1 text-2xl font-bold text-gold">40%</div>
+            <div class="text-[10px] text-slate">Profit Return</div>
             <div class="mt-3 flex items-center justify-center gap-3 text-[10px]">
-              <span class="text-slate">Min <span class="text-white font-medium">$250</span></span>
+              <span class="text-slate">Min <span class="text-white font-medium">$2,300</span></span>
               <span class="text-slate">|</span>
-              <span class="text-slate">Max <span class="text-white font-medium">$25K</span></span>
+              <span class="text-slate">Max <span class="text-white font-medium">$15,000</span></span>
             </div>
             <div class="mt-2 flex justify-center">
-              <span class="roi-badge">📊 ROI: 8.5% APY</span>
+              <span class="roi-badge">⏱️ 18 Hours</span>
             </div>
             <ul class="mt-4 space-y-1 text-xs text-slate">
-              <li>• Sustainable</li>
-              <li>• Quarterly dividends</li>
-              <li>• ESG screened</li>
+              <li>• Holiday special</li>
+              <li>• Fastest returns</li>
+              <li>• Limited time offer</li>
             </ul>
-            <button class="invest-btn mt-5"> <span>Invest Now</span> <span class="arrow">→</span> </button>
+            <a href="{% url 'userprofile:dashboard' %}" class="invest-btn mt-5 inline-flex"> <span>Invest Now</span> <span class="arrow">→</span> </a>
           </div>
         </div>
       </section>
+
+    <!-- ====== ROI CALCULATOR SECTION ====== -->
+<section id="roi-calculator" class="mx-auto max-w-[1440px] px-5 py-10 lg:px-8">
+  <div class="text-center">
+    <span class="text-[11px] font-semibold uppercase tracking-[0.25em] text-gold">ROI Calculator</span>
+    <h2 class="mt-2 text-3xl font-semibold text-white sm:text-4xl">Calculate Your <span class="text-gold">Returns</span></h2>
+    <p class="mx-auto mt-3 max-w-2xl text-sm text-slate">Select a plan and enter your investment amount to see your potential profit instantly.</p>
+  </div>
+
+  <div class="mt-8 grid gap-8 lg:grid-cols-[1.4fr_1fr]">
+    <!-- Calculator Form -->
+    <div class="rounded-2xl border border-soft bg-navy2/60 p-4 backdrop-blur-sm sm:p-6 md:p-8">
+      <div class="grid gap-4 sm:gap-6 sm:grid-cols-2">
+        <!-- Plan Selector -->
+        <div class="sm:col-span-2">
+          <label class="mb-1.5 block text-[10px] sm:text-xs font-semibold text-white">Select Investment Plan</label>
+          <select id="planSelect" class="w-full rounded-lg sm:rounded-xl border border-soft bg-navy/80 px-3 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-white transition focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold">
+            <option value="" disabled selected>Choose a plan</option>
+            <option value="10" data-min="150" data-max="6500" data-duration="24 Hours">Stable Growth — 10% ROI (24 Hours)</option>
+            <option value="15" data-min="1200" data-max="15000" data-duration="2 Days">Balanced Plus — 15% ROI (2 Days)</option>
+            <option value="35" data-min="2500" data-max="30000" data-duration="3 Days">Alpha Growth — 35% ROI (3 Days)</option>
+            <option value="50" data-min="4000" data-max="45000" data-duration="4 Days">Income Shield — 50% ROI (4 Days)</option>
+            <option value="20" data-min="1500" data-max="5000" data-duration="24 Hours">Venture Catalyst — 20% ROI (24 Hours)</option>
+            <option value="40" data-min="2300" data-max="15000" data-duration="18 Hours">ESG Future — 40% ROI (18 Hours)</option>
+          </select>
+        </div>
+
+        <!-- Deposit Amount -->
+        <div>
+          <label class="mb-1.5 block text-[10px] sm:text-xs font-semibold text-white">Investment Amount ($)</label>
+          <input id="depositInput" type="number" min="0" step="100" placeholder="Enter amount" class="w-full rounded-lg sm:rounded-xl border border-soft bg-navy/80 px-3 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-white transition focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold">
+        </div>
+
+        <!-- Quick Amount Buttons -->
+        <div>
+          <label class="mb-1.5 block text-[10px] sm:text-xs font-semibold text-white">Quick Select</label>
+          <div class="grid grid-cols-3 gap-1.5 sm:gap-2">
+            <button onclick="setQuickAmount(500)" class="rounded-lg border border-soft bg-navy/60 px-1 sm:px-2 py-1.5 sm:py-2 text-[9px] sm:text-xs text-slate transition hover:border-gold hover:text-gold">$500</button>
+            <button onclick="setQuickAmount(1000)" class="rounded-lg border border-soft bg-navy/60 px-1 sm:px-2 py-1.5 sm:py-2 text-[9px] sm:text-xs text-slate transition hover:border-gold hover:text-gold">$1K</button>
+            <button onclick="setQuickAmount(5000)" class="rounded-lg border border-soft bg-navy/60 px-1 sm:px-2 py-1.5 sm:py-2 text-[9px] sm:text-xs text-slate transition hover:border-gold hover:text-gold">$5K</button>
+            <button onclick="setQuickAmount(10000)" class="rounded-lg border border-soft bg-navy/60 px-1 sm:px-2 py-1.5 sm:py-2 text-[9px] sm:text-xs text-slate transition hover:border-gold hover:text-gold">$10K</button>
+            <button onclick="setQuickAmount(25000)" class="rounded-lg border border-soft bg-navy/60 px-1 sm:px-2 py-1.5 sm:py-2 text-[9px] sm:text-xs text-slate transition hover:border-gold hover:text-gold">$25K</button>
+            <button onclick="setQuickAmount(50000)" class="rounded-lg border border-soft bg-navy/60 px-1 sm:px-2 py-1.5 sm:py-2 text-[9px] sm:text-xs text-slate transition hover:border-gold hover:text-gold">$50K</button>
+          </div>
+        </div>
+
+        <!-- Calculate & Reset Buttons - Professional Compact Side by Side -->
+        <div class="sm:col-span-2 flex gap-2 sm:gap-3 mt-1">
+          <button onclick="calculateROI()" class="flex-1 gold-gradient rounded-lg sm:rounded-xl px-3 sm:px-6 py-2.5 sm:py-3.5 text-[10px] sm:text-sm font-bold text-navy transition hover:scale-[1.02] hover:shadow-gold flex items-center justify-center gap-1.5 sm:gap-2">
+            <i class="fa-solid fa-calculator text-[10px] sm:text-sm"></i> 
+            <span class="whitespace-nowrap">Calculate</span>
+          </button>
+          <button onclick="resetCalculator()" class="flex-1 rounded-lg sm:rounded-xl border border-soft bg-navy/60 px-3 sm:px-6 py-2.5 sm:py-3.5 text-[10px] sm:text-sm font-medium text-slate transition hover:border-gold hover:text-white flex items-center justify-center gap-1.5 sm:gap-2">
+            <i class="fa-solid fa-rotate-right text-[10px] sm:text-sm"></i>
+            <span class="whitespace-nowrap">Reset</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Min/Max Hint -->
+      <div id="rangeHint" class="mt-3 sm:mt-4 text-center text-[10px] sm:text-xs text-slate">
+        <span class="text-gold">ℹ️</span> Select a plan to see the investment range.
+      </div>
+    </div>
+
+    <!-- Results Panel -->
+    <div class="rounded-2xl border border-soft bg-navy2/60 p-4 backdrop-blur-sm sm:p-6 md:p-8">
+      <h3 class="text-sm font-semibold text-white">Your Returns Summary</h3>
+      <p class="mt-1 text-[10px] sm:text-xs text-slate">Based on your selected plan and investment amount.</p>
+
+      <div class="mt-4 sm:mt-6 space-y-3 sm:space-y-4">
+        <!-- Plan Name -->
+        <div class="flex items-center justify-between border-b border-soft pb-2 sm:pb-3">
+          <span class="text-[10px] sm:text-xs text-slate">Selected Plan</span>
+          <span id="resultPlan" class="text-xs sm:text-sm font-medium text-white">—</span>
+        </div>
+
+        <!-- Investment Amount -->
+        <div class="flex items-center justify-between border-b border-soft pb-2 sm:pb-3">
+          <span class="text-[10px] sm:text-xs text-slate">Investment Amount</span>
+          <span id="resultAmount" class="text-xs sm:text-sm font-medium text-white">$0.00</span>
+        </div>
+
+        <!-- ROI Percentage -->
+        <div class="flex items-center justify-between border-b border-soft pb-2 sm:pb-3">
+          <span class="text-[10px] sm:text-xs text-slate">ROI Percentage</span>
+          <span id="resultROI" class="text-xs sm:text-sm font-medium text-gold">0%</span>
+        </div>
+
+        <!-- Duration -->
+        <div class="flex items-center justify-between border-b border-soft pb-2 sm:pb-3">
+          <span class="text-[10px] sm:text-xs text-slate">Duration</span>
+          <span id="resultDuration" class="text-xs sm:text-sm font-medium text-white">—</span>
+        </div>
+
+        <!-- Profit Amount (Highlighted) -->
+        <div class="flex items-center justify-between rounded-xl bg-gold/10 border border-gold/20 p-3 sm:p-4">
+          <span class="text-xs sm:text-sm font-semibold text-white">Your Profit</span>
+          <span id="resultProfit" class="text-lg sm:text-2xl font-bold text-gold">$0.00</span>
+        </div>
+
+        <!-- Total Return -->
+        <div class="flex items-center justify-between rounded-xl bg-navy/80 p-3 sm:p-4 border border-soft">
+          <span class="text-xs sm:text-sm font-semibold text-white">Total Return</span>
+          <span id="resultTotal" class="text-base sm:text-xl font-bold text-emerald-400">$0.00</span>
+        </div>
+      </div>
+
+      <!-- Invest Now CTA -->
+      <a href="{% url 'userprofile:dashboard' %}" class="mt-4 sm:mt-6 block w-full rounded-lg sm:rounded-xl gold-gradient py-2.5 sm:py-3.5 text-center text-[10px] sm:text-sm font-bold text-navy transition hover:scale-[1.02] hover:shadow-gold">
+        <i class="fa-solid fa-wallet mr-1.5 sm:mr-2"></i> Invest Now
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Additional ROI Calculator Styles */
+#roi-calculator select option {
+  background: #07111f;
+  color: #f8fafc;
+}
+
+#roi-calculator select option:hover {
+  background: #c9a85c;
+}
+
+/* Custom Range Hint Animation */
+#rangeHint {
+  transition: all 0.3s ease;
+}
+
+#rangeHint.active {
+  color: #c9a85c;
+}
+
+/* Result Value Animations */
+#resultProfit, #resultTotal {
+  transition: all 0.5s ease;
+}
+
+/* Quick Amount Buttons Hover Effect */
+.quick-amount-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+  #roi-calculator .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Additional mobile optimizations */
+@media (max-width: 380px) {
+  #roi-calculator .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+  #roi-calculator .grid-cols-3 button {
+    font-size: 8px;
+    padding: 0.25rem 0.25rem;
+  }
+}
+</style>
+
+<script>
+/* ====== ROI CALCULATOR JAVASCRIPT ====== */
+
+const planSelect = document.getElementById('planSelect');
+const depositInput = document.getElementById('depositInput');
+const rangeHint = document.getElementById('rangeHint');
+
+// Result elements
+const resultPlan = document.getElementById('resultPlan');
+const resultAmount = document.getElementById('resultAmount');
+const resultROI = document.getElementById('resultROI');
+const resultDuration = document.getElementById('resultDuration');
+const resultProfit = document.getElementById('resultProfit');
+const resultTotal = document.getElementById('resultTotal');
+
+// Quick Amount Buttons
+function setQuickAmount(amount) {
+  depositInput.value = amount;
+  // Auto-calculate if a plan is selected
+  if (planSelect.value) {
+    calculateROI();
+  }
+}
+
+// Main Calculate Function
+function calculateROI() {
+  const selected = planSelect.options[planSelect.selectedIndex];
+  const roi = parseFloat(selected.value) || 0;
+  const min = parseFloat(selected.dataset.min) || 0;
+  const max = parseFloat(selected.dataset.max) || 0;
+  const duration = selected.dataset.duration || '-';
+  const planName = selected.text.split(' — ')[0] || '—';
+  const deposit = parseFloat(depositInput.value) || 0;
+
+  // Validation
+  if (!selected.value) {
+    rangeHint.innerHTML = '⚠️ Please select a plan first.';
+    rangeHint.className = 'mt-4 text-center text-xs text-red-400';
+    return;
+  }
+
+  if (deposit <= 0) {
+    rangeHint.innerHTML = '⚠️ Please enter a valid investment amount.';
+    rangeHint.className = 'mt-4 text-center text-xs text-red-400';
+    return;
+  }
+
+  if (deposit < min) {
+    rangeHint.innerHTML = `⚠️ Minimum investment for this plan is $${min.toLocaleString()}.`;
+    rangeHint.className = 'mt-4 text-center text-xs text-red-400';
+    return;
+  }
+
+  if (deposit > max) {
+    rangeHint.innerHTML = `⚠️ Maximum investment for this plan is $${max.toLocaleString()}.`;
+    rangeHint.className = 'mt-4 text-center text-xs text-red-400';
+    return;
+  }
+
+  // Calculate returns
+  const profit = (deposit * roi) / 100;
+  const total = deposit + profit;
+
+  // Update results
+  resultPlan.textContent = planName;
+  resultAmount.textContent = `$${deposit.toFixed(2)}`;
+  resultROI.textContent = `${roi}%`;
+  resultDuration.textContent = duration;
+  resultProfit.textContent = `$${profit.toFixed(2)}`;
+  resultTotal.textContent = `$${total.toFixed(2)}`;
+
+  // Update range hint
+  rangeHint.innerHTML = `✅ Investment range: $${min.toLocaleString()} – $${max.toLocaleString()}`;
+  rangeHint.className = 'mt-4 text-center text-xs text-emerald-400';
+
+  // Add animation effect
+  resultProfit.style.transform = 'scale(1.1)';
+  setTimeout(() => {
+    resultProfit.style.transform = 'scale(1)';
+  }, 300);
+
+  resultTotal.style.transform = 'scale(1.05)';
+  setTimeout(() => {
+    resultTotal.style.transform = 'scale(1)';
+  }, 300);
+}
+
+// Reset Calculator
+function resetCalculator() {
+  planSelect.selectedIndex = 0;
+  depositInput.value = '';
+  resultPlan.textContent = '—';
+  resultAmount.textContent = '$0.00';
+  resultROI.textContent = '0%';
+  resultDuration.textContent = '—';
+  resultProfit.textContent = '$0.00';
+  resultTotal.textContent = '$0.00';
+  rangeHint.innerHTML = 'ℹ️ Select a plan to see the investment range.';
+  rangeHint.className = 'mt-4 text-center text-xs text-slate';
+}
+
+// Update range hint when plan changes
+planSelect.addEventListener('change', function() {
+  const selected = this.options[this.selectedIndex];
+  if (selected.value) {
+    const min = parseFloat(selected.dataset.min) || 0;
+    const max = parseFloat(selected.dataset.max) || 0;
+    rangeHint.innerHTML = `💰 Investment range: $${min.toLocaleString()} – $${max.toLocaleString()}`;
+    rangeHint.className = 'mt-4 text-center text-xs text-slate';
+    
+    // Auto-calculate if there's a deposit amount
+    if (depositInput.value) {
+      calculateROI();
+    }
+  } else {
+    resetCalculator();
+  }
+});
+
+// Auto-calculate on deposit input change
+depositInput.addEventListener('input', function() {
+  if (planSelect.value && this.value) {
+    calculateROI();
+  }
+});
+
+// Enter key support
+depositInput.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    calculateROI();
+  }
+});
+
+// Number formatting helper (optional)
+function formatCurrency(amount) {
+  return '$' + amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+</script>
+      <!-- ====== WHATSAPP WIDGET - STICKY BOTTOM-LEFT ====== -->
+
+<!-- HTML Structure -->
+<div class="wa-widget">
+  <!-- Chat Box -->
+  <div class="wa-box" id="waBox">
+    <div class="wa-header">
+      <div>
+        <strong>WhatsApp Support</strong>
+        <div class="wa-status">🟢 Online</div>
+      </div>
+      <div class="wa-close" onclick="toggleWA()">✕</div>
+    </div>
+
+    <div class="wa-body" id="waBody">
+      <div class="typing" id="typing">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <a class="wa-start"
+       href="https://wa.me/17126574050?text=Hello%20I%20need%20assistance"
+       target="_blank">
+       Start Chat on WhatsApp
+    </a>
+  </div>
+
+  <!-- Floating Button -->
+  <div class="wa-button" onclick="toggleWA()">
+    <div class="wa-badge" id="waBadge">1</div>
+
+    <!-- WhatsApp SVG Logo -->
+    <svg viewBox="0 0 32 32" width="30" height="30" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#ffffff" d="M19.11 17.47c-.27-.13-1.59-.78-1.84-.87-.25-.09-.43-.13-.61.13-.18.27-.7.87-.86 1.05-.16.18-.31.2-.58.07-.27-.13-1.13-.42-2.15-1.35-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.55.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.33-.02-.47-.07-.13-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.47-.16-.01-.33-.01-.51-.01-.18 0-.47.07-.71.33-.25.27-.95.93-.95 2.27 0 1.34.97 2.63 1.11 2.82.13.18 1.92 2.94 4.66 4.13.65.28 1.15.45 1.55.57.65.21 1.24.18 1.7.11.52-.08 1.59-.65 1.81-1.27.22-.62.22-1.15.15-1.27-.07-.11-.25-.18-.52-.31z"/>
+      <path fill="#ffffff" d="M16.02 3C9.94 3 5 7.94 5 14.02c0 2.26.66 4.36 1.8 6.14L5 29l9.08-1.75c1.71.94 3.66 1.44 5.68 1.44 6.08 0 11.02-4.94 11.02-11.02S22.1 3 16.02 3zm0 20.09c-1.84 0-3.65-.49-5.23-1.41l-.37-.22-5.39 1.04 1.05-5.26-.24-.38a8.96 8.96 0 01-1.39-4.84c0-4.99 4.06-9.05 9.05-9.05s9.05 4.06 9.05 9.05-4.06 9.07-9.05 9.07z"/>
+    </svg>
+  </div>
+</div>
+<style>
+  /* ====== WHATSAPP WIDGET STYLES ====== */
+
+.wa-widget {
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  z-index: 9999;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Floating Button */
+.wa-button {
+  width: 65px;
+  height: 65px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  border: 4px solid #fff;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.wa-button:hover {
+  transform: scale(1.07);
+}
+
+/* Notification Badge */
+.wa-badge {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  background: red;
+  color: #fff;
+  font-size: 11px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Chat Box */
+.wa-box {
+  width: 320px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  position: absolute;
+  bottom: 85px;
+  left: 0;
+  overflow: hidden;
+  display: none;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.wa-box.active {
+  display: block;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Header */
+.wa-header {
+  background: #075E54;
+  color: #fff;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wa-status {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.wa-close {
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Body */
+.wa-body {
+  padding: 15px;
+  font-size: 14px;
+  background: #e5ddd5;
+}
+
+.wa-message {
+  background: #fff;
+  padding: 10px 12px;
+  border-radius: 10px;
+  display: inline-block;
+  max-width: 85%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 10px;
+}
+
+/* Typing Animation */
+.typing {
+  display: inline-flex;
+  gap: 4px;
+  padding: 8px 10px;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.typing span {
+  width: 6px;
+  height: 6px;
+  background: #999;
+  border-radius: 50%;
+  animation: blink 1.4s infinite both;
+}
+
+.typing span:nth-child(2) { animation-delay: .2s; }
+.typing span:nth-child(3) { animation-delay: .4s; }
+
+@keyframes blink {
+  0% { opacity: .2; }
+  20% { opacity: 1; }
+  100% { opacity: .2; }
+}
+
+/* Start Button */
+.wa-start {
+  display: block;
+  text-align: center;
+  background: #25D366;
+  color: #fff;
+  padding: 12px;
+  margin: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.wa-start:hover {
+  background: #1ebe5d;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .wa-box { background: #1e1e1e; }
+  .wa-body { background: #2a2a2a; }
+  .wa-message { background: #333; color: #fff; }
+}
+</style>
+<script>
+  /* ====== WHATSAPP WIDGET JAVASCRIPT ====== */
+
+window.addEventListener("load", function () {
+
+  const waBox = document.getElementById("waBox");
+  const waBadge = document.getElementById("waBadge");
+  const typing = document.getElementById("typing");
+  const waBody = document.getElementById("waBody");
+
+  window.toggleWA = function () {
+    waBox.classList.toggle("active");
+    waBadge.style.display = "none";
+  };
+
+  /* Auto open once per session */
+  if (!sessionStorage.getItem("waShown")) {
+    setTimeout(() => {
+      waBox.classList.add("active");
+      sessionStorage.setItem("waShown", "true");
+      playSound();
+    }, 4000);
+  }
+
+  /* Typing effect then message */
+  setTimeout(() => {
+    if (typing) {
+      typing.remove();
+      const msg = document.createElement("div");
+      msg.className = "wa-message";
+      msg.innerHTML = "Hello 👋<br>How can we help you today?";
+      waBody.appendChild(msg);
+    }
+  }, 3000);
+
+  /* Notification Sound */
+  function playSound() {
+    const audio = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-software-interface-start-2574.mp3");
+    audio.play().catch(() => {});
+  }
+
+});
+</script>
     </main>
+
 
     <!-- FOOTER (side-by-side on mobile) -->
 <footer id="contact" class="border-t border-soft">
@@ -698,7 +1522,7 @@
   <div class="mx-auto max-w-[1440px] border-t border-soft px-5 py-7 lg:px-8">
     <div class="grid gap-7 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
       <div id="about"><div class="flex items-center gap-2"><span class="text-2xl text-gold">◈</span><span class="text-sm font-semibold tracking-[.18em]">VEY LENTRA</span><span class="text-[8px] tracking-[.35em] text-gold">GROUP</span></div><p class="mt-3 max-w-md text-[10px] leading-5 text-slate">Veylentra Group is a financial technology and digital asset research firm. We provide data, insights, and solutions to help clients navigate a changing financial world.</p></div>
-      <div><h4 class="text-xs font-semibold">Contact Us</h4><div class="mt-3 space-y-2 text-[10px] text-slate"><p>Email: support@veylentragroup.com</p><p>Phone: +1 (888) 123-4567</p><p>Address: 123 Finance Street, <br />New York, NY 10001, USA</p></div></div>
+      <div><h4 class="text-xs font-semibold">Contact Us</h4><div class="mt-3 space-y-2 text-[10px] text-slate"><p>Email: support@veylentragroup.com</p><p>Phone: +1 (712) 657-4050</p><p>Address: 123 Finance Street, <br />One Raffles Quay, #37-01, Singapore 048583</p></div></div>
       <div>
         <h4 class="text-xs font-semibold">Follow Us</h4>
         <div class="mt-3 flex gap-2">

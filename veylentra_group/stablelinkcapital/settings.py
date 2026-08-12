@@ -33,7 +33,15 @@ DEBUG = os.getenv("DEBUG", "False").lower() in (
     "yes",
 )
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    "veylentragroup.com",
+    "www.veylentragroup.com",
+    "vaylentragroup-railway-production.up.railway.app",
+
+    # Local development
+    "127.0.0.1",
+    "localhost",
+]
 
 
 # ============================================================
@@ -43,6 +51,10 @@ ALLOWED_HOSTS = ["*"]
 CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:8000",
     "http://localhost:8000",
+
+    "https://veylentragroup.com",
+    "https://www.veylentragroup.com",
+    "https://vaylentragroup-railway-production.up.railway.app",
 ]
 
 # Additional production domains can be supplied through

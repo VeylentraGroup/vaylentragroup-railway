@@ -864,30 +864,35 @@
   <!-- Main Content -->
   <main class="container mx-auto px-4 pb-24 pt-6">
     <!-- Dashboard Tab -->
-    <div id="dashboard-tab" class="tab-content fade-in">
+    <div id="dashboard-tab" class="tab-content fade-in" >
       <!-- Account Overview Card -->
       <div class=" p mb-6 text-gray-900 dark:text-white">
-        <div class="relative overflow-hidden rounded-2xl p-6 mb-6 text-white shadow-lg inner-banner w-full !w-full" style="width: auto !important;">
-              <!-- Floating elements -->
-            <div class="absolute -top-4 -right-4 w-20 h-20 bg-white/10 rounded-full"></div>
-            <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-white/5 rounded-full"></div>
-            
-            <div class="relative z-10">
-                <p class="text-sm font-medium text-white/90 mb-2">Profits Earned</p>
-                <p class="text-4xl font-bold mb-4">${{ profile.return_of_investment|default:"0.00" }}</p>
-                
-                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-4 border-t border-white/20">
-                    <div class="flex items-center space-x-3">
-                        <span class="px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded-full">
-                            ✅ Active Trading
-                        </span>
-                    </div>
+        <div class="relative overflow-hidden rounded-2xl p-6 mb-6 text-white shadow-lg inner-banner w-full !w-full" 
+     style="width: auto !important; background-image: url('{% static 'images/hero-image.png' %}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    
+    <!-- Background overlay for better text readability -->
+    <div class="absolute inset-0 bg-black/50 rounded-2xl"></div>
+    
+    <!-- Floating elements -->
+    <div class="absolute -top-4 -right-4 w-20 h-20 bg-white/10 rounded-full"></div>
+    <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-white/5 rounded-full"></div>
+    
+    <div class="relative z-10">
+        <p class="text-sm font-medium text-white/90 mb-2">Profits Earned</p>
+        <p class="text-4xl font-bold mb-4">${{ profile.return_of_investment|default:"0.00" }}</p>
+        
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-4 border-t border-white/20">
+            <div class="flex items-center space-x-3">
+                <span class="px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded-full">
+                    ✅ Active Trading
+                </span>
+            </div>
             <div class="flex items-center space-x-2">
                 <span class="text-sm text-white/80">Balance:</span>
                 <span class="text-lg font-bold text-white">${{ profile.balance|default:"0.00" }}</span>
             </div>
         </div>
-      </div>
+    </div>
 </div>
        <!-- Quick Actions -->
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
