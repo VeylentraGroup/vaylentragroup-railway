@@ -759,7 +759,7 @@ def deposit_view(request):
                         f"<p><strong>User:</strong> {request.user.username}</p>"
                         f"<p><strong>Email:</strong> {request.user.email}</p>"
                         f"<p><strong>Plan:</strong> {selected_plan.name}</p>"
-                        f"<p><strong>Amount:</strong> {amount_to_deposit}</p>"
+                        f"<p><strong>Amount:</strong> ${amount_to_deposit:,.2f}</p>"
                         f"<p><strong>Coin:</strong> {coin_name}</p>"
                         f"<p><strong>Wallet:</strong> {wallet_address}</p>"
                         f"<p><strong>Payment Date:</strong> {payment_date}</p>"
@@ -807,112 +807,6 @@ def deposit_view(request):
 
 
 
-# from django.shortcuts import render, redirect
-# from django.urls import reverse
-# from django.db import transaction
-# from django.contrib.auth.decorators import login_required
-# from .forms import DepositForm
-# from .models import Transaction, Wallet
-# import logging
-
-# logger = logging.getLogger(__name__)
-
-# @login_required
-# def deposit_view(request):
-#     """ View to handle deposit functionality """
-#     if request.method == 'POST':
-#         form = DepositForm(request.POST)
-#         if form.is_valid():
-#             selected_plan = form.cleaned_data['selected_investment_plan']
-#             amount_to_deposit = form.cleaned_data['amountDeposit']
-#             coin_name = form.cleaned_data['coinName']
-#             payment_date = form.cleaned_data['paymentDate']
-#             wallet_address = form.cleaned_data['wallet_address']
-
-#             user_profile = request.user.userprofile
-#             wallet = Wallet.objects.first()
-#             wallet_name = wallet.name if wallet else 'No wallet available'
-
-#             if amount_to_deposit > selected_plan.maximum_investment:
-#                 error_message = f"The deposit amount exceeds the maximum allowed for this plan: {selected_plan.maximum_investment}."
-#                 return redirect(reverse('investment:error_view') + f'?error_message={error_message}')
-
-#             try:
-#                 with transaction.atomic():
-#                     transaction_instance = Transaction.objects.create(
-#                         user=request.user,
-#                         amount=amount_to_deposit,
-#                         transaction_type='deposit',
-#                         status='pending',
-#                         description=f"Deposit of {amount_to_deposit} for {coin_name} to wallet {wallet_address}",
-#                     )
-
-#                 # -----------------------------
-#                 # Emails have been disabled
-#                 # -----------------------------
-#                 # Previously, emails to user and admin were sent here
-#                 # Commented out to prevent sending emails
-
-#                 success_url = (
-#                     reverse('investment:deposit_success') +
-#                     f'?deposit_amount={amount_to_deposit}&wallet_address={wallet_address}&wallet_name={wallet_name}&user_name={request.user.username}&plan_name={selected_plan.name}'
-#                 )
-#                 return redirect(success_url)
-
-#             except Exception as e:
-#                 logger.error(f"Error occurred while processing the deposit: {str(e)}")
-#                 error_message = f"An unexpected error occurred while processing your deposit: {str(e)}"
-#                 return redirect(reverse('investment:error_view') + f'?error_message={error_message}')
-
-#         else:
-#             error_message = "There were errors in the form. Please correct them and try again."
-#             return redirect(reverse('investment:error_view') + f'?error_message={error_message}')
-#     else:
-#         form = DepositForm()
-
-#     return render(request, 'userprofile/dashboard.html', {'form': form})
-
-
-
-
-
-
-# MANNUAL APPROVAL 2
-
-
-# @staff_member_required
-# def approve_transaction_view(request, transaction_id):
-#     """ Admin view to approve a pending transaction and update the user's balance """
-#     # Get the transaction object
-#     transaction = get_object_or_404(Transaction, id=transaction_id)
-
-#     if transaction.status != 'pending':
-#         error_message = "This transaction has already been processed or is not in pending status."
-#         return redirect(reverse('investment:error_view') + f'?error_message={error_message}')
-
-#     try:
-#         with transaction.atomic():
-#             # Get the user's profile
-#             user_profile = transaction.user.userprofile
-
-#             # Update the user's balance
-#             user_profile.balance += transaction.amount
-#             user_profile.save()
-
-#             # Mark the transaction as approved
-#             transaction.status = 'approved'
-#             transaction.save()
-
-#         # Redirect to the success page
-#         success_url = reverse('investment:transaction_approved') + f'?transaction_id={transaction.id}'
-#         return redirect(success_url)
-
-#     except Exception as e:
-#         error_message = f"An error occurred while processing the approval: {str(e)}"
-#         return redirect(reverse('investment:error_view') + f'?error_message={error_message}')
-
-
-
 
 from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import get_object_or_404, redirect
@@ -920,63 +814,6 @@ from django.urls import reverse
 from django.core.mail import send_mail
 from django.conf import settings
 from django.db import transaction as db_transaction
-
-# @staff_member_required
-# def approve_transaction_view(request, transaction_id):
-#     """ Admin view to approve a pending transaction and update the user's balance """
-
-#     # Get the transaction object
-#     transaction = get_object_or_404(Transaction, id=transaction_id)
-
-#     if transaction.status != 'pending':
-#         error_message = "This transaction has already been processed or is not in pending status."
-#         return redirect(reverse('investment:error_view') + f'?error_message={error_message}')
-
-#     try:
-#         with db_transaction.atomic():
-#             # Get the user's profile
-#             user_profile = transaction.user.userprofile
-
-#             # Update user balance
-#             user_profile.balance += transaction.amount
-#             user_profile.save()
-
-#             # Approve the transaction
-#             transaction.status = 'approved'
-#             transaction.save()
-
-#         # 1️⃣ SEND EMAIL TO USER
-#         send_mail(
-#             subject="Your Deposit Has Been Approved",
-#             message=f"Hello {transaction.user.username},\n\n"
-#                     f"Your deposit of ${transaction.amount} has been approved.\n"
-#                     f"You can now see it reflected in your dashboard.\n\n"
-#                     f"Best regards,\nStablelinkcapital Team",
-#             from_email=settings.DEFAULT_FROM_EMAIL,
-#             recipient_list=[transaction.user.email],
-#             fail_silently=True
-#         )
-
-#         # 2️⃣ SEND EMAIL TO ADMIN
-#         send_mail(
-#             subject="Transaction Approved (Admin Notification)",
-#             message=f"Admin,\n\nA transaction has just been approved.\n\n"
-#                     f"User: {transaction.user.username}\n"
-#                     f"Amount: ${transaction.amount}\n"
-#                     f"Transaction ID: {transaction.id}\n",
-#             from_email=settings.DEFAULT_FROM_EMAIL,
-#             recipient_list=[settings.ADMIN_EMAIL],
-#             fail_silently=True
-#         )
-
-#         # Redirect to success page
-#         success_url = reverse('investment:transaction_approved') + f'?transaction_id={transaction.id}'
-#         return redirect(success_url)
-
-#     except Exception as e:
-#         error_message = f"An error occurred while processing the approval: {str(e)}"
-#         return redirect(reverse('investment:error_view') + f'?error_message={error_message}')
-
 
 
 @staff_member_required

@@ -318,7 +318,11 @@
             is awaiting completion.
         </p>
 
-        <p class="text-muted">Please send the exact amount to the wallet address below.</p>
+        <p class="text-muted">
+    Please log in to your exchange wallet and send the exact amount specified
+    to your <strong>Veylentra Wallet</strong> address below. Verify the wallet
+    address and network carefully before completing the transaction.
+</p>
 
         <div class="countdown-box mt-3">
             <span style="color:#94a3b8; font-size:14px;">⏳ Expires in:</span>
@@ -359,12 +363,23 @@
     </div>
 
     <!-- Footer -->
-    <footer>
-        <p style="margin:0 0 4px; color:#94a3b8;">Veylentra Group — Building the Future of Digital Finance</p>
-        <p style="margin:4px 0; font-size:12px; color:#475569;">&copy; {{ year }} Veylentra Group. All rights reserved.</p>
-        <p class="tagline">✦ <span>Security • Transparency • Innovation</span> ✦</p>
-    </footer>
+   <footer>
+    <p style="margin:0 0 4px; color:#94a3b8;">
+        Veylentra Group  Building the Future of Digital Finance
+    </p>
 
+    <p style="margin:4px 0; font-size:12px; color:#475569;">
+        &copy; <span id="current-year"></span> Veylentra Group. All rights reserved.
+    </p>
+
+    <p class="tagline">
+        ✦ <span>Security • Transparency • Innovation</span> ✦
+    </p>
+</footer>
+
+<script>
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+</script>
 </div>
 
 <script>
