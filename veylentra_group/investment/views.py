@@ -694,8 +694,10 @@ def deposit_view(request):
             wallet_address = form.cleaned_data['wallet_address']
 
             user_profile = request.user.userprofile
-            wallet = Wallet.objects.first()
+            wallet = Wallet.objects.filter(wallet_address=wallet_address).first()
             wallet_name = wallet.name if wallet else 'No wallet available'
+            # wallet = Wallet.objects.first()
+            # wallet_name = wallet.name if wallet else 'No wallet available'
 
             if amount_to_deposit > selected_plan.maximum_investment:
                 error_message = (
