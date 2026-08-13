@@ -6,14 +6,24 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>{% block title %} {{user.username|capfirst}} | Dashboard{% endblock %}</title>
+  <!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="{% static 'images/favicon.svg' %}">
+
+<!-- Open Graph / Social Preview -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Veylentra Group">
+<meta property="og:description" content="Veylentra Group — Financial and investment solutions.">
+<meta property="og:image" content="https://veylentragroup.com/static/images/veylentra-preview.png">
+<meta property="og:url" content="https://veylentragroup.com/">
+<meta property="og:site_name" content="Veylentra Group">
+
+<!-- Twitter/X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Veylentra Group">
+<meta name="twitter:description" content="Veylentra Group — Financial and investment solutions.">
+<meta name="twitter:image" content="https://veylentragroup.com/static/images/veylentra-preview.png">
 
   <!-- Favicons -->
-  {% load static %}
-  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
-  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
-     <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
-    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   
