@@ -1106,84 +1106,42 @@
   </script>
 </div>
 <!-- TradingView Widget END -->
+ <div class="w-full flex justify-center px-3 pt-16 pb-6">
 
-<!-- Security Buttons Section -->
-<div class="security-buttons">
-    <button class="security-btn active">
-        <i class="fas fa-lock"></i> Blockchain
-    </button>
-    <button class="security-btn active">
-        <i class="fas fa-wallet"></i> Wallet
-    </button>
+    <div class="flex items-center justify-center gap-2 sm:gap-3 w-full max-w-2xl">
+
+        <!-- Apply for Loan -->
+        <a href="{% url 'loan:apply' %}"
+           class="group flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2.5 sm:py-3 rounded-lg bg-[#DCB45E] hover:bg-[#cda34d] text-white text-[11px] sm:text-xs font-semibold whitespace-nowrap shadow-md shadow-[#DCB45E]/20 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
+
+            <i class="fas fa-hand-holding-usd text-[12px] sm:text-sm"></i>
+            <span>Apply for Loan</span>
+
+        </a>
+
+
+        <!-- Loan Status -->
+        <a href="{% url 'loan:loan_status' %}"
+           class="group flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2.5 sm:py-3 rounded-lg bg-[#DCB45E] hover:bg-[#cda34d] text-white text-[11px] sm:text-xs font-semibold whitespace-nowrap shadow-md shadow-[#DCB45E]/20 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
+
+            <i class="fas fa-file-invoice-dollar text-[12px] sm:text-sm"></i>
+            <span>Loan Status</span>
+
+        </a>
+
+
+        <!-- Loan Details -->
+        <a href="{% url 'loan:loan_status' %}"
+           class="group flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2.5 sm:py-3 rounded-lg bg-[#DCB45E] hover:bg-[#cda34d] text-white text-[11px] sm:text-xs font-semibold whitespace-nowrap shadow-md shadow-[#DCB45E]/20 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
+
+            <i class="fas fa-file-alt text-[12px] sm:text-sm"></i>
+            <span>Loan Details</span>
+
+        </a>
+
+    </div>
+
 </div>
-
-<style>
-  /* Security Button Container */
-  .security-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin: 30px auto;
-      padding: 10px;
-  }
-
-  /* Styling the Security Buttons */
-  .security-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      color: white;
-      width: 160px; /* Adjusted width for a more compact look */
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  /* Active Button Style */
-  .security-btn.active {
-      background: linear-gradient(135deg, #34d399 0%, #10b981 100%); /* Green for active status */
-  }
-
-  /* Icons Style */
-  .security-btn i {
-      margin-right: 8px; /* Space between the icon and the text */
-      font-size: 18px; /* Icon size adjustment */
-  }
-
-  /* Mobile Responsiveness */
-  @media (max-width: 767px) {
-      .security-buttons {
-          flex-direction: row;
-          justify-content: space-evenly; /* Display buttons side by side on mobile */
-      }
-
-      .security-btn {
-          width: 45%; /* Button width adjusted for mobile */
-          margin-bottom: 10px;
-          font-size: 12px; /* Smaller font size on mobile */
-      }
-  }
-
-  /* Desktop Style */
-  @media (min-width: 768px) {
-      .security-buttons {
-          justify-content: center; /* Center buttons on desktop */
-      }
-
-      .security-btn {
-          width: 160px; /* Fixed width for desktop */
-          font-size: 14px; /* Adjust font size for desktop */
-      }
-  }
-</style>
-
 <!-- Font Awesome Icons Script -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 
