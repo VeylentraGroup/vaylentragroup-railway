@@ -151,6 +151,7 @@
       /* Django Form Styling */
       .django-form p {
         margin-bottom: 1.25rem;
+        position: relative;
       }
 
       .django-form label {
@@ -203,6 +204,41 @@
 
       .django-form ul.errorlist li {
         margin-bottom: 0.25rem;
+      }
+
+      /* Password Toggle Button */
+      .password-toggle {
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+        background: none;
+        border: none;
+        color: #94a3b8;
+        cursor: pointer;
+        padding: 4px;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: rgba(7, 17, 31, 0.4);
+      }
+
+      .password-toggle:hover {
+        color: #c9a85c;
+        background: rgba(201, 168, 92, 0.15);
+      }
+
+      .password-toggle svg {
+        width: 18px;
+        height: 18px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
       }
 
       /* Messages */
@@ -331,6 +367,18 @@
           font-size: 0.9rem;
         }
 
+        .password-toggle {
+          right: 10px;
+          bottom: 10px;
+          width: 24px;
+          height: 24px;
+        }
+
+        .password-toggle svg {
+          width: 16px;
+          height: 16px;
+        }
+
         .btn-login {
           padding: 12px;
           font-size: 0.85rem;
@@ -360,6 +408,25 @@
         .login-card {
           padding: 20px 16px;
         }
+
+        .password-toggle {
+          right: 8px;
+          bottom: 8px;
+          width: 22px;
+          height: 22px;
+        }
+
+        .password-toggle svg {
+          width: 14px;
+          height: 14px;
+        }
+      }
+
+      /* Password strength indicator (optional) */
+      .password-hint {
+        font-size: 0.7rem;
+        color: #64748b;
+        margin-top: 4px;
       }
     </style>
   </head>
@@ -425,7 +492,7 @@
       {% endif %}
 
       <!-- Form -->
-      <form method="POST" class="space-y-5">
+      <form method="POST" class="space-y-5" id="loginForm">
         {% csrf_token %}
 
         <!-- Non-field errors -->
@@ -437,8 +504,35 @@
         </div>
         {% endif %}
 
-        <!-- Django Form Fields -->
-        <div class="django-form">{{ form.as_p }}</div>
+        <!-- Django Form Fields with Password Toggle -->
+        <div class="django-form" id="djangoForm">
+          {% for field in form %}
+          <p>
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.field.widget.input_type == 'password' %}
+            <button type="button" class="password-toggle" onclick="togglePassword(this)" aria-label="Toggle password visibility">
+              <!-- Eye Icon (Closed) -->
+              <svg class="eye-icon" viewBox="0 0 24 24">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              <!-- Eye Icon (Open / Slash) - hidden by default -->
+              <svg class="eye-slash-icon" viewBox="0 0 24 24" style="display: none;">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
+                <line x1="1" y1="1" x2="23" y2="23" />
+              </svg>
+            </button>
+            {% endif %}
+            {% if field.help_text %}
+            <span class="helptext">{{ field.help_text|safe }}</span>
+            {% endif %}
+            {% for error in field.errors %}
+            <ul class="errorlist"><li>{{ error }}</li></ul>
+            {% endfor %}
+          </p>
+          {% endfor %}
+        </div>
 
         <!-- Login Button -->
         <button type="submit" class="btn-login">Sign In</button>
@@ -456,6 +550,67 @@
         </div>
       </form>
     </div>
+
+    <!-- Password Toggle JavaScript -->
+    <script>
+      function togglePassword(button) {
+        // Find the password input field
+        const formGroup = button.closest('p');
+        const passwordInput = formGroup.querySelector('input[type="password"], input[type="text"]');
+        
+        // Get the icons
+        const eyeIcon = button.querySelector('.eye-icon');
+        const eyeSlashIcon = button.querySelector('.eye-slash-icon');
+        
+        if (passwordInput) {
+          // Toggle password visibility
+          if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            // Show slash icon, hide eye icon
+            eyeIcon.style.display = 'none';
+            eyeSlashIcon.style.display = 'block';
+            button.setAttribute('aria-label', 'Hide password');
+          } else {
+            passwordInput.type = 'password';
+            // Show eye icon, hide slash icon
+            eyeIcon.style.display = 'block';
+            eyeSlashIcon.style.display = 'none';
+            button.setAttribute('aria-label', 'Show password');
+          }
+        }
+      }
+
+      // Ensure password fields are properly initialized
+      document.addEventListener('DOMContentLoaded', function() {
+        // Find all password fields and add toggle buttons if not already present
+        const passwordFields = document.querySelectorAll('input[type="password"]');
+        passwordFields.forEach(function(field) {
+          const formGroup = field.closest('p');
+          // Check if toggle button already exists
+          if (!formGroup.querySelector('.password-toggle')) {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'password-toggle';
+            button.setAttribute('aria-label', 'Toggle password visibility');
+            button.onclick = function() { togglePassword(this); };
+            
+            // Eye icon HTML
+            button.innerHTML = `
+              <svg class="eye-icon" viewBox="0 0 24 24">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              <svg class="eye-slash-icon" viewBox="0 0 24 24" style="display: none;">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
+                <line x1="1" y1="1" x2="23" y2="23" />
+              </svg>
+            `;
+            
+            formGroup.appendChild(button);
+          }
+        });
+      });
+    </script>
 
     <!-- Preloader script (optional) -->
     <script>
