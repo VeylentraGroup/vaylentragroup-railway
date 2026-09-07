@@ -6,28 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Veylentra Group — Digital Finance</title>
     <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon.svg' %}">
-    <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-/>
- <!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="{% static 'images/favicon.svg' %}">
-
-<!-- Open Graph / Social Preview -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Veylentra Group">
-<meta property="og:description" content="Veylentra Group — Financial and investment solutions.">
-<meta property="og:image" content="https://veylentragroup.com/static/images/veylentra-preview.png">
-<meta property="og:url" content="https://veylentragroup.com/">
-<meta property="og:site_name" content="Veylentra Group">
-
-<!-- Twitter/X -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Veylentra Group">
-<meta name="twitter:description" content="Veylentra Group — Financial and investment solutions.">
-<meta name="twitter:image" content="https://veylentragroup.com/static/images/veylentra-preview.png">
-    <script src="https://cdn.tailwindcss.com">
-    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon.svg' %}">
+    <!-- Open Graph / Social Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Veylentra Group">
+    <meta property="og:description" content="Veylentra Group — Financial and investment solutions.">
+    <meta property="og:image" content="https://veylentragroup.com/static/images/veylentra-preview.png">
+    <meta property="og:url" content="https://veylentragroup.com/">
+    <meta property="og:site_name" content="Veylentra Group">
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Veylentra Group">
+    <meta name="twitter:description" content="Veylentra Group — Financial and investment solutions.">
+    <meta name="twitter:image" content="https://veylentragroup.com/static/images/veylentra-preview.png">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -55,18 +49,22 @@
       html {
         scroll-behavior: smooth;
       }
+
       body {
         background: #07111f;
         color: #f8fafc;
       }
+
       .glass {
         background: rgba(7, 17, 31, 0.76);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
       }
+
       .border-soft {
         border-color: rgba(148, 163, 184, 0.2);
       }
+
       .gold-gradient {
         background: linear-gradient(135deg, #e7c46d 0%, #c9a85c 45%, #a98237 100%);
       }
@@ -82,45 +80,49 @@
         width: 100%;
         height: 100%;
       }
+
       .veylentra-hero__overlay {
         position: absolute;
         inset: 0;
         z-index: 10;
         pointer-events: none;
         background:
-          linear-gradient(90deg, rgba(7,17,31,0.92) 0%, rgba(7,17,31,0.78) 24%, rgba(7,17,31,0.48) 42%, rgba(7,17,31,0.20) 68%, rgba(7,17,31,0.60) 100%),
-          linear-gradient(180deg, rgba(7,17,31,0.04) 0%, rgba(7,17,31,0.08) 48%, rgba(7,17,31,0.92) 100%);
+          linear-gradient(90deg, rgba(7, 17, 31, 0.92) 0%, rgba(7, 17, 31, 0.78) 24%, rgba(7, 17, 31, 0.48) 42%, rgba(7, 17, 31, 0.20) 68%, rgba(7, 17, 31, 0.60) 100%),
+          linear-gradient(180deg, rgba(7, 17, 31, 0.04) 0%, rgba(7, 17, 31, 0.08) 48%, rgba(7, 17, 31, 0.92) 100%);
       }
+
       .veylentra-hero__atmosphere {
         position: absolute;
         inset: 0;
         z-index: 11;
         pointer-events: none;
-        background: radial-gradient(circle at 76% 34%, rgba(42,112,180,0.10), transparent 38%);
+        background: radial-gradient(circle at 76% 34%, rgba(42, 112, 180, 0.10), transparent 38%);
       }
 
       /* ===== CARDS ===== */
       .card-hover {
         transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
       }
+
       .card-hover:hover {
         transform: translateY(-4px);
         border-color: rgba(201, 168, 92, 0.6);
         background: rgba(13, 27, 42, 0.95);
-        box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
       }
 
       /* ===== INVESTMENT PLAN ===== */
       .plan-card {
         transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-        border: 1px solid rgba(148,163,184,0.12);
+        border: 1px solid rgba(148, 163, 184, 0.12);
         background: rgba(13, 27, 42, 0.6);
         backdrop-filter: blur(4px);
       }
+
       .plan-card:hover {
         transform: translateY(-8px) scale(1.01);
         border-color: #c9a85c;
-        box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,92,0.12);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(201, 168, 92, 0.12);
         background: rgba(13, 27, 42, 0.85);
       }
 
@@ -139,13 +141,14 @@
         background: linear-gradient(135deg, #e7c46d 0%, #c9a85c 45%, #a98237 100%);
         color: #07111f;
         border: none;
-        box-shadow: 0 4px 20px rgba(201,168,92,0.15);
+        box-shadow: 0 4px 20px rgba(201, 168, 92, 0.15);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         cursor: pointer;
         position: relative;
         overflow: hidden;
         min-width: 130px;
       }
+
       .invest-btn::after {
         content: '';
         position: absolute;
@@ -155,24 +158,29 @@
         transition: opacity 0.35s ease;
         border-radius: 50px;
       }
+
       .invest-btn:hover {
         transform: translateY(-2px) scale(1.04);
-        box-shadow: 0 8px 35px rgba(201,168,92,0.4);
+        box-shadow: 0 8px 35px rgba(201, 168, 92, 0.4);
       }
+
       .invest-btn:hover::after {
         opacity: 1;
       }
+
       .invest-btn span,
       .invest-btn .arrow {
         position: relative;
         z-index: 2;
       }
+
       .invest-btn .arrow {
         display: inline-block;
         transition: transform 0.3s ease;
         font-size: 0.9rem;
         line-height: 1;
       }
+
       .invest-btn:hover .arrow {
         transform: translateX(5px);
       }
@@ -184,28 +192,30 @@
         gap: 0.35rem;
         padding: 0.2rem 0.7rem;
         border-radius: 50px;
-        background: rgba(201,168,92,0.12);
-        border: 1px solid rgba(201,168,92,0.2);
+        background: rgba(201, 168, 92, 0.12);
+        border: 1px solid rgba(201, 168, 92, 0.2);
         font-size: 0.6rem;
         font-weight: 600;
         color: #c9a85c;
         letter-spacing: 0.02em;
         transition: all 0.3s ease;
       }
+
       .plan-card:hover .roi-badge {
-        background: rgba(201,168,92,0.2);
+        background: rgba(201, 168, 92, 0.2);
         border-color: #c9a85c;
       }
 
       /* ===== CERTIFICATE BUTTON ===== */
       .cert-btn {
         transition: all 0.3s ease;
-        border: 1px solid rgba(201,168,92,0.3);
+        border: 1px solid rgba(201, 168, 92, 0.3);
       }
+
       .cert-btn:hover {
-        background: rgba(201,168,92,0.12);
+        background: rgba(201, 168, 92, 0.12);
         border-color: #c9a85c;
-        box-shadow: 0 0 30px rgba(201,168,92,0.08);
+        box-shadow: 0 0 30px rgba(201, 168, 92, 0.08);
         transform: translateY(-2px);
       }
 
@@ -213,12 +223,15 @@
       #menuBtn .icon-bar {
         transition: all 0.3s ease;
       }
+
       #menuBtn.active .icon-bar:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
       }
+
       #menuBtn.active .icon-bar:nth-child(2) {
         opacity: 0;
       }
+
       #menuBtn.active .icon-bar:nth-child(3) {
         transform: rotate(-45deg) translate(6px, -6px);
       }
@@ -230,6 +243,7 @@
         gap: 0.75rem;
         width: 100%;
       }
+
       .hero-buttons a {
         display: inline-flex;
         align-items: center;
@@ -243,18 +257,21 @@
         flex: 1 1 auto;
         min-width: 140px;
       }
+
       /* On mobile (≤480px) side by side */
       @media (min-width: 380px) {
         .hero-buttons {
           flex-direction: row;
           flex-wrap: wrap;
         }
+
         .hero-buttons a {
           flex: 1 1 auto;
           min-width: 140px;
           max-width: 220px;
         }
       }
+
       /* On desktop reduce length further */
       @media (min-width: 1024px) {
         .hero-buttons a {
@@ -263,6 +280,7 @@
           min-width: 120px;
           max-width: 180px;
         }
+
         .hero-buttons a span.text-base {
           font-size: 0.85rem;
         }
@@ -275,335 +293,357 @@
           grid-template-columns: 1fr 1fr;
           gap: 1.5rem 0.75rem;
         }
-        .footer-grid-mobile > div {
+
+        .footer-grid-mobile>div {
           margin-bottom: 0;
         }
       }
 
       /* ===== RESPONSIVE HERO OVERLAY ===== */
       @media (max-width: 767px) {
-        .veylentra-hero__bg { background-position: 50% center; }
+        .veylentra-hero__bg {
+          background-position: 50% center;
+        }
+
         .veylentra-hero__overlay {
           background:
-            linear-gradient(180deg, rgba(7,17,31,0.28) 0%, rgba(7,17,31,0.36) 12%, rgba(7,17,31,0.48) 24%, rgba(7,17,31,0.70) 39%, rgba(7,17,31,0.92) 55%, #07111f 72%, #07111f 100%);
+            linear-gradient(180deg, rgba(7, 17, 31, 0.28) 0%, rgba(7, 17, 31, 0.36) 12%, rgba(7, 17, 31, 0.48) 24%, rgba(7, 17, 31, 0.70) 39%, rgba(7, 17, 31, 0.92) 55%, #07111f 72%, #07111f 100%);
         }
+
         .veylentra-hero__atmosphere {
-          background: radial-gradient(circle at 72% 20%, rgba(42,112,180,0.10), transparent 40%);
+          background: radial-gradient(circle at 72% 20%, rgba(42, 112, 180, 0.10), transparent 40%);
         }
-        .veylentra-hero h1 { font-size: clamp(2.2rem, 10vw, 3.25rem); line-height: 1.05; }
-        .veylentra-hero p { line-height: 1.65; }
+
+        .veylentra-hero h1 {
+          font-size: clamp(2.2rem, 10vw, 3.25rem);
+          line-height: 1.05;
+        }
+
+        .veylentra-hero p {
+          line-height: 1.65;
+        }
+
         .hero-buttons a {
           font-size: 0.65rem;
           padding: 0.55rem 0.9rem;
           min-width: 120px;
         }
       }
+
       @media (max-width: 380px) {
         .veylentra-hero__overlay {
           background:
-            linear-gradient(180deg, rgba(7,17,31,0.32) 0%, rgba(7,17,31,0.42) 12%, rgba(7,17,31,0.56) 24%, rgba(7,17,31,0.78) 38%, rgba(7,17,31,0.96) 53%, #07111f 70%, #07111f 100%);
+            linear-gradient(180deg, rgba(7, 17, 31, 0.32) 0%, rgba(7, 17, 31, 0.42) 12%, rgba(7, 17, 31, 0.56) 24%, rgba(7, 17, 31, 0.78) 38%, rgba(7, 17, 31, 0.96) 53%, #07111f 70%, #07111f 100%);
         }
+
         .hero-buttons a {
           font-size: 0.6rem;
           padding: 0.5rem 0.7rem;
           min-width: 100px;
         }
       }
+
       @media (prefers-reduced-motion: reduce) {
-        * { transition: none !important; }
-        html { scroll-behavior: auto; }
+        * {
+          transition: none !important;
+        }
+
+        html {
+          scroll-behavior: auto;
+        }
       }
     </style>
     <!-- Smartsupp Live Chat script -->
-<script type="text/javascript">
-var _smartsupp = _smartsupp || {};
-_smartsupp.key = 'c0f7b1291fb348e8e7f6c035a66bbd6c8f765fc6';
-window.smartsupp||(function(d) {
-  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
-  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
-  c.type='text/javascript';c.charset='utf-8';c.async=true;
-  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
-})(document);
-</script>
-<noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
-
+    <script type="text/javascript">
+      var _smartsupp = _smartsupp || {};
+      _smartsupp.key = 'c0f7b1291fb348e8e7f6c035a66bbd6c8f765fc6';
+      window.smartsupp || (function(d) {
+        var s, c, o = smartsupp = function() {
+          o._.push(arguments)
+        };
+        o._ = [];
+        s = d.getElementsByTagName('script')[0];
+        c = d.createElement('script');
+        c.type = 'text/javascript';
+        c.charset = 'utf-8';
+        c.async = true;
+        c.src = 'https://www.smartsuppchat.com/loader.js?';
+        s.parentNode.insertBefore(c, s);
+      })(document);
+    </script>
+    <noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a>
+    </noscript>
   </head>
   <body class="min-h-screen overflow-x-hidden">
     <!-- Add this right after the opening <body> tag -->
-<!-- ====== PROFESSIONAL PRELOADER FOR VEYLENTRA GROUP ====== -->
-<div id="preloader">
-  <div class="preloader-container">
-    <!-- Animated Logo -->
-    <div class="preloader-logo">
-      <svg viewBox="0 0 48 48" class="preloader-svg" fill="none">
-        <path d="M6 11 17 7l7 9-7 2-6 8-5-15Z" stroke="currentColor" stroke-width="3" />
-        <path d="m21 8 7 6-5 20-8-7 6-19Z" fill="currentColor" opacity=".95" />
-        <path d="m28 13 13-6-4 20-9 8-7-7 7-15Z" stroke="currentColor" stroke-width="3" />
-      </svg>
+    <!-- ====== PROFESSIONAL PRELOADER FOR VEYLENTRA GROUP ====== -->
+    <div id="preloader">
+      <div class="preloader-container">
+        <!-- Animated Logo -->
+        <div class="preloader-logo">
+          <svg viewBox="0 0 48 48" class="preloader-svg" fill="none">
+            <path d="M6 11 17 7l7 9-7 2-6 8-5-15Z" stroke="currentColor" stroke-width="3" />
+            <path d="m21 8 7 6-5 20-8-7 6-19Z" fill="currentColor" opacity=".95" />
+            <path d="m28 13 13-6-4 20-9 8-7-7 7-15Z" stroke="currentColor" stroke-width="3" />
+          </svg>
+        </div>
+        <!-- Brand Name -->
+        <div class="preloader-brand">
+          <span class="preloader-name">VEYLENTRA</span>
+          <span class="preloader-group">GROUP</span>
+        </div>
+        <!-- Animated Progress Bar -->
+        <div class="preloader-progress">
+          <div class="preloader-progress-bar" id="progressBar"></div>
+        </div>
+        <!-- Loading Percentage -->
+        <div class="preloader-percentage" id="percentageText">0%</div>
+        <!-- Loading Dots -->
+        <div class="preloader-dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
     </div>
+    <style>
+      /* ====== PROFESSIONAL PRELOADER STYLES ====== */
+      #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #07111f;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 999999;
+        transition: opacity 0.8s ease, visibility 0.8s ease;
+      }
 
-    <!-- Brand Name -->
-    <div class="preloader-brand">
-      <span class="preloader-name">VEYLENTRA</span>
-      <span class="preloader-group">GROUP</span>
-    </div>
+      #preloader.fade-out {
+        opacity: 0;
+        visibility: hidden;
+      }
 
-    <!-- Animated Progress Bar -->
-    <div class="preloader-progress">
-      <div class="preloader-progress-bar" id="progressBar"></div>
-    </div>
+      .preloader-container {
+        text-align: center;
+        padding: 2rem;
+      }
 
-    <!-- Loading Percentage -->
-    <div class="preloader-percentage" id="percentageText">0%</div>
+      /* Animated Logo */
+      .preloader-logo {
+        display: inline-block;
+        color: #c9a85c;
+        animation: preloaderPulse 1.5s ease-in-out infinite;
+      }
 
-    <!-- Loading Dots -->
-    <div class="preloader-dots">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div>
-</div>
+      .preloader-svg {
+        width: 72px;
+        height: 72px;
+        filter: drop-shadow(0 0 30px rgba(201, 168, 92, 0.3));
+      }
 
-<style>
-/* ====== PROFESSIONAL PRELOADER STYLES ====== */
+      @keyframes preloaderPulse {
 
-#preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #07111f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999999;
-  transition: opacity 0.8s ease, visibility 0.8s ease;
-}
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
 
-#preloader.fade-out {
-  opacity: 0;
-  visibility: hidden;
-}
+        50% {
+          transform: scale(1.08);
+          opacity: 0.8;
+        }
+      }
 
-.preloader-container {
-  text-align: center;
-  padding: 2rem;
-}
+      /* Brand Name */
+      .preloader-brand {
+        margin-top: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.15rem;
+      }
 
-/* Animated Logo */
-.preloader-logo {
-  display: inline-block;
-  color: #c9a85c;
-  animation: preloaderPulse 1.5s ease-in-out infinite;
-}
+      .preloader-name {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.25em;
+        color: #ffffff;
+        text-transform: uppercase;
+      }
 
-.preloader-svg {
-  width: 72px;
-  height: 72px;
-  filter: drop-shadow(0 0 30px rgba(201, 168, 92, 0.3));
-}
+      .preloader-group {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.5em;
+        color: #c9a85c;
+        text-transform: uppercase;
+      }
 
-@keyframes preloaderPulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.08);
-    opacity: 0.8;
-  }
-}
+      /* Progress Bar */
+      .preloader-progress {
+        width: 200px;
+        height: 3px;
+        background: rgba(148, 163, 184, 0.15);
+        border-radius: 4px;
+        margin: 1.5rem auto 0.75rem;
+        overflow: hidden;
+        position: relative;
+      }
 
-/* Brand Name */
-.preloader-brand {
-  margin-top: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.15rem;
-}
+      .preloader-progress-bar {
+        width: 0%;
+        height: 100%;
+        background: linear-gradient(90deg, #c9a85c, #e2b95e, #c9a85c);
+        background-size: 200% 100%;
+        border-radius: 4px;
+        transition: width 0.3s ease;
+        animation: shimmer 1.5s ease-in-out infinite;
+      }
 
-.preloader-name {
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  color: #ffffff;
-  text-transform: uppercase;
-}
+      @keyframes shimmer {
+        0% {
+          background-position: 200% 0;
+        }
 
-.preloader-group {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.5em;
-  color: #c9a85c;
-  text-transform: uppercase;
-}
+        100% {
+          background-position: -200% 0;
+        }
+      }
 
-/* Progress Bar */
-.preloader-progress {
-  width: 200px;
-  height: 3px;
-  background: rgba(148, 163, 184, 0.15);
-  border-radius: 4px;
-  margin: 1.5rem auto 0.75rem;
-  overflow: hidden;
-  position: relative;
-}
+      /* Percentage */
+      .preloader-percentage {
+        font-size: 13px;
+        font-weight: 600;
+        color: #94a3b8;
+        letter-spacing: 0.1em;
+        margin-bottom: 1rem;
+      }
 
-.preloader-progress-bar {
-  width: 0%;
-  height: 100%;
-  background: linear-gradient(90deg, #c9a85c, #e2b95e, #c9a85c);
-  background-size: 200% 100%;
-  border-radius: 4px;
-  transition: width 0.3s ease;
-  animation: shimmer 1.5s ease-in-out infinite;
-}
+      /* Loading Dots */
+      .preloader-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+      }
 
-@keyframes shimmer {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
-}
+      .preloader-dots span {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #c9a85c;
+        animation: dotBounce 1.4s ease-in-out infinite;
+      }
 
-/* Percentage */
-.preloader-percentage {
-  font-size: 13px;
-  font-weight: 600;
-  color: #94a3b8;
-  letter-spacing: 0.1em;
-  margin-bottom: 1rem;
-}
+      .preloader-dots span:nth-child(2) {
+        animation-delay: 0.2s;
+      }
 
-/* Loading Dots */
-.preloader-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-}
+      .preloader-dots span:nth-child(3) {
+        animation-delay: 0.4s;
+      }
 
-.preloader-dots span {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #c9a85c;
-  animation: dotBounce 1.4s ease-in-out infinite;
-}
+      @keyframes dotBounce {
 
-.preloader-dots span:nth-child(2) {
-  animation-delay: 0.2s;
-}
+        0%,
+        80%,
+        100% {
+          transform: scale(0.6);
+          opacity: 0.3;
+        }
 
-.preloader-dots span:nth-child(3) {
-  animation-delay: 0.4s;
-}
+        40% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
 
-@keyframes dotBounce {
-  0%, 80%, 100% {
-    transform: scale(0.6);
-    opacity: 0.3;
-  }
-  40% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
+      /* Optional: Glow effect behind the logo */
+      .preloader-container::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(201, 168, 92, 0.06) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+      }
 
-/* Optional: Glow effect behind the logo */
-.preloader-container::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(201, 168, 92, 0.06) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-}
+      /* Responsive Adjustments */
+      @media (max-width: 480px) {
+        .preloader-svg {
+          width: 56px;
+          height: 56px;
+        }
 
-/* Responsive Adjustments */
-@media (max-width: 480px) {
-  .preloader-svg {
-    width: 56px;
-    height: 56px;
-  }
-  .preloader-name {
-    font-size: 18px;
-    letter-spacing: 0.2em;
-  }
-  .preloader-group {
-    font-size: 9px;
-    letter-spacing: 0.4em;
-  }
-  .preloader-progress {
-    width: 160px;
-  }
-}
-</style>
+        .preloader-name {
+          font-size: 18px;
+          letter-spacing: 0.2em;
+        }
 
-<script>
-/* ====== PRELOADER JAVASCRIPT ====== */
+        .preloader-group {
+          font-size: 9px;
+          letter-spacing: 0.4em;
+        }
 
-(function() {
-  'use strict';
+        .preloader-progress {
+          width: 160px;
+        }
+      }
+    </style>
+    <script>
+      /* ====== PRELOADER JAVASCRIPT ====== */
+      (function() {
+        'use strict';
+        const preloader = document.getElementById('preloader');
+        const progressBar = document.getElementById('progressBar');
+        const percentageText = document.getElementById('percentageText');
+        let progress = 0;
+        const duration = 2000; // 2 seconds
+        const interval = 30; // Update every 30ms
+        const steps = duration / interval;
+        const increment = 100 / steps;
 
-  const preloader = document.getElementById('preloader');
-  const progressBar = document.getElementById('progressBar');
-  const percentageText = document.getElementById('percentageText');
-
-  let progress = 0;
-  const duration = 2000; // 2 seconds
-  const interval = 30; // Update every 30ms
-  const steps = duration / interval;
-  const increment = 100 / steps;
-
-  function updatePreloader() {
-    progress += increment;
-    if (progress >= 100) {
-      progress = 100;
-      progressBar.style.width = '100%';
-      percentageText.textContent = '100%';
-
-      // Fade out preloader
-      setTimeout(function() {
-        preloader.classList.add('fade-out');
-
-        // Remove preloader from DOM after animation
+        function updatePreloader() {
+          progress += increment;
+          if (progress >= 100) {
+            progress = 100;
+            progressBar.style.width = '100%';
+            percentageText.textContent = '100%';
+            // Fade out preloader
+            setTimeout(function() {
+              preloader.classList.add('fade-out');
+              // Remove preloader from DOM after animation
+              setTimeout(function() {
+                preloader.style.display = 'none';
+              }, 800);
+            }, 400);
+            return;
+          }
+          progressBar.style.width = progress + '%';
+          percentageText.textContent = Math.round(progress) + '%';
+          setTimeout(updatePreloader, interval);
+        }
+        // Start the preloader animation
+        updatePreloader();
+        // Fallback: Hide preloader after 5 seconds if something goes wrong
         setTimeout(function() {
-          preloader.style.display = 'none';
-        }, 800);
-      }, 400);
-
-      return;
-    }
-
-    progressBar.style.width = progress + '%';
-    percentageText.textContent = Math.round(progress) + '%';
-    setTimeout(updatePreloader, interval);
-  }
-
-  // Start the preloader animation
-  updatePreloader();
-
-  // Fallback: Hide preloader after 5 seconds if something goes wrong
-  setTimeout(function() {
-    if (!preloader.classList.contains('fade-out')) {
-      preloader.classList.add('fade-out');
-      setTimeout(function() {
-        preloader.style.display = 'none';
-      }, 800);
-    }
-  }, 5000);
-
-})();
-</script>
+          if (!preloader.classList.contains('fade-out')) {
+            preloader.classList.add('fade-out');
+            setTimeout(function() {
+              preloader.style.display = 'none';
+            }, 800);
+          }
+        }, 5000);
+      })();
+    </script>
     <!-- HEADER -->
     <header class="sticky top-0 z-50 border-b border-soft glass">
       <div class="mx-auto flex h-[70px] max-w-[1440px] items-center justify-between px-5 lg:px-8">
@@ -623,185 +663,230 @@ window.smartsupp||(function(d) {
         <nav class="hidden items-center gap-7 text-[12px] font-medium text-white/90 lg:flex">
           <a class="hover:text-gold transition-colors" href="#">Home</a>
           <a class="hover:text-gold transition-colors" href="#about">About</a>
-          <a class="hover:text-gold transition-colors" href="#services">Services <span class="ml-1">⌄</span></a>
+          <a class="hover:text-gold transition-colors" href="#services">Services <span class="ml-1">⌄</span>
+          </a>
           <a class="hover:text-gold transition-colors" href="#investments">Investments</a>
-          <a class="hover:text-gold transition-colors" href="#lending">Lending <span class="ml-1 rounded bg-gold px-1.5 py-0.5 text-[8px] text-navy">NEW</span></a>
+          <a class="hover:text-gold transition-colors" href="#lending">Lending <span class="ml-1 rounded bg-gold px-1.5 py-0.5 text-[8px] text-navy">NEW</span>
+          </a>
           <a class="hover:text-gold transition-colors" href="https://www.tradingview.com/markets/">Market</a>
-          <a class="hover:text-gold transition-colors" href="#resources">Resources <span class="ml-1">⌄</span></a>
+          <a class="hover:text-gold transition-colors" href="#resources">Resources <span class="ml-1">⌄</span>
+          </a>
           <a class="hover:text-gold transition-colors" href="#contact">Contact</a>
         </nav>
-        <div class="hidden items-center gap-3 sm:flex">
-
-  {% if request.user.is_authenticated %}
-
-<a
-  href="{% url 'userprofile:dashboard' %}"
-  class="rounded-md border border-slate/40 px-4 py-2 text-[12px] transition hover:border-gold hover:text-gold"
->
-  <i class="fa-solid fa-circle-user mr-1"></i>
-  {{ request.user.username|capfirst }}
-</a>
-
-<a
-  href="{% url 'userprofile:dashboard' %}"
-  class="gold-gradient rounded-md px-4 py-2 text-[12px] font-semibold text-navy shadow-gold transition hover:brightness-110 hover:scale-[1.02]"
->
-  <i class="fa-solid fa-gauge-high mr-1"></i>
-  Dashboard
-</a>
-
-{% else %}
-
-<a
-  href="{% url 'userprofile:login' %}"
-  class="rounded-md border border-slate/40 px-4 py-2 text-[12px] transition hover:border-gold hover:text-gold"
->
-  <i class="fa-solid fa-right-to-bracket mr-1"></i>
-  Login
-</a>
-
-<a
-  href="{% url 'userprofile:register' %}"
-  class="gold-gradient rounded-md px-4 py-2 text-[12px] font-semibold text-navy shadow-gold transition hover:brightness-110 hover:scale-[1.02]"
->
-  <i class="fa-solid fa-wallet mr-1"></i>
-  Create Wallet
-</a>
-
-{% endif %}
-</div>
+        <div class="hidden items-center gap-3 sm:flex"> {% if request.user.is_authenticated %} <a href="{% url 'userprofile:dashboard' %}" class="rounded-md border border-slate/40 px-4 py-2 text-[12px] transition hover:border-gold hover:text-gold">
+            <i class="fa-solid fa-circle-user mr-1"></i>
+            {{ request.user.username|capfirst }}
+          </a>
+          <a href="{% url 'userprofile:dashboard' %}" class="gold-gradient rounded-md px-4 py-2 text-[12px] font-semibold text-navy shadow-gold transition hover:brightness-110 hover:scale-[1.02]">
+            <i class="fa-solid fa-gauge-high mr-1"></i> Dashboard </a> {% else %} <a href="{% url 'userprofile:login' %}" class="rounded-md border border-slate/40 px-4 py-2 text-[12px] transition hover:border-gold hover:text-gold">
+            <i class="fa-solid fa-right-to-bracket mr-1"></i> Login </a>
+          <a href="{% url 'userprofile:register' %}" class="gold-gradient rounded-md px-4 py-2 text-[12px] font-semibold text-navy shadow-gold transition hover:brightness-110 hover:scale-[1.02]">
+            <i class="fa-solid fa-wallet mr-1"></i> Create Wallet </a> {% endif %}
+        </div>
         <button id="menuBtn" class="relative flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-md border border-white/20 p-2 lg:hidden" aria-label="Toggle menu">
           <span class="icon-bar block h-0.5 w-5 rounded-full bg-white"></span>
           <span class="icon-bar block h-0.5 w-5 rounded-full bg-white"></span>
           <span class="icon-bar block h-0.5 w-5 rounded-full bg-white"></span>
         </button>
       </div>
-     <div id="mobileMenu" class="hidden border-t border-soft bg-navy px-5 py-5 lg:hidden">
-  <div class="grid gap-4 text-sm text-white/85">
-    <a href="#">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#investments">Investments</a>
-    <a href="#lending">Lending</a>
-    <a href="https://www.tradingview.com/markets/">Market</a>
-    <a href="#resources">Resources</a>
-    <a href="#contact">Contact</a>
-
-    <div class="mt-2 flex gap-2 sm:hidden">
-
-      {% if request.user.is_authenticated %}
-
-        <a
-          href="{% url 'userprofile:dashboard' %}"
-          class="flex-1 rounded border border-white/20 py-2 text-center"
-        >
-          <i class="fa-solid fa-user-circle mr-1"></i>
-          {{ request.user.username|capfirst }}
-        </a>
-
-        <a
-          href="{% url 'userprofile:dashboard' %}"
-          class="flex-1 rounded gold-gradient py-2 text-center font-semibold text-navy"
-        >
-          <i class="fa-solid fa-wallet mr-1"></i>
-          My Wallet
-        </a>
-
-      {% else %}
-
-        <a
-          href="{% url 'userprofile:login' %}"
-          class="flex-1 rounded border border-white/20 py-2 text-center"
-        >
-          <i class="fa-solid fa-right-to-bracket mr-1"></i>
-          Login
-        </a>
-
-        <a
-          href="{% url 'userprofile:register' %}"
-          class="flex-1 rounded gold-gradient py-2 text-center font-semibold text-navy"
-        >
-          <i class="fa-solid fa-wallet mr-1"></i>
-          Create Wallet
-        </a>
-
-      {% endif %}
-
-    </div>
-  </div>
-</div>
+      <div id="mobileMenu" class="hidden border-t border-soft bg-navy px-5 py-5 lg:hidden">
+        <div class="grid gap-4 text-sm text-white/85">
+          <a href="#">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#investments">Investments</a>
+          <a href="#lending">Lending</a>
+          <a href="https://www.tradingview.com/markets/">Market</a>
+          <a href="#resources">Resources</a>
+          <a href="#contact">Contact</a>
+          <div class="mt-2 flex gap-2 sm:hidden"> {% if request.user.is_authenticated %} <a href="{% url 'userprofile:dashboard' %}" class="flex-1 rounded border border-white/20 py-2 text-center">
+              <i class="fa-solid fa-user-circle mr-1"></i>
+              {{ request.user.username|capfirst }}
+            </a>
+            <a href="{% url 'userprofile:dashboard' %}" class="flex-1 rounded gold-gradient py-2 text-center font-semibold text-navy">
+              <i class="fa-solid fa-wallet mr-1"></i> My Wallet </a> {% else %} <a href="{% url 'userprofile:login' %}" class="flex-1 rounded border border-white/20 py-2 text-center">
+              <i class="fa-solid fa-right-to-bracket mr-1"></i> Login </a>
+            <a href="{% url 'userprofile:register' %}" class="flex-1 rounded gold-gradient py-2 text-center font-semibold text-navy">
+              <i class="fa-solid fa-wallet mr-1"></i> Create Wallet </a> {% endif %}
+          </div>
+        </div>
+      </div>
     </header>
-
     <main>
       <!-- HERO SECTION -->
       <section id="home" class="veylentra-hero relative overflow-hidden bg-[#07111f]">
         <div class="veylentra-hero__bg" style="background-image: url('{% static "images/hero-image.png" %}');"></div>
         <div class="veylentra-hero__overlay"></div>
         <div class="veylentra-hero__atmosphere"></div>
-
         <div class="relative z-20 mx-auto grid min-h-[720px] max-w-[1440px] gap-6 px-5 py-6 sm:px-6 lg:grid-cols-[1.7fr_1fr] lg:px-8 lg:py-7">
           <!-- LEFT -->
           <div class="flex flex-col justify-between rounded-xl border border-white/10 bg-[#07111f]/25 p-7 backdrop-blur-[2px] sm:p-9 lg:p-10">
             <div class="max-w-[690px] pt-4 lg:pt-8">
               <p class="mb-4 text-[11px] font-semibold uppercase tracking-[0.25em] text-[#c9a85c]">Veylentra Group</p>
-              <h1 class="text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-[46px] xl:text-[52px]">Building the Future <br class="hidden sm:block" /> of <span class="text-[#c9a85c]">Digital Finance</span></h1>
+              <h1 class="text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-[46px] xl:text-[52px]">Building the Future <br class="hidden sm:block" /> of <span class="text-[#c9a85c]">Digital Finance</span>
+              </h1>
               <p class="mt-5 max-w-[600px] text-sm leading-6 text-[#94a3b8] sm:text-[15px]">Veylentra Group combines digital-asset expertise, financial technology, and research to help individuals and businesses navigate an evolving financial landscape.</p>
               <!-- HERO BUTTONS - SIDE BY SIDE ON MOBILE & COMPACT -->
               <div class="hero-buttons mt-7">
-                <a href="#services" class="rounded-md bg-gradient-to-r from-[#c9a85c] to-[#e2b95e] text-[#07111f] shadow-lg shadow-[#c9a85c]/10 transition duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#c9a85c]/20">
-                  Explore Services <span class="text-base">→</span>
+                <a href="#services" class="rounded-md bg-gradient-to-r from-[#c9a85c] to-[#e2b95e] text-[#07111f] shadow-lg shadow-[#c9a85c]/10 transition duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#c9a85c]/20"> Explore Services <span class="text-base">→</span>
                 </a>
-                <a href="#about" class="rounded-md border border-white/30 bg-[#07111f]/20 text-white transition duration-300 hover:border-[#c9a85c] hover:text-[#c9a85c]">
-                  About Veylentra <span class="flex h-3.5 w-3.5 items-center justify-center rounded-full border border-white/50 text-[6px]">▶</span>
+                <a href="#about" class="rounded-md border border-white/30 bg-[#07111f]/20 text-white transition duration-300 hover:border-[#c9a85c] hover:text-[#c9a85c]"> About Veylentra <span class="flex h-3.5 w-3.5 items-center justify-center rounded-full border border-white/50 text-[6px]">▶</span>
                 </a>
               </div>
             </div>
             <!-- Trust -->
             <div class="mt-12 grid grid-cols-2 gap-5 border-t border-white/10 pt-5 sm:grid-cols-4">
-              <div class="flex items-center gap-3"><div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#c9a85c]/30 bg-[#07111f]/60 text-[#c9a85c]">♢</div><div><div class="text-[10px] font-semibold text-white">Security First</div><div class="mt-0.5 text-[8px] text-[#94a3b8]">Institutional Grade</div></div></div>
-              <div class="flex items-center gap-3"><div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#c9a85c]/30 bg-[#07111f]/60 text-[#c9a85c]">◉</div><div><div class="text-[10px] font-semibold text-white">Transparency</div><div class="mt-0.5 text-[8px] text-[#94a3b8]">You Can Trust</div></div></div>
-              <div class="flex items-center gap-3"><div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#c9a85c]/30 bg-[#07111f]/60 text-[#c9a85c]">◫</div><div><div class="text-[10px] font-semibold text-white">Research Driven</div><div class="mt-0.5 text-[8px] text-[#94a3b8]">Data. Insights. Edge.</div></div></div>
-              <div class="flex items-center gap-3"><div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#c9a85c]/30 bg-[#07111f]/60 text-[#c9a85c]">♧</div><div><div class="text-[10px] font-semibold text-white">Client Focused</div><div class="mt-0.5 text-[8px] text-[#94a3b8]">Your Goals. Our Priority.</div></div></div>
+              <div class="flex items-center gap-3">
+                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#c9a85c]/30 bg-[#07111f]/60 text-[#c9a85c]">♢</div>
+                <div>
+                  <div class="text-[10px] font-semibold text-white">Security First</div>
+                  <div class="mt-0.5 text-[8px] text-[#94a3b8]">Institutional Grade</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#c9a85c]/30 bg-[#07111f]/60 text-[#c9a85c]">◉</div>
+                <div>
+                  <div class="text-[10px] font-semibold text-white">Transparency</div>
+                  <div class="mt-0.5 text-[8px] text-[#94a3b8]">You Can Trust</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#c9a85c]/30 bg-[#07111f]/60 text-[#c9a85c]">◫</div>
+                <div>
+                  <div class="text-[10px] font-semibold text-white">Research Driven</div>
+                  <div class="mt-0.5 text-[8px] text-[#94a3b8]">Data. Insights. Edge.</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#c9a85c]/30 bg-[#07111f]/60 text-[#c9a85c]">♧</div>
+                <div>
+                  <div class="text-[10px] font-semibold text-white">Client Focused</div>
+                  <div class="mt-0.5 text-[8px] text-[#94a3b8]">Your Goals. Our Priority.</div>
+                </div>
+              </div>
             </div>
           </div>
-
           <!-- RIGHT LENDING -->
           <aside id="lending" class="rounded-xl border border-white/10 bg-[#07111f]/80 p-5 shadow-2xl backdrop-blur-md sm:p-6">
             <div class="flex items-start justify-between gap-4">
-              <div><div class="flex items-center gap-2"><h2 class="text-base font-semibold text-white sm:text-lg">Veylentra Lending</h2><span class="rounded border border-[#c9a85c]/40 bg-[#c9a85c]/10 px-1.5 py-0.5 text-[8px] font-bold text-[#c9a85c]">NEW</span></div><p class="mt-1 text-[10px] leading-4 text-[#94a3b8] sm:text-xs">Flexible loans. Transparent terms. Fast access to funds.</p></div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h2 class="text-base font-semibold text-white sm:text-lg">Veylentra Lending</h2>
+                  <span class="rounded border border-[#c9a85c]/40 bg-[#c9a85c]/10 px-1.5 py-0.5 text-[8px] font-bold text-[#c9a85c]">NEW</span>
+                </div>
+                <p class="mt-1 text-[10px] leading-4 text-[#94a3b8] sm:text-xs">Flexible loans. Transparent terms. Fast access to funds.</p>
+              </div>
               <div class="hidden h-16 w-16 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-[#0d1b2a] text-3xl text-[#c9a85c] sm:flex">🔐</div>
             </div>
             <div class="mt-4 space-y-2">
-              <div class="flex items-center gap-2 text-[9px] text-[#e2e8f0]"><span class="text-[#c9a85c]">✥</span>Competitive Interest Rates</div>
-              <div class="flex items-center gap-2 text-[9px] text-[#e2e8f0]"><span class="text-[#c9a85c]">◷</span>Flexible Repayment Plans</div>
-              <div class="flex items-center gap-2 text-[9px] text-[#e2e8f0]"><span class="text-[#c9a85c]">♢</span>Secure &amp; Easy Process</div>
+              <div class="flex items-center gap-2 text-[9px] text-[#e2e8f0]">
+                <span class="text-[#c9a85c]">✥</span>Competitive Interest Rates
+              </div>
+              <div class="flex items-center gap-2 text-[9px] text-[#e2e8f0]">
+                <span class="text-[#c9a85c]">◷</span>Flexible Repayment Plans
+              </div>
+              <div class="flex items-center gap-2 text-[9px] text-[#e2e8f0]">
+                <span class="text-[#c9a85c]">♢</span>Secure &amp; Easy Process
+              </div>
             </div>
-            <a href="{% url 'loan:apply' %}" class="mt-5 inline-flex items-center justify-center gap-2 rounded-md bg-gradient-to-r from-[#c9a85c] to-[#e2b95e] px-4 py-2.5 text-[10px] font-bold text-[#07111f] transition hover:-translate-y-0.5">Apply Now<span class="text-sm">→</span></a>
+            <a href="{% url 'loan:apply' %}" class="mt-5 inline-flex items-center justify-center gap-2 rounded-md bg-gradient-to-r from-[#c9a85c] to-[#e2b95e] px-4 py-2.5 text-[10px] font-bold text-[#07111f] transition hover:-translate-y-0.5">Apply Now <span class="text-sm">→</span>
+            </a>
             <div id="loan-options" class="mt-6">
               <div class="mb-2 text-[10px] text-[#94a3b8]">Loan Options</div>
               <div class="grid grid-cols-2 gap-2 xl:grid-cols-4">
-                <div class="rounded border border-white/10 bg-[#0d1b2a]/80 p-3 text-center transition hover:border-[#c9a85c]/40 hover:bg-[#0d1b2a]"><div class="text-lg text-[#c9a85c]">♙</div><div class="mt-2 text-[9px] font-semibold text-white">Personal Loan</div><div class="mt-2 text-[9px] text-[#94a3b8]">Up to $100,000</div><div class="mt-1 text-[8px] text-[#64748b]">Flexible terms</div></div>
-                <div class="rounded border border-white/10 bg-[#0d1b2a]/80 p-3 text-center transition hover:border-[#c9a85c]/40 hover:bg-[#0d1b2a]"><div class="text-lg text-[#c9a85c]">▦</div><div class="mt-2 text-[9px] font-semibold text-white">Business Loan</div><div class="mt-2 text-[9px] text-[#94a3b8]">Up to $500,000</div><div class="mt-1 text-[8px] text-[#64748b]">Grow your business</div></div>
-                <div class="rounded border border-white/10 bg-[#0d1b2a]/80 p-3 text-center transition hover:border-[#c9a85c]/40 hover:bg-[#0d1b2a]"><div class="text-lg text-[#c9a85c]">✥</div><div class="mt-2 text-[9px] font-semibold text-white">Asset Backed</div><div class="mt-2 text-[9px] text-[#94a3b8]">Up to $1,000,000</div><div class="mt-1 text-[8px] text-[#64748b]">Secure with assets</div></div>
-                <div class="rounded border border-white/10 bg-[#0d1b2a]/80 p-3 text-center transition hover:border-[#c9a85c]/40 hover:bg-[#0d1b2a]"><div class="text-lg text-[#c9a85c]">▤</div><div class="mt-2 text-[9px] font-semibold text-white">Invoice Financing</div><div class="mt-2 text-[9px] text-[#94a3b8]">Up to $250,000</div><div class="mt-1 text-[8px] text-[#64748b]">Unlock cash flow</div></div>
+                <div class="rounded border border-white/10 bg-[#0d1b2a]/80 p-3 text-center transition hover:border-[#c9a85c]/40 hover:bg-[#0d1b2a]">
+                  <div class="text-lg text-[#c9a85c]">♙</div>
+                  <div class="mt-2 text-[9px] font-semibold text-white">Personal Loan</div>
+                  <div class="mt-2 text-[9px] text-[#94a3b8]">Up to $100,000</div>
+                  <div class="mt-1 text-[8px] text-[#64748b]">Flexible terms</div>
+                </div>
+                <div class="rounded border border-white/10 bg-[#0d1b2a]/80 p-3 text-center transition hover:border-[#c9a85c]/40 hover:bg-[#0d1b2a]">
+                  <div class="text-lg text-[#c9a85c]">▦</div>
+                  <div class="mt-2 text-[9px] font-semibold text-white">Business Loan</div>
+                  <div class="mt-2 text-[9px] text-[#94a3b8]">Up to $500,000</div>
+                  <div class="mt-1 text-[8px] text-[#64748b]">Grow your business</div>
+                </div>
+                <div class="rounded border border-white/10 bg-[#0d1b2a]/80 p-3 text-center transition hover:border-[#c9a85c]/40 hover:bg-[#0d1b2a]">
+                  <div class="text-lg text-[#c9a85c]">✥</div>
+                  <div class="mt-2 text-[9px] font-semibold text-white">Asset Backed</div>
+                  <div class="mt-2 text-[9px] text-[#94a3b8]">Up to $1,000,000</div>
+                  <div class="mt-1 text-[8px] text-[#64748b]">Secure with assets</div>
+                </div>
+                <div class="rounded border border-white/10 bg-[#0d1b2a]/80 p-3 text-center transition hover:border-[#c9a85c]/40 hover:bg-[#0d1b2a]">
+                  <div class="text-lg text-[#c9a85c]">▤</div>
+                  <div class="mt-2 text-[9px] font-semibold text-white">Invoice Financing</div>
+                  <div class="mt-2 text-[9px] text-[#94a3b8]">Up to $250,000</div>
+                  <div class="mt-1 text-[8px] text-[#64748b]">Unlock cash flow</div>
+                </div>
               </div>
             </div>
-            <div class="mt-5 border-t border-white/10 pt-4 text-[8px] text-[#64748b]">Representative Example: <span class="text-[#94a3b8]">$10,000 loan at 12% APR for 12 months</span> <a href="#loan-details" class="float-right text-[#c9a85c] hover:underline">Learn more →</a></div>
+            <div class="mt-5 border-t border-white/10 pt-4 text-[8px] text-[#64748b]">Representative Example: <span class="text-[#94a3b8]">$10,000 loan at 12% APR for 12 months</span>
+              <a href="#loan-details" class="float-right text-[#c9a85c] hover:underline">Learn more →</a>
+            </div>
             <!-- Market Snapshot -->
             <div id="market" class="mt-5 rounded-lg border border-white/10 bg-[#0a1727]/80 p-4">
-              <div class="flex items-center justify-between"><div class="text-[10px] font-semibold text-white">Market Snapshot</div><a href="#insights" class="text-[8px] text-[#c9a85c] hover:underline">View all insights →</a></div>
+              <div class="flex items-center justify-between">
+                <div class="text-[10px] font-semibold text-white">Market Snapshot</div>
+                <a href="#insights" class="text-[8px] text-[#c9a85c] hover:underline">View all insights →</a>
+              </div>
               <div class="mt-3 grid gap-4 md:grid-cols-[1fr_1.2fr]">
                 <div class="space-y-3">
-                  <div class="flex items-center justify-between"><span class="text-[9px] text-[#94a3b8]">🟠 Bitcoin BTC</span><div class="text-right"><div class="text-[9px] font-semibold text-white">$66,842.21</div><div class="text-[8px] text-emerald-400">+2.35%</div></div></div>
-                  <div class="flex items-center justify-between"><span class="text-[9px] text-[#94a3b8]">🔵 Ethereum ETH</span><div class="text-right"><div class="text-[9px] font-semibold text-white">$3,215.62</div><div class="text-[8px] text-emerald-400">+1.85%</div></div></div>
-                  <div class="flex items-center justify-between"><span class="text-[9px] text-[#94a3b8]">🟣 Solana SOL</span><div class="text-right"><div class="text-[9px] font-semibold text-white">$151.34</div><div class="text-[8px] text-emerald-400">+3.42%</div></div></div>
-                  <div class="flex items-center justify-between"><span class="text-[9px] text-[#94a3b8]">🟢 Market Cap</span><div class="text-right"><div class="text-[9px] font-semibold text-white">$2.48T</div><div class="text-[8px] text-emerald-400">+2.10%</div></div></div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-[9px] text-[#94a3b8]">🟠 Bitcoin BTC</span>
+                    <div class="text-right">
+                      <div class="text-[9px] font-semibold text-white">$66,842.21</div>
+                      <div class="text-[8px] text-emerald-400">+2.35%</div>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-[9px] text-[#94a3b8]">🔵 Ethereum ETH</span>
+                    <div class="text-right">
+                      <div class="text-[9px] font-semibold text-white">$3,215.62</div>
+                      <div class="text-[8px] text-emerald-400">+1.85%</div>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-[9px] text-[#94a3b8]">🟣 Solana SOL</span>
+                    <div class="text-right">
+                      <div class="text-[9px] font-semibold text-white">$151.34</div>
+                      <div class="text-[8px] text-emerald-400">+3.42%</div>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-[9px] text-[#94a3b8]">🟢 Market Cap</span>
+                    <div class="text-right">
+                      <div class="text-[9px] font-semibold text-white">$2.48T</div>
+                      <div class="text-[8px] text-emerald-400">+2.10%</div>
+                    </div>
+                  </div>
                 </div>
                 <div>
-                  <div class="mb-2 flex items-center justify-end gap-1 text-[7px] text-[#64748b]"><span>1D</span><span class="rounded bg-white/10 px-2 py-1 text-white">7D</span><span>1M</span><span>3M</span><span>1Y</span></div>
-                  <div class="h-[100px] overflow-hidden rounded border border-white/5 bg-[#07111f]/60"><svg viewBox="0 0 330 100" class="h-full w-full" preserveAspectRatio="none"><defs><linearGradient id="marketGradient" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#22c55e" stop-opacity=".20"/><stop offset="100%" stop-color="#22c55e" stop-opacity="0"/></linearGradient></defs><path d="M0 78 L12 74 L24 77 L36 62 L48 66 L60 54 L72 58 L84 42 L96 48 L108 36 L120 41 L132 28 L144 36 L156 24 L168 30 L180 40 L192 25 L204 34 L216 21 L228 27 L240 18 L252 24 L264 14 L276 22 L288 16 L300 9 L312 16 L324 7 L330 12 L330 100 L0 100 Z" fill="url(#marketGradient)"/><path d="M0 78 L12 74 L24 77 L36 62 L48 66 L60 54 L72 58 L84 42 L96 48 L108 36 L120 41 L132 28 L144 36 L156 24 L168 30 L180 40 L192 25 L204 34 L216 21 L228 27 L240 18 L252 24 L264 14 L276 22 L288 16 L300 9 L312 16 L324 7 L330 12" fill="none" stroke="#22c55e" stroke-width="2"/></svg></div>
-                  <div class="mt-2 flex items-center justify-between text-[8px] text-[#94a3b8]"><span>Market Sentiment</span><span class="font-semibold text-emerald-400">72%</span></div>
-                  <div class="mt-1 h-1.5 rounded-full bg-white/10"><div class="h-full w-[72%] rounded-full bg-emerald-500"></div></div>
+                  <div class="mb-2 flex items-center justify-end gap-1 text-[7px] text-[#64748b]">
+                    <span>1D</span>
+                    <span class="rounded bg-white/10 px-2 py-1 text-white">7D</span>
+                    <span>1M</span>
+                    <span>3M</span>
+                    <span>1Y</span>
+                  </div>
+                  <div class="h-[100px] overflow-hidden rounded border border-white/5 bg-[#07111f]/60">
+                    <svg viewBox="0 0 330 100" class="h-full w-full" preserveAspectRatio="none">
+                      <defs>
+                        <linearGradient id="marketGradient" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="#22c55e" stop-opacity=".20" />
+                          <stop offset="100%" stop-color="#22c55e" stop-opacity="0" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M0 78 L12 74 L24 77 L36 62 L48 66 L60 54 L72 58 L84 42 L96 48 L108 36 L120 41 L132 28 L144 36 L156 24 L168 30 L180 40 L192 25 L204 34 L216 21 L228 27 L240 18 L252 24 L264 14 L276 22 L288 16 L300 9 L312 16 L324 7 L330 12 L330 100 L0 100 Z" fill="url(#marketGradient)" />
+                      <path d="M0 78 L12 74 L24 77 L36 62 L48 66 L60 54 L72 58 L84 42 L96 48 L108 36 L120 41 L132 28 L144 36 L156 24 L168 30 L180 40 L192 25 L204 34 L216 21 L228 27 L240 18 L252 24 L264 14 L276 22 L288 16 L300 9 L312 16 L324 7 L330 12" fill="none" stroke="#22c55e" stroke-width="2" />
+                    </svg>
+                  </div>
+                  <div class="mt-2 flex items-center justify-between text-[8px] text-[#94a3b8]">
+                    <span>Market Sentiment</span>
+                    <span class="font-semibold text-emerald-400">72%</span>
+                  </div>
+                  <div class="mt-1 h-1.5 rounded-full bg-white/10">
+                    <div class="h-full w-[72%] rounded-full bg-emerald-500"></div>
+                  </div>
                   <div class="mt-1 text-[8px] text-emerald-400">Greed</div>
                 </div>
               </div>
@@ -809,50 +894,112 @@ window.smartsupp||(function(d) {
           </aside>
         </div>
       </section>
-
       <!-- ABOUT US SECTION -->
       <section id="about" class="mx-auto max-w-[1440px] px-5 py-12 lg:px-8">
         <div class="rounded-2xl border border-soft bg-navy2/60 p-6 backdrop-blur-sm sm:p-10">
           <div class="grid gap-8 lg:grid-cols-2 lg:gap-12">
             <div>
               <span class="text-[11px] font-semibold uppercase tracking-[0.25em] text-gold">About Veylentra</span>
-              <h2 class="mt-3 text-3xl font-semibold leading-tight text-white sm:text-4xl">Trusted Partner in <span class="text-gold">Digital Finance</span></h2>
+              <h2 class="mt-3 text-3xl font-semibold leading-tight text-white sm:text-4xl">Trusted Partner in <span class="text-gold">Digital Finance</span>
+              </h2>
               <p class="mt-4 text-sm leading-relaxed text-slate">Veylentra Group was founded on the belief that financial technology and digital assets can create a more inclusive, transparent, and efficient financial system. We combine deep research, cutting-edge technology, and a client-first approach to deliver solutions that stand the test of time.</p>
               <p class="mt-3 text-sm leading-relaxed text-slate">With a presence in over 30 countries and a team of seasoned professionals, we guide individuals, institutions, and businesses through the complexities of modern finance — from digital asset investment to strategic lending and technology ventures.</p>
               <div class="mt-6 flex flex-wrap gap-4">
-                <button class="cert-btn inline-flex items-center gap-2 rounded-lg border border-gold/30 px-5 py-2.5 text-xs font-semibold text-gold transition hover:bg-gold/10 hover:shadow-gold"><span>📜</span> Download Company Certificate</button>
-                <a href="#services" class="inline-flex items-center gap-2 text-xs font-medium text-white/70 transition hover:text-gold">Explore our services →</a>
+                <a href="https://collection.cloudinary.com/obumk9pv/7a261b10992f1ef21bdc9e0615719b5d" target="_blank" rel="noopener noreferrer" class="cert-btn inline-flex items-center gap-2 rounded-lg border border-gold/30 px-5 py-2.5 text-xs font-semibold text-gold transition hover:bg-gold/10 hover:shadow-gold">
+                  <span>📜</span> Download Company Certificate </a>
+                <a href="#services" class="inline-flex items-center gap-2 text-xs font-medium text-white/70 transition hover:text-gold"> Explore our services → </a>
               </div>
             </div>
             <div class="grid grid-cols-2 gap-4">
-              <div class="rounded-xl border border-soft bg-navy/50 p-5 text-center transition hover:border-gold/40 hover:bg-navy/80"><div class="text-3xl text-gold">◎</div><div class="mt-2 text-lg font-semibold text-white">8+</div><div class="text-[10px] text-slate">Years of Excellence</div></div>
-              <div class="rounded-xl border border-soft bg-navy/50 p-5 text-center transition hover:border-gold/40 hover:bg-navy/80"><div class="text-3xl text-gold">◈</div><div class="mt-2 text-lg font-semibold text-white">$1.2B+</div><div class="text-[10px] text-slate">Total Transactions</div></div>
-              <div class="rounded-xl border border-soft bg-navy/50 p-5 text-center transition hover:border-gold/40 hover:bg-navy/80"><div class="text-3xl text-gold">▣</div><div class="mt-2 text-lg font-semibold text-white">150+</div><div class="text-[10px] text-slate">Team Members</div></div>
-              <div class="rounded-xl border border-soft bg-navy/50 p-5 text-center transition hover:border-gold/40 hover:bg-navy/80"><div class="text-3xl text-gold">♢</div><div class="mt-2 text-lg font-semibold text-white">99.99%</div><div class="text-[10px] text-slate">Uptime & Security</div></div>
+              <div class="rounded-xl border border-soft bg-navy/50 p-5 text-center transition hover:border-gold/40 hover:bg-navy/80">
+                <div class="text-3xl text-gold">◎</div>
+                <div class="mt-2 text-lg font-semibold text-white">8+</div>
+                <div class="text-[10px] text-slate">Years of Excellence</div>
+              </div>
+              <div class="rounded-xl border border-soft bg-navy/50 p-5 text-center transition hover:border-gold/40 hover:bg-navy/80">
+                <div class="text-3xl text-gold">◈</div>
+                <div class="mt-2 text-lg font-semibold text-white">$1.2B+</div>
+                <div class="text-[10px] text-slate">Total Transactions</div>
+              </div>
+              <div class="rounded-xl border border-soft bg-navy/50 p-5 text-center transition hover:border-gold/40 hover:bg-navy/80">
+                <div class="text-3xl text-gold">▣</div>
+                <div class="mt-2 text-lg font-semibold text-white">150+</div>
+                <div class="text-[10px] text-slate">Team Members</div>
+              </div>
+              <div class="rounded-xl border border-soft bg-navy/50 p-5 text-center transition hover:border-gold/40 hover:bg-navy/80">
+                <div class="text-3xl text-gold">♢</div>
+                <div class="mt-2 text-lg font-semibold text-white">99.99%</div>
+                <div class="text-[10px] text-slate">Uptime & Security</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
-
       <!-- SERVICES / CORE CARDS -->
       <section id="services" class="mx-auto max-w-[1440px] px-5 py-7 lg:px-8">
         <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          <article class="card-hover rounded-xl border border-soft bg-navy2 p-5"><div class="mb-5 text-3xl text-gold">◎</div><h3 class="font-semibold">Digital Assets</h3><p class="mt-2 text-[11px] leading-5 text-slate">Research, analysis, and investment solutions across the digital asset ecosystem.</p><a class="mt-4 inline-block text-[10px] font-semibold text-gold transition hover:translate-x-1" href="#">Learn more →</a></article>
-          <article class="card-hover rounded-xl border border-soft bg-navy2 p-5"><div class="mb-5 text-3xl text-gold">▣</div><h3 class="font-semibold">Financial Technology</h3><p class="mt-2 text-[11px] leading-5 text-slate">Innovative technology solutions for modern financial infrastructure.</p><a class="mt-4 inline-block text-[10px] font-semibold text-gold transition hover:translate-x-1" href="#">Learn more →</a></article>
-          <article id="investments" class="card-hover rounded-xl border border-soft bg-navy2 p-5"><div class="mb-5 text-3xl text-gold">▥</div><h3 class="font-semibold">Market Research</h3><p class="mt-2 text-[11px] leading-5 text-slate">Data-driven market intelligence to support smarter decisions.</p><a class="mt-4 inline-block text-[10px] font-semibold text-gold transition hover:translate-x-1" href="#">Learn more →</a></article>
-          <article class="card-hover rounded-xl border border-soft bg-navy2 p-5"><div class="mb-5 text-3xl text-gold">↗</div><h3 class="font-semibold">Technology Ventures</h3><p class="mt-2 text-[11px] leading-5 text-slate">Investing in and supporting the next generation of technology companies.</p><a class="mt-4 inline-block text-[10px] font-semibold text-gold transition hover:translate-x-1" href="#">Learn more →</a></article>
+          <article class="card-hover rounded-xl border border-soft bg-navy2 p-5">
+            <div class="mb-5 text-3xl text-gold">◎</div>
+            <h3 class="font-semibold">Digital Assets</h3>
+            <p class="mt-2 text-[11px] leading-5 text-slate">Research, analysis, and investment solutions across the digital asset ecosystem.</p>
+            <a class="mt-4 inline-block text-[10px] font-semibold text-gold transition hover:translate-x-1" href="#">Learn more →</a>
+          </article>
+          <article class="card-hover rounded-xl border border-soft bg-navy2 p-5">
+            <div class="mb-5 text-3xl text-gold">▣</div>
+            <h3 class="font-semibold">Financial Technology</h3>
+            <p class="mt-2 text-[11px] leading-5 text-slate">Innovative technology solutions for modern financial infrastructure.</p>
+            <a class="mt-4 inline-block text-[10px] font-semibold text-gold transition hover:translate-x-1" href="#">Learn more →</a>
+          </article>
+          <article id="investments" class="card-hover rounded-xl border border-soft bg-navy2 p-5">
+            <div class="mb-5 text-3xl text-gold">▥</div>
+            <h3 class="font-semibold">Market Research</h3>
+            <p class="mt-2 text-[11px] leading-5 text-slate">Data-driven market intelligence to support smarter decisions.</p>
+            <a class="mt-4 inline-block text-[10px] font-semibold text-gold transition hover:translate-x-1" href="#">Learn more →</a>
+          </article>
+          <article class="card-hover rounded-xl border border-soft bg-navy2 p-5">
+            <div class="mb-5 text-3xl text-gold">↗</div>
+            <h3 class="font-semibold">Technology Ventures</h3>
+            <p class="mt-2 text-[11px] leading-5 text-slate">Investing in and supporting the next generation of technology companies.</p>
+            <a class="mt-4 inline-block text-[10px] font-semibold text-gold transition hover:translate-x-1" href="#">Learn more →</a>
+          </article>
         </div>
         <div class="mt-3 grid grid-cols-2 gap-3 rounded-xl border border-soft bg-navy2 p-4 sm:grid-cols-4">
-          <div class="flex items-center gap-3 border-b border-white/10 pb-3 sm:border-b-0 sm:border-r sm:pb-0"><span class="text-2xl text-gold">♙</span><div><div class="text-lg font-semibold">25K+</div><div class="text-[9px] text-slate">Global Clients</div></div></div>
-          <div class="flex items-center gap-3 border-b border-white/10 pb-3 sm:border-b-0 sm:border-r sm:pb-0"><span class="text-2xl text-gold">◎</span><div><div class="text-lg font-semibold">30+</div><div class="text-[9px] text-slate">Countries</div></div></div>
-          <div class="flex items-center gap-3 sm:border-r sm:border-white/10"><span class="text-2xl text-gold">▥</span><div><div class="text-lg font-semibold">$500M+</div><div class="text-[9px] text-slate">Assets Under Insight</div></div></div>
-          <div class="flex items-center gap-3"><span class="text-2xl text-gold">♢</span><div><div class="text-lg font-semibold">99.9%</div><div class="text-[9px] text-slate">Security Commitment</div></div></div>
+          <div class="flex items-center gap-3 border-b border-white/10 pb-3 sm:border-b-0 sm:border-r sm:pb-0">
+            <span class="text-2xl text-gold">♙</span>
+            <div>
+              <div class="text-lg font-semibold">25K+</div>
+              <div class="text-[9px] text-slate">Global Clients</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 border-b border-white/10 pb-3 sm:border-b-0 sm:border-r sm:pb-0">
+            <span class="text-2xl text-gold">◎</span>
+            <div>
+              <div class="text-lg font-semibold">30+</div>
+              <div class="text-[9px] text-slate">Countries</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 sm:border-r sm:border-white/10">
+            <span class="text-2xl text-gold">▥</span>
+            <div>
+              <div class="text-lg font-semibold">$500M+</div>
+              <div class="text-[9px] text-slate">Assets Under Insight</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-2xl text-gold">♢</span>
+            <div>
+              <div class="text-lg font-semibold">99.9%</div>
+              <div class="text-[9px] text-slate">Security Commitment</div>
+            </div>
+          </div>
         </div>
-      </section><!-- INVESTMENT PLANS (6 plans, 3 per row) with min/max deposit & ROI -->
+      </section>
+      <!-- INVESTMENT PLANS (6 plans, 3 per row) with min/max deposit & ROI -->
       <section id="investment-plans" class="mx-auto max-w-[1440px] px-5 py-10 lg:px-8">
         <div class="text-center">
           <span class="text-[11px] font-semibold uppercase tracking-[0.25em] text-gold">Investment Plans</span>
-          <h2 class="mt-2 text-3xl font-semibold text-white sm:text-4xl">Choose Your <span class="text-gold">Growth Path</span></h2>
+          <h2 class="mt-2 text-3xl font-semibold text-white sm:text-4xl">Choose Your <span class="text-gold">Growth Path</span>
+          </h2>
           <p class="mx-auto mt-3 max-w-2xl text-sm text-slate">Tailored investment strategies designed for different risk appetites and financial goals.</p>
         </div>
         <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -863,9 +1010,11 @@ window.smartsupp||(function(d) {
             <div class="mt-1 text-2xl font-bold text-gold">10%</div>
             <div class="text-[10px] text-slate">Profit Return</div>
             <div class="mt-3 flex items-center justify-center gap-3 text-[10px]">
-              <span class="text-slate">Min <span class="text-white font-medium">$150</span></span>
+              <span class="text-slate">Min <span class="text-white font-medium">$150</span>
+              </span>
               <span class="text-slate">|</span>
-              <span class="text-slate">Max <span class="text-white font-medium">$6,500</span></span>
+              <span class="text-slate">Max <span class="text-white font-medium">$6,500</span>
+              </span>
             </div>
             <div class="mt-2 flex justify-center">
               <span class="roi-badge">⏱️ 24 Hours</span>
@@ -875,7 +1024,10 @@ window.smartsupp||(function(d) {
               <li>• Fast returns</li>
               <li>• Perfect for beginners</li>
             </ul>
-            <a href="{% url 'userprofile:dashboard' %}" class="invest-btn mt-5 inline-flex"> <span>Invest Now</span> <span class="arrow">→</span> </a>
+            <a href="{% url 'userprofile:dashboard' %}" class="invest-btn mt-5 inline-flex">
+              <span>Invest Now</span>
+              <span class="arrow">→</span>
+            </a>
           </div>
           <!-- Plan 2 - Balanced Plus -->
           <div class="plan-card rounded-2xl p-6 text-center transition">
@@ -884,9 +1036,11 @@ window.smartsupp||(function(d) {
             <div class="mt-1 text-2xl font-bold text-gold">15%</div>
             <div class="text-[10px] text-slate">Profit Return</div>
             <div class="mt-3 flex items-center justify-center gap-3 text-[10px]">
-              <span class="text-slate">Min <span class="text-white font-medium">$1,200</span></span>
+              <span class="text-slate">Min <span class="text-white font-medium">$1,200</span>
+              </span>
               <span class="text-slate">|</span>
-              <span class="text-slate">Max <span class="text-white font-medium">$15,000</span></span>
+              <span class="text-slate">Max <span class="text-white font-medium">$15,000</span>
+              </span>
             </div>
             <div class="mt-2 flex justify-center">
               <span class="roi-badge">⏱️ 2 Days</span>
@@ -896,7 +1050,10 @@ window.smartsupp||(function(d) {
               <li>• Balanced returns</li>
               <li>• Diversified assets</li>
             </ul>
-            <a href="{% url 'userprofile:dashboard' %}" class="invest-btn mt-5 inline-flex"> <span>Invest Now</span> <span class="arrow">→</span> </a>
+            <a href="{% url 'userprofile:dashboard' %}" class="invest-btn mt-5 inline-flex">
+              <span>Invest Now</span>
+              <span class="arrow">→</span>
+            </a>
           </div>
           <!-- Plan 3 - Alpha Growth -->
           <div class="plan-card rounded-2xl p-6 text-center transition">
@@ -905,9 +1062,11 @@ window.smartsupp||(function(d) {
             <div class="mt-1 text-2xl font-bold text-gold">35%</div>
             <div class="text-[10px] text-slate">Profit Return</div>
             <div class="mt-3 flex items-center justify-center gap-3 text-[10px]">
-              <span class="text-slate">Min <span class="text-white font-medium">$2,500</span></span>
+              <span class="text-slate">Min <span class="text-white font-medium">$2,500</span>
+              </span>
               <span class="text-slate">|</span>
-              <span class="text-slate">Max <span class="text-white font-medium">$30,000</span></span>
+              <span class="text-slate">Max <span class="text-white font-medium">$30,000</span>
+              </span>
             </div>
             <div class="mt-2 flex justify-center">
               <span class="roi-badge">⏱️ 3 Days</span>
@@ -917,7 +1076,10 @@ window.smartsupp||(function(d) {
               <li>• Premium support</li>
               <li>• Advanced strategies</li>
             </ul>
-            <a href="{% url 'userprofile:dashboard' %}" class="invest-btn mt-5 inline-flex"> <span>Invest Now</span> <span class="arrow">→</span> </a>
+            <a href="{% url 'userprofile:dashboard' %}" class="invest-btn mt-5 inline-flex">
+              <span>Invest Now</span>
+              <span class="arrow">→</span>
+            </a>
           </div>
           <!-- Plan 4 - Income Shield -->
           <div class="plan-card rounded-2xl p-6 text-center transition">
@@ -926,9 +1088,11 @@ window.smartsupp||(function(d) {
             <div class="mt-1 text-2xl font-bold text-gold">50%</div>
             <div class="text-[10px] text-slate">Profit Return</div>
             <div class="mt-3 flex items-center justify-center gap-3 text-[10px]">
-              <span class="text-slate">Min <span class="text-white font-medium">$4,000</span></span>
+              <span class="text-slate">Min <span class="text-white font-medium">$4,000</span>
+              </span>
               <span class="text-slate">|</span>
-              <span class="text-slate">Max <span class="text-white font-medium">$45,000</span></span>
+              <span class="text-slate">Max <span class="text-white font-medium">$45,000</span>
+              </span>
             </div>
             <div class="mt-2 flex justify-center">
               <span class="roi-badge">⏱️ 4 Days</span>
@@ -938,7 +1102,10 @@ window.smartsupp||(function(d) {
               <li>• VIP support</li>
               <li>• Premium strategies</li>
             </ul>
-            <a href="{% url 'userprofile:dashboard' %}" class="invest-btn mt-5 inline-flex"> <span>Invest Now</span> <span class="arrow">→</span> </a>
+            <a href="{% url 'userprofile:dashboard' %}" class="invest-btn mt-5 inline-flex">
+              <span>Invest Now</span>
+              <span class="arrow">→</span>
+            </a>
           </div>
           <!-- Plan 5 - Venture Catalyst -->
           <div class="plan-card rounded-2xl p-6 text-center transition">
@@ -947,9 +1114,11 @@ window.smartsupp||(function(d) {
             <div class="mt-1 text-2xl font-bold text-gold">20%</div>
             <div class="text-[10px] text-slate">Profit Return</div>
             <div class="mt-3 flex items-center justify-center gap-3 text-[10px]">
-              <span class="text-slate">Min <span class="text-white font-medium">$1,500</span></span>
+              <span class="text-slate">Min <span class="text-white font-medium">$1,500</span>
+              </span>
               <span class="text-slate">|</span>
-              <span class="text-slate">Max <span class="text-white font-medium">$5,000</span></span>
+              <span class="text-slate">Max <span class="text-white font-medium">$5,000</span>
+              </span>
             </div>
             <div class="mt-2 flex justify-center">
               <span class="roi-badge">⏱️ 24 Hours</span>
@@ -959,7 +1128,10 @@ window.smartsupp||(function(d) {
               <li>• Quick returns</li>
               <li>• Limited time offer</li>
             </ul>
-            <a href="{% url 'userprofile:dashboard' %}" class="invest-btn mt-5 inline-flex"> <span>Invest Now</span> <span class="arrow">→</span> </a>
+            <a href="{% url 'userprofile:dashboard' %}" class="invest-btn mt-5 inline-flex">
+              <span>Invest Now</span>
+              <span class="arrow">→</span>
+            </a>
           </div>
           <!-- Plan 6 - ESG Future -->
           <div class="plan-card rounded-2xl p-6 text-center transition">
@@ -968,9 +1140,11 @@ window.smartsupp||(function(d) {
             <div class="mt-1 text-2xl font-bold text-gold">40%</div>
             <div class="text-[10px] text-slate">Profit Return</div>
             <div class="mt-3 flex items-center justify-center gap-3 text-[10px]">
-              <span class="text-slate">Min <span class="text-white font-medium">$2,300</span></span>
+              <span class="text-slate">Min <span class="text-white font-medium">$2,300</span>
+              </span>
               <span class="text-slate">|</span>
-              <span class="text-slate">Max <span class="text-white font-medium">$15,000</span></span>
+              <span class="text-slate">Max <span class="text-white font-medium">$15,000</span>
+              </span>
             </div>
             <div class="mt-2 flex justify-center">
               <span class="roi-badge">⏱️ 18 Hours</span>
@@ -980,602 +1154,652 @@ window.smartsupp||(function(d) {
               <li>• Fastest returns</li>
               <li>• Limited time offer</li>
             </ul>
-            <a href="{% url 'userprofile:dashboard' %}" class="invest-btn mt-5 inline-flex"> <span>Invest Now</span> <span class="arrow">→</span> </a>
+            <a href="{% url 'userprofile:dashboard' %}" class="invest-btn mt-5 inline-flex">
+              <span>Invest Now</span>
+              <span class="arrow">→</span>
+            </a>
           </div>
         </div>
       </section>
-
-    <!-- ====== ROI CALCULATOR SECTION ====== -->
-<section id="roi-calculator" class="mx-auto max-w-[1440px] px-5 py-10 lg:px-8">
-  <div class="text-center">
-    <span class="text-[11px] font-semibold uppercase tracking-[0.25em] text-gold">ROI Calculator</span>
-    <h2 class="mt-2 text-3xl font-semibold text-white sm:text-4xl">Calculate Your <span class="text-gold">Returns</span></h2>
-    <p class="mx-auto mt-3 max-w-2xl text-sm text-slate">Select a plan and enter your investment amount to see your potential profit instantly.</p>
-  </div>
-
-  <div class="mt-8 grid gap-8 lg:grid-cols-[1.4fr_1fr]">
-    <!-- Calculator Form -->
-    <div class="rounded-2xl border border-soft bg-navy2/60 p-4 backdrop-blur-sm sm:p-6 md:p-8">
-      <div class="grid gap-4 sm:gap-6 sm:grid-cols-2">
-        <!-- Plan Selector -->
-        <div class="sm:col-span-2">
-          <label class="mb-1.5 block text-[10px] sm:text-xs font-semibold text-white">Select Investment Plan</label>
-          <select id="planSelect" class="w-full rounded-lg sm:rounded-xl border border-soft bg-navy/80 px-3 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-white transition focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold">
-            <option value="" disabled selected>Choose a plan</option>
-            <option value="10" data-min="150" data-max="6500" data-duration="24 Hours">Stable Growth — 10% ROI (24 Hours)</option>
-            <option value="15" data-min="1200" data-max="15000" data-duration="2 Days">Balanced Plus — 15% ROI (2 Days)</option>
-            <option value="35" data-min="2500" data-max="30000" data-duration="3 Days">Alpha Growth — 35% ROI (3 Days)</option>
-            <option value="50" data-min="4000" data-max="45000" data-duration="4 Days">Income Shield — 50% ROI (4 Days)</option>
-            <option value="20" data-min="1500" data-max="5000" data-duration="24 Hours">Venture Catalyst — 20% ROI (24 Hours)</option>
-            <option value="40" data-min="2300" data-max="15000" data-duration="18 Hours">ESG Future — 40% ROI (18 Hours)</option>
-          </select>
+      <!-- ====== ROI CALCULATOR SECTION ====== -->
+      <section id="roi-calculator" class="mx-auto max-w-[1440px] px-5 py-10 lg:px-8">
+        <div class="text-center">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.25em] text-gold">ROI Calculator</span>
+          <h2 class="mt-2 text-3xl font-semibold text-white sm:text-4xl">Calculate Your <span class="text-gold">Returns</span>
+          </h2>
+          <p class="mx-auto mt-3 max-w-2xl text-sm text-slate">Select a plan and enter your investment amount to see your potential profit instantly.</p>
         </div>
-
-        <!-- Deposit Amount -->
-        <div>
-          <label class="mb-1.5 block text-[10px] sm:text-xs font-semibold text-white">Investment Amount ($)</label>
-          <input id="depositInput" type="number" min="0" step="100" placeholder="Enter amount" class="w-full rounded-lg sm:rounded-xl border border-soft bg-navy/80 px-3 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-white transition focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold">
-        </div>
-
-        <!-- Quick Amount Buttons -->
-        <div>
-          <label class="mb-1.5 block text-[10px] sm:text-xs font-semibold text-white">Quick Select</label>
-          <div class="grid grid-cols-3 gap-1.5 sm:gap-2">
-            <button onclick="setQuickAmount(500)" class="rounded-lg border border-soft bg-navy/60 px-1 sm:px-2 py-1.5 sm:py-2 text-[9px] sm:text-xs text-slate transition hover:border-gold hover:text-gold">$500</button>
-            <button onclick="setQuickAmount(1000)" class="rounded-lg border border-soft bg-navy/60 px-1 sm:px-2 py-1.5 sm:py-2 text-[9px] sm:text-xs text-slate transition hover:border-gold hover:text-gold">$1K</button>
-            <button onclick="setQuickAmount(5000)" class="rounded-lg border border-soft bg-navy/60 px-1 sm:px-2 py-1.5 sm:py-2 text-[9px] sm:text-xs text-slate transition hover:border-gold hover:text-gold">$5K</button>
-            <button onclick="setQuickAmount(10000)" class="rounded-lg border border-soft bg-navy/60 px-1 sm:px-2 py-1.5 sm:py-2 text-[9px] sm:text-xs text-slate transition hover:border-gold hover:text-gold">$10K</button>
-            <button onclick="setQuickAmount(25000)" class="rounded-lg border border-soft bg-navy/60 px-1 sm:px-2 py-1.5 sm:py-2 text-[9px] sm:text-xs text-slate transition hover:border-gold hover:text-gold">$25K</button>
-            <button onclick="setQuickAmount(50000)" class="rounded-lg border border-soft bg-navy/60 px-1 sm:px-2 py-1.5 sm:py-2 text-[9px] sm:text-xs text-slate transition hover:border-gold hover:text-gold">$50K</button>
+        <div class="mt-8 grid gap-8 lg:grid-cols-[1.4fr_1fr]">
+          <!-- Calculator Form -->
+          <div class="rounded-2xl border border-soft bg-navy2/60 p-4 backdrop-blur-sm sm:p-6 md:p-8">
+            <div class="grid gap-4 sm:gap-6 sm:grid-cols-2">
+              <!-- Plan Selector -->
+              <div class="sm:col-span-2">
+                <label class="mb-1.5 block text-[10px] sm:text-xs font-semibold text-white">Select Investment Plan</label>
+                <select id="planSelect" class="w-full rounded-lg sm:rounded-xl border border-soft bg-navy/80 px-3 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-white transition focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold">
+                  <option value="" disabled selected>Choose a plan</option>
+                  <option value="10" data-min="150" data-max="6500" data-duration="24 Hours">Stable Growth — 10% ROI (24 Hours)</option>
+                  <option value="15" data-min="1200" data-max="15000" data-duration="2 Days">Balanced Plus — 15% ROI (2 Days)</option>
+                  <option value="35" data-min="2500" data-max="30000" data-duration="3 Days">Alpha Growth — 35% ROI (3 Days)</option>
+                  <option value="50" data-min="4000" data-max="45000" data-duration="4 Days">Income Shield — 50% ROI (4 Days)</option>
+                  <option value="20" data-min="1500" data-max="5000" data-duration="24 Hours">Venture Catalyst — 20% ROI (24 Hours)</option>
+                  <option value="40" data-min="2300" data-max="15000" data-duration="18 Hours">ESG Future — 40% ROI (18 Hours)</option>
+                </select>
+              </div>
+              <!-- Deposit Amount -->
+              <div>
+                <label class="mb-1.5 block text-[10px] sm:text-xs font-semibold text-white">Investment Amount ($)</label>
+                <input id="depositInput" type="number" min="0" step="100" placeholder="Enter amount" class="w-full rounded-lg sm:rounded-xl border border-soft bg-navy/80 px-3 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-white transition focus:border-gold focus:outline-none focus:ring-1 focus:ring-gold">
+              </div>
+              <!-- Quick Amount Buttons -->
+              <div>
+                <label class="mb-1.5 block text-[10px] sm:text-xs font-semibold text-white">Quick Select</label>
+                <div class="grid grid-cols-3 gap-1.5 sm:gap-2">
+                  <button onclick="setQuickAmount(500)" class="rounded-lg border border-soft bg-navy/60 px-1 sm:px-2 py-1.5 sm:py-2 text-[9px] sm:text-xs text-slate transition hover:border-gold hover:text-gold">$500</button>
+                  <button onclick="setQuickAmount(1000)" class="rounded-lg border border-soft bg-navy/60 px-1 sm:px-2 py-1.5 sm:py-2 text-[9px] sm:text-xs text-slate transition hover:border-gold hover:text-gold">$1K</button>
+                  <button onclick="setQuickAmount(5000)" class="rounded-lg border border-soft bg-navy/60 px-1 sm:px-2 py-1.5 sm:py-2 text-[9px] sm:text-xs text-slate transition hover:border-gold hover:text-gold">$5K</button>
+                  <button onclick="setQuickAmount(10000)" class="rounded-lg border border-soft bg-navy/60 px-1 sm:px-2 py-1.5 sm:py-2 text-[9px] sm:text-xs text-slate transition hover:border-gold hover:text-gold">$10K</button>
+                  <button onclick="setQuickAmount(25000)" class="rounded-lg border border-soft bg-navy/60 px-1 sm:px-2 py-1.5 sm:py-2 text-[9px] sm:text-xs text-slate transition hover:border-gold hover:text-gold">$25K</button>
+                  <button onclick="setQuickAmount(50000)" class="rounded-lg border border-soft bg-navy/60 px-1 sm:px-2 py-1.5 sm:py-2 text-[9px] sm:text-xs text-slate transition hover:border-gold hover:text-gold">$50K</button>
+                </div>
+              </div>
+              <!-- Calculate & Reset Buttons - Professional Compact Side by Side -->
+              <div class="sm:col-span-2 flex gap-2 sm:gap-3 mt-1">
+                <button onclick="calculateROI()" class="flex-1 gold-gradient rounded-lg sm:rounded-xl px-3 sm:px-6 py-2.5 sm:py-3.5 text-[10px] sm:text-sm font-bold text-navy transition hover:scale-[1.02] hover:shadow-gold flex items-center justify-center gap-1.5 sm:gap-2">
+                  <i class="fa-solid fa-calculator text-[10px] sm:text-sm"></i>
+                  <span class="whitespace-nowrap">Calculate</span>
+                </button>
+                <button onclick="resetCalculator()" class="flex-1 rounded-lg sm:rounded-xl border border-soft bg-navy/60 px-3 sm:px-6 py-2.5 sm:py-3.5 text-[10px] sm:text-sm font-medium text-slate transition hover:border-gold hover:text-white flex items-center justify-center gap-1.5 sm:gap-2">
+                  <i class="fa-solid fa-rotate-right text-[10px] sm:text-sm"></i>
+                  <span class="whitespace-nowrap">Reset</span>
+                </button>
+              </div>
+            </div>
+            <!-- Min/Max Hint -->
+            <div id="rangeHint" class="mt-3 sm:mt-4 text-center text-[10px] sm:text-xs text-slate">
+              <span class="text-gold">ℹ️</span> Select a plan to see the investment range.
+            </div>
+          </div>
+          <!-- Results Panel -->
+          <div class="rounded-2xl border border-soft bg-navy2/60 p-4 backdrop-blur-sm sm:p-6 md:p-8">
+            <h3 class="text-sm font-semibold text-white">Your Returns Summary</h3>
+            <p class="mt-1 text-[10px] sm:text-xs text-slate">Based on your selected plan and investment amount.</p>
+            <div class="mt-4 sm:mt-6 space-y-3 sm:space-y-4">
+              <!-- Plan Name -->
+              <div class="flex items-center justify-between border-b border-soft pb-2 sm:pb-3">
+                <span class="text-[10px] sm:text-xs text-slate">Selected Plan</span>
+                <span id="resultPlan" class="text-xs sm:text-sm font-medium text-white">—</span>
+              </div>
+              <!-- Investment Amount -->
+              <div class="flex items-center justify-between border-b border-soft pb-2 sm:pb-3">
+                <span class="text-[10px] sm:text-xs text-slate">Investment Amount</span>
+                <span id="resultAmount" class="text-xs sm:text-sm font-medium text-white">$0.00</span>
+              </div>
+              <!-- ROI Percentage -->
+              <div class="flex items-center justify-between border-b border-soft pb-2 sm:pb-3">
+                <span class="text-[10px] sm:text-xs text-slate">ROI Percentage</span>
+                <span id="resultROI" class="text-xs sm:text-sm font-medium text-gold">0%</span>
+              </div>
+              <!-- Duration -->
+              <div class="flex items-center justify-between border-b border-soft pb-2 sm:pb-3">
+                <span class="text-[10px] sm:text-xs text-slate">Duration</span>
+                <span id="resultDuration" class="text-xs sm:text-sm font-medium text-white">—</span>
+              </div>
+              <!-- Profit Amount (Highlighted) -->
+              <div class="flex items-center justify-between rounded-xl bg-gold/10 border border-gold/20 p-3 sm:p-4">
+                <span class="text-xs sm:text-sm font-semibold text-white">Your Profit</span>
+                <span id="resultProfit" class="text-lg sm:text-2xl font-bold text-gold">$0.00</span>
+              </div>
+              <!-- Total Return -->
+              <div class="flex items-center justify-between rounded-xl bg-navy/80 p-3 sm:p-4 border border-soft">
+                <span class="text-xs sm:text-sm font-semibold text-white">Total Return</span>
+                <span id="resultTotal" class="text-base sm:text-xl font-bold text-emerald-400">$0.00</span>
+              </div>
+            </div>
+            <!-- Invest Now CTA -->
+            <a href="{% url 'userprofile:dashboard' %}" class="mt-4 sm:mt-6 block w-full rounded-lg sm:rounded-xl gold-gradient py-2.5 sm:py-3.5 text-center text-[10px] sm:text-sm font-bold text-navy transition hover:scale-[1.02] hover:shadow-gold">
+              <i class="fa-solid fa-wallet mr-1.5 sm:mr-2"></i> Invest Now </a>
           </div>
         </div>
+      </section>
+      <style>
+        /* Additional ROI Calculator Styles */
+        #roi-calculator select option {
+          background: #07111f;
+          color: #f8fafc;
+        }
 
-        <!-- Calculate & Reset Buttons - Professional Compact Side by Side -->
-        <div class="sm:col-span-2 flex gap-2 sm:gap-3 mt-1">
-          <button onclick="calculateROI()" class="flex-1 gold-gradient rounded-lg sm:rounded-xl px-3 sm:px-6 py-2.5 sm:py-3.5 text-[10px] sm:text-sm font-bold text-navy transition hover:scale-[1.02] hover:shadow-gold flex items-center justify-center gap-1.5 sm:gap-2">
-            <i class="fa-solid fa-calculator text-[10px] sm:text-sm"></i> 
-            <span class="whitespace-nowrap">Calculate</span>
-          </button>
-          <button onclick="resetCalculator()" class="flex-1 rounded-lg sm:rounded-xl border border-soft bg-navy/60 px-3 sm:px-6 py-2.5 sm:py-3.5 text-[10px] sm:text-sm font-medium text-slate transition hover:border-gold hover:text-white flex items-center justify-center gap-1.5 sm:gap-2">
-            <i class="fa-solid fa-rotate-right text-[10px] sm:text-sm"></i>
-            <span class="whitespace-nowrap">Reset</span>
-          </button>
-        </div>
-      </div>
+        #roi-calculator select option:hover {
+          background: #c9a85c;
+        }
 
-      <!-- Min/Max Hint -->
-      <div id="rangeHint" class="mt-3 sm:mt-4 text-center text-[10px] sm:text-xs text-slate">
-        <span class="text-gold">ℹ️</span> Select a plan to see the investment range.
-      </div>
-    </div>
+        /* Custom Range Hint Animation */
+        #rangeHint {
+          transition: all 0.3s ease;
+        }
 
-    <!-- Results Panel -->
-    <div class="rounded-2xl border border-soft bg-navy2/60 p-4 backdrop-blur-sm sm:p-6 md:p-8">
-      <h3 class="text-sm font-semibold text-white">Your Returns Summary</h3>
-      <p class="mt-1 text-[10px] sm:text-xs text-slate">Based on your selected plan and investment amount.</p>
+        #rangeHint.active {
+          color: #c9a85c;
+        }
 
-      <div class="mt-4 sm:mt-6 space-y-3 sm:space-y-4">
-        <!-- Plan Name -->
-        <div class="flex items-center justify-between border-b border-soft pb-2 sm:pb-3">
-          <span class="text-[10px] sm:text-xs text-slate">Selected Plan</span>
-          <span id="resultPlan" class="text-xs sm:text-sm font-medium text-white">—</span>
-        </div>
+        /* Result Value Animations */
+        #resultProfit,
+        #resultTotal {
+          transition: all 0.5s ease;
+        }
 
-        <!-- Investment Amount -->
-        <div class="flex items-center justify-between border-b border-soft pb-2 sm:pb-3">
-          <span class="text-[10px] sm:text-xs text-slate">Investment Amount</span>
-          <span id="resultAmount" class="text-xs sm:text-sm font-medium text-white">$0.00</span>
-        </div>
+        /* Quick Amount Buttons Hover Effect */
+        .quick-amount-btn:hover {
+          transform: translateY(-2px);
+        }
 
-        <!-- ROI Percentage -->
-        <div class="flex items-center justify-between border-b border-soft pb-2 sm:pb-3">
-          <span class="text-[10px] sm:text-xs text-slate">ROI Percentage</span>
-          <span id="resultROI" class="text-xs sm:text-sm font-medium text-gold">0%</span>
-        </div>
+        /* Responsive Adjustments */
+        @media (max-width: 640px) {
+          #roi-calculator .grid-cols-3 {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
 
-        <!-- Duration -->
-        <div class="flex items-center justify-between border-b border-soft pb-2 sm:pb-3">
-          <span class="text-[10px] sm:text-xs text-slate">Duration</span>
-          <span id="resultDuration" class="text-xs sm:text-sm font-medium text-white">—</span>
-        </div>
+        /* Additional mobile optimizations */
+        @media (max-width: 380px) {
+          #roi-calculator .grid-cols-3 {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+          }
 
-        <!-- Profit Amount (Highlighted) -->
-        <div class="flex items-center justify-between rounded-xl bg-gold/10 border border-gold/20 p-3 sm:p-4">
-          <span class="text-xs sm:text-sm font-semibold text-white">Your Profit</span>
-          <span id="resultProfit" class="text-lg sm:text-2xl font-bold text-gold">$0.00</span>
-        </div>
-
-        <!-- Total Return -->
-        <div class="flex items-center justify-between rounded-xl bg-navy/80 p-3 sm:p-4 border border-soft">
-          <span class="text-xs sm:text-sm font-semibold text-white">Total Return</span>
-          <span id="resultTotal" class="text-base sm:text-xl font-bold text-emerald-400">$0.00</span>
-        </div>
-      </div>
-
-      <!-- Invest Now CTA -->
-      <a href="{% url 'userprofile:dashboard' %}" class="mt-4 sm:mt-6 block w-full rounded-lg sm:rounded-xl gold-gradient py-2.5 sm:py-3.5 text-center text-[10px] sm:text-sm font-bold text-navy transition hover:scale-[1.02] hover:shadow-gold">
-        <i class="fa-solid fa-wallet mr-1.5 sm:mr-2"></i> Invest Now
-      </a>
-    </div>
-  </div>
-</section>
-
-<style>
-/* Additional ROI Calculator Styles */
-#roi-calculator select option {
-  background: #07111f;
-  color: #f8fafc;
-}
-
-#roi-calculator select option:hover {
-  background: #c9a85c;
-}
-
-/* Custom Range Hint Animation */
-#rangeHint {
-  transition: all 0.3s ease;
-}
-
-#rangeHint.active {
-  color: #c9a85c;
-}
-
-/* Result Value Animations */
-#resultProfit, #resultTotal {
-  transition: all 0.5s ease;
-}
-
-/* Quick Amount Buttons Hover Effect */
-.quick-amount-btn:hover {
-  transform: translateY(-2px);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 640px) {
-  #roi-calculator .grid-cols-3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* Additional mobile optimizations */
-@media (max-width: 380px) {
-  #roi-calculator .grid-cols-3 {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
-  }
-  #roi-calculator .grid-cols-3 button {
-    font-size: 8px;
-    padding: 0.25rem 0.25rem;
-  }
-}
-</style>
-
-<script>
-/* ====== ROI CALCULATOR JAVASCRIPT ====== */
-
-const planSelect = document.getElementById('planSelect');
-const depositInput = document.getElementById('depositInput');
-const rangeHint = document.getElementById('rangeHint');
-
-// Result elements
-const resultPlan = document.getElementById('resultPlan');
-const resultAmount = document.getElementById('resultAmount');
-const resultROI = document.getElementById('resultROI');
-const resultDuration = document.getElementById('resultDuration');
-const resultProfit = document.getElementById('resultProfit');
-const resultTotal = document.getElementById('resultTotal');
-
-// Quick Amount Buttons
-function setQuickAmount(amount) {
-  depositInput.value = amount;
-  // Auto-calculate if a plan is selected
-  if (planSelect.value) {
-    calculateROI();
-  }
-}
-
-// Main Calculate Function
-function calculateROI() {
-  const selected = planSelect.options[planSelect.selectedIndex];
-  const roi = parseFloat(selected.value) || 0;
-  const min = parseFloat(selected.dataset.min) || 0;
-  const max = parseFloat(selected.dataset.max) || 0;
-  const duration = selected.dataset.duration || '-';
-  const planName = selected.text.split(' — ')[0] || '—';
-  const deposit = parseFloat(depositInput.value) || 0;
-
-  // Validation
-  if (!selected.value) {
-    rangeHint.innerHTML = '⚠️ Please select a plan first.';
-    rangeHint.className = 'mt-4 text-center text-xs text-red-400';
-    return;
-  }
-
-  if (deposit <= 0) {
-    rangeHint.innerHTML = '⚠️ Please enter a valid investment amount.';
-    rangeHint.className = 'mt-4 text-center text-xs text-red-400';
-    return;
-  }
-
-  if (deposit < min) {
-    rangeHint.innerHTML = `⚠️ Minimum investment for this plan is $${min.toLocaleString()}.`;
-    rangeHint.className = 'mt-4 text-center text-xs text-red-400';
-    return;
-  }
-
-  if (deposit > max) {
-    rangeHint.innerHTML = `⚠️ Maximum investment for this plan is $${max.toLocaleString()}.`;
-    rangeHint.className = 'mt-4 text-center text-xs text-red-400';
-    return;
-  }
-
-  // Calculate returns
-  const profit = (deposit * roi) / 100;
-  const total = deposit + profit;
-
-  // Update results
-  resultPlan.textContent = planName;
-  resultAmount.textContent = `$${deposit.toFixed(2)}`;
-  resultROI.textContent = `${roi}%`;
-  resultDuration.textContent = duration;
-  resultProfit.textContent = `$${profit.toFixed(2)}`;
-  resultTotal.textContent = `$${total.toFixed(2)}`;
-
-  // Update range hint
-  rangeHint.innerHTML = `✅ Investment range: $${min.toLocaleString()} – $${max.toLocaleString()}`;
-  rangeHint.className = 'mt-4 text-center text-xs text-emerald-400';
-
-  // Add animation effect
-  resultProfit.style.transform = 'scale(1.1)';
-  setTimeout(() => {
-    resultProfit.style.transform = 'scale(1)';
-  }, 300);
-
-  resultTotal.style.transform = 'scale(1.05)';
-  setTimeout(() => {
-    resultTotal.style.transform = 'scale(1)';
-  }, 300);
-}
-
-// Reset Calculator
-function resetCalculator() {
-  planSelect.selectedIndex = 0;
-  depositInput.value = '';
-  resultPlan.textContent = '—';
-  resultAmount.textContent = '$0.00';
-  resultROI.textContent = '0%';
-  resultDuration.textContent = '—';
-  resultProfit.textContent = '$0.00';
-  resultTotal.textContent = '$0.00';
-  rangeHint.innerHTML = 'ℹ️ Select a plan to see the investment range.';
-  rangeHint.className = 'mt-4 text-center text-xs text-slate';
-}
-
-// Update range hint when plan changes
-planSelect.addEventListener('change', function() {
-  const selected = this.options[this.selectedIndex];
-  if (selected.value) {
-    const min = parseFloat(selected.dataset.min) || 0;
-    const max = parseFloat(selected.dataset.max) || 0;
-    rangeHint.innerHTML = `💰 Investment range: $${min.toLocaleString()} – $${max.toLocaleString()}`;
-    rangeHint.className = 'mt-4 text-center text-xs text-slate';
-    
-    // Auto-calculate if there's a deposit amount
-    if (depositInput.value) {
-      calculateROI();
-    }
-  } else {
-    resetCalculator();
-  }
-});
-
-// Auto-calculate on deposit input change
-depositInput.addEventListener('input', function() {
-  if (planSelect.value && this.value) {
-    calculateROI();
-  }
-});
-
-// Enter key support
-depositInput.addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') {
-    e.preventDefault();
-    calculateROI();
-  }
-});
-
-// Number formatting helper (optional)
-function formatCurrency(amount) {
-  return '$' + amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-}
-</script>
+          #roi-calculator .grid-cols-3 button {
+            font-size: 8px;
+            padding: 0.25rem 0.25rem;
+          }
+        }
+      </style>
+      <script>
+        /* ====== ROI CALCULATOR JAVASCRIPT ====== */
+        const planSelect = document.getElementById('planSelect');
+        const depositInput = document.getElementById('depositInput');
+        const rangeHint = document.getElementById('rangeHint');
+        // Result elements
+        const resultPlan = document.getElementById('resultPlan');
+        const resultAmount = document.getElementById('resultAmount');
+        const resultROI = document.getElementById('resultROI');
+        const resultDuration = document.getElementById('resultDuration');
+        const resultProfit = document.getElementById('resultProfit');
+        const resultTotal = document.getElementById('resultTotal');
+        // Quick Amount Buttons
+        function setQuickAmount(amount) {
+          depositInput.value = amount;
+          // Auto-calculate if a plan is selected
+          if (planSelect.value) {
+            calculateROI();
+          }
+        }
+        // Main Calculate Function
+        function calculateROI() {
+          const selected = planSelect.options[planSelect.selectedIndex];
+          const roi = parseFloat(selected.value) || 0;
+          const min = parseFloat(selected.dataset.min) || 0;
+          const max = parseFloat(selected.dataset.max) || 0;
+          const duration = selected.dataset.duration || '-';
+          const planName = selected.text.split(' — ')[0] || '—';
+          const deposit = parseFloat(depositInput.value) || 0;
+          // Validation
+          if (!selected.value) {
+            rangeHint.innerHTML = '⚠️ Please select a plan first.';
+            rangeHint.className = 'mt-4 text-center text-xs text-red-400';
+            return;
+          }
+          if (deposit <= 0) {
+            rangeHint.innerHTML = '⚠️ Please enter a valid investment amount.';
+            rangeHint.className = 'mt-4 text-center text-xs text-red-400';
+            return;
+          }
+          if (deposit < min) {
+            rangeHint.innerHTML = `⚠️ Minimum investment for this plan is $${min.toLocaleString()}.`;
+            rangeHint.className = 'mt-4 text-center text-xs text-red-400';
+            return;
+          }
+          if (deposit > max) {
+            rangeHint.innerHTML = `⚠️ Maximum investment for this plan is $${max.toLocaleString()}.`;
+            rangeHint.className = 'mt-4 text-center text-xs text-red-400';
+            return;
+          }
+          // Calculate returns
+          const profit = (deposit * roi) / 100;
+          const total = deposit + profit;
+          // Update results
+          resultPlan.textContent = planName;
+          resultAmount.textContent = `$${deposit.toFixed(2)}`;
+          resultROI.textContent = `${roi}%`;
+          resultDuration.textContent = duration;
+          resultProfit.textContent = `$${profit.toFixed(2)}`;
+          resultTotal.textContent = `$${total.toFixed(2)}`;
+          // Update range hint
+          rangeHint.innerHTML = `✅ Investment range: $${min.toLocaleString()} – $${max.toLocaleString()}`;
+          rangeHint.className = 'mt-4 text-center text-xs text-emerald-400';
+          // Add animation effect
+          resultProfit.style.transform = 'scale(1.1)';
+          setTimeout(() => {
+            resultProfit.style.transform = 'scale(1)';
+          }, 300);
+          resultTotal.style.transform = 'scale(1.05)';
+          setTimeout(() => {
+            resultTotal.style.transform = 'scale(1)';
+          }, 300);
+        }
+        // Reset Calculator
+        function resetCalculator() {
+          planSelect.selectedIndex = 0;
+          depositInput.value = '';
+          resultPlan.textContent = '—';
+          resultAmount.textContent = '$0.00';
+          resultROI.textContent = '0%';
+          resultDuration.textContent = '—';
+          resultProfit.textContent = '$0.00';
+          resultTotal.textContent = '$0.00';
+          rangeHint.innerHTML = 'ℹ️ Select a plan to see the investment range.';
+          rangeHint.className = 'mt-4 text-center text-xs text-slate';
+        }
+        // Update range hint when plan changes
+        planSelect.addEventListener('change', function() {
+          const selected = this.options[this.selectedIndex];
+          if (selected.value) {
+            const min = parseFloat(selected.dataset.min) || 0;
+            const max = parseFloat(selected.dataset.max) || 0;
+            rangeHint.innerHTML = `💰 Investment range: $${min.toLocaleString()} – $${max.toLocaleString()}`;
+            rangeHint.className = 'mt-4 text-center text-xs text-slate';
+            // Auto-calculate if there's a deposit amount
+            if (depositInput.value) {
+              calculateROI();
+            }
+          } else {
+            resetCalculator();
+          }
+        });
+        // Auto-calculate on deposit input change
+        depositInput.addEventListener('input', function() {
+          if (planSelect.value && this.value) {
+            calculateROI();
+          }
+        });
+        // Enter key support
+        depositInput.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            calculateROI();
+          }
+        });
+        // Number formatting helper (optional)
+        function formatCurrency(amount) {
+          return '$' + amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+      </script>
       <!-- ====== WHATSAPP WIDGET - STICKY BOTTOM-LEFT ====== -->
-
-<!-- HTML Structure -->
-<div class="wa-widget">
-  <!-- Chat Box -->
-  <div class="wa-box" id="waBox">
-    <div class="wa-header">
-      <div>
-        <strong>WhatsApp Support</strong>
-        <div class="wa-status">🟢 Online</div>
-      </div>
-      <div class="wa-close" onclick="toggleWA()">✕</div>
-    </div>
-
-    <div class="wa-body" id="waBody">
-      <div class="typing" id="typing">
-        <span></span><span></span><span></span>
-      </div>
-    </div>
-
-    <a class="wa-start"
-       href="https://wa.me/17126574050?text=Hello%20I%20need%20assistance"
-       target="_blank">
-       Start Chat on WhatsApp
-    </a>
-  </div>
-
-  <!-- Floating Button -->
-  <div class="wa-button" onclick="toggleWA()">
-    <div class="wa-badge" id="waBadge">1</div>
-
-    <!-- WhatsApp SVG Logo -->
-    <svg viewBox="0 0 32 32" width="30" height="30" xmlns="http://www.w3.org/2000/svg">
-      <path fill="#ffffff" d="M19.11 17.47c-.27-.13-1.59-.78-1.84-.87-.25-.09-.43-.13-.61.13-.18.27-.7.87-.86 1.05-.16.18-.31.2-.58.07-.27-.13-1.13-.42-2.15-1.35-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.55.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.33-.02-.47-.07-.13-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.47-.16-.01-.33-.01-.51-.01-.18 0-.47.07-.71.33-.25.27-.95.93-.95 2.27 0 1.34.97 2.63 1.11 2.82.13.18 1.92 2.94 4.66 4.13.65.28 1.15.45 1.55.57.65.21 1.24.18 1.7.11.52-.08 1.59-.65 1.81-1.27.22-.62.22-1.15.15-1.27-.07-.11-.25-.18-.52-.31z"/>
-      <path fill="#ffffff" d="M16.02 3C9.94 3 5 7.94 5 14.02c0 2.26.66 4.36 1.8 6.14L5 29l9.08-1.75c1.71.94 3.66 1.44 5.68 1.44 6.08 0 11.02-4.94 11.02-11.02S22.1 3 16.02 3zm0 20.09c-1.84 0-3.65-.49-5.23-1.41l-.37-.22-5.39 1.04 1.05-5.26-.24-.38a8.96 8.96 0 01-1.39-4.84c0-4.99 4.06-9.05 9.05-9.05s9.05 4.06 9.05 9.05-4.06 9.07-9.05 9.07z"/>
-    </svg>
-  </div>
-</div>
-<style>
-  /* ====== WHATSAPP WIDGET STYLES ====== */
-
-.wa-widget {
-  position: fixed;
-  bottom: 25px;
-  left: 25px;
-  z-index: 9999;
-  font-family: system-ui, -apple-system, sans-serif;
-}
-
-/* Floating Button */
-.wa-button {
-  width: 65px;
-  height: 65px;
-  background: #25D366;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-  border: 4px solid #fff;
-  position: relative;
-  transition: 0.3s ease;
-}
-
-.wa-button:hover {
-  transform: scale(1.07);
-}
-
-/* Notification Badge */
-.wa-badge {
-  position: absolute;
-  top: -3px;
-  right: -3px;
-  background: red;
-  color: #fff;
-  font-size: 11px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  animation: bounce 1.5s infinite;
-}
-
-@keyframes bounce {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
-}
-
-/* Chat Box */
-.wa-box {
-  width: 320px;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-  position: absolute;
-  bottom: 85px;
-  left: 0;
-  overflow: hidden;
-  display: none;
-  transform: translateY(20px);
-  opacity: 0;
-  transition: 0.3s ease;
-}
-
-.wa-box.active {
-  display: block;
-  transform: translateY(0);
-  opacity: 1;
-}
-
-/* Header */
-.wa-header {
-  background: #075E54;
-  color: #fff;
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.wa-status {
-  font-size: 12px;
-  opacity: 0.85;
-}
-
-.wa-close {
-  cursor: pointer;
-  font-size: 16px;
-}
-
-/* Body */
-.wa-body {
-  padding: 15px;
-  font-size: 14px;
-  background: #e5ddd5;
-}
-
-.wa-message {
-  background: #fff;
-  padding: 10px 12px;
-  border-radius: 10px;
-  display: inline-block;
-  max-width: 85%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-bottom: 10px;
-}
-
-/* Typing Animation */
-.typing {
-  display: inline-flex;
-  gap: 4px;
-  padding: 8px 10px;
-  background: #fff;
-  border-radius: 10px;
-}
-
-.typing span {
-  width: 6px;
-  height: 6px;
-  background: #999;
-  border-radius: 50%;
-  animation: blink 1.4s infinite both;
-}
-
-.typing span:nth-child(2) { animation-delay: .2s; }
-.typing span:nth-child(3) { animation-delay: .4s; }
-
-@keyframes blink {
-  0% { opacity: .2; }
-  20% { opacity: 1; }
-  100% { opacity: .2; }
-}
-
-/* Start Button */
-.wa-start {
-  display: block;
-  text-align: center;
-  background: #25D366;
-  color: #fff;
-  padding: 12px;
-  margin: 10px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.wa-start:hover {
-  background: #1ebe5d;
-}
-
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-  .wa-box { background: #1e1e1e; }
-  .wa-body { background: #2a2a2a; }
-  .wa-message { background: #333; color: #fff; }
-}
-</style>
-<script>
-  /* ====== WHATSAPP WIDGET JAVASCRIPT ====== */
-
-window.addEventListener("load", function () {
-
-  const waBox = document.getElementById("waBox");
-  const waBadge = document.getElementById("waBadge");
-  const typing = document.getElementById("typing");
-  const waBody = document.getElementById("waBody");
-
-  window.toggleWA = function () {
-    waBox.classList.toggle("active");
-    waBadge.style.display = "none";
-  };
-
-  /* Auto open once per session */
-  if (!sessionStorage.getItem("waShown")) {
-    setTimeout(() => {
-      waBox.classList.add("active");
-      sessionStorage.setItem("waShown", "true");
-      playSound();
-    }, 4000);
-  }
-
-  /* Typing effect then message */
-  setTimeout(() => {
-    if (typing) {
-      typing.remove();
-      const msg = document.createElement("div");
-      msg.className = "wa-message";
-      msg.innerHTML = "Hello 👋<br>How can we help you today?";
-      waBody.appendChild(msg);
-    }
-  }, 3000);
-
-  /* Notification Sound */
-  function playSound() {
-    const audio = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-software-interface-start-2574.mp3");
-    audio.play().catch(() => {});
-  }
-
-});
-</script>
-    </main>
-
-
-    <!-- FOOTER (side-by-side on mobile) -->
-<footer id="contact" class="border-t border-soft">
-  <div class="mx-auto max-w-[1440px] px-5 py-8 lg:px-8">
-    <div class="footer-grid-mobile grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
-      <div><div class="mb-3 text-xs font-semibold text-gold">Company</div><div class="space-y-2 text-[10px] text-slate"><a href="#about" class="block transition hover:text-white">About Us</a><a class="block transition hover:text-white">Leadership</a><a class="block transition hover:text-white">Careers</a><a class="block transition hover:text-white">Press & Media</a><a class="block transition hover:text-white">Partners</a></div></div>
-      <div id="resources"><div class="mb-3 text-xs font-semibold text-gold">Services</div><div class="space-y-2 text-[10px] text-slate"><a class="block transition hover:text-white">Digital Assets</a><a class="block transition hover:text-white">Financial Technology</a><a class="block transition hover:text-white">Technology Ventures</a><a class="block transition hover:text-white">Market Research</a></div></div>
-      <div><div class="mb-3 text-xs font-semibold text-gold">Investments</div><div class="space-y-2 text-[10px] text-slate"><a class="block transition hover:text-white">Investment Approach</a><a class="block transition hover:text-white">Asset Classes</a><a class="block transition hover:text-white">Performance</a><a class="block transition hover:text-white">Risk Management</a></div></div>
-      <div><div class="mb-3 text-xs font-semibold text-gold">Lending <span class="rounded bg-gold px-1 text-[7px] text-navy">NEW</span></div><div class="space-y-2 text-[10px] text-slate"><a class="block transition hover:text-white">Loan Overview</a><a class="block transition hover:text-white">Personal Loans</a><a class="block transition hover:text-white">Business Loans</a><a class="block transition hover:text-white">Loan Calculator</a></div></div>
-      <div><div class="mb-3 text-xs font-semibold text-gold">Support</div><div class="space-y-2 text-[10px] text-slate"><a class="block transition hover:text-white">Help Center</a><a class="block transition hover:text-white">Contact Us</a><a class="block transition hover:text-white">Security Center</a><a class="block transition hover:text-white">Report an Issue</a></div></div>
-    </div>
-  </div>
-
-  <div class="mx-auto max-w-[1440px] border-t border-soft px-5 py-7 lg:px-8">
-    <div class="grid gap-7 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
-      <div id="about"><div class="flex items-center gap-2"><span class="text-2xl text-gold">◈</span><span class="text-sm font-semibold tracking-[.18em]">VEY LENTRA</span><span class="text-[8px] tracking-[.35em] text-gold">GROUP</span></div><p class="mt-3 max-w-md text-[10px] leading-5 text-slate">Veylentra Group is a financial technology and digital asset research firm. We provide data, insights, and solutions to help clients navigate a changing financial world.</p></div>
-      <div><h4 class="text-xs font-semibold">Contact Us</h4><div class="mt-3 space-y-2 text-[10px] text-slate"><p>Email: support@veylentragroup.com</p><p>Phone: +1 (712) 657-4050</p><p>One Raffles Quay, #37-01,<br /> Singapore 048583</p></div></div>
-      <div>
-        <h4 class="text-xs font-semibold">Follow Us</h4>
-        <div class="mt-3 flex gap-2">
-          <a href="https://x.com/veylentragroup?s=11&t=GwZ4iHWLoOQaWaAx11HJGA" target="_blank" rel="noopener noreferrer" class="flex h-7 w-7 items-center justify-center rounded-full border border-white/15 text-[10px] transition hover:border-gold hover:text-gold hover:bg-gold/10" aria-label="Twitter/X">
-            <i class="fab fa-x-twitter"></i>
-          </a>
-          <a href="https://t.me/VeylentraGroup" target="_blank" rel="noopener noreferrer" class="flex h-7 w-7 items-center justify-center rounded-full border border-white/15 text-[10px] transition hover:border-gold hover:text-gold hover:bg-gold/10" aria-label="Telegram">
-            <i class="fab fa-telegram-plane"></i>
-          </a>
-          <a href="#" class="flex h-7 w-7 items-center justify-center rounded-full border border-white/15 text-[10px] transition hover:border-gold hover:text-gold hover:bg-gold/10" aria-label="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a href="#" class="flex h-7 w-7 items-center justify-center rounded-full border border-white/15 text-[10px] transition hover:border-gold hover:text-gold hover:bg-gold/10" aria-label="YouTube">
-            <i class="fab fa-youtube"></i>
-          </a>
+      <!-- HTML Structure -->
+      <div class="wa-widget">
+        <!-- Chat Box -->
+        <div class="wa-box" id="waBox">
+          <div class="wa-header">
+            <div>
+              <strong>WhatsApp Support</strong>
+              <div class="wa-status">🟢 Online</div>
+            </div>
+            <div class="wa-close" onclick="toggleWA()">✕</div>
+          </div>
+          <div class="wa-body" id="waBody">
+            <div class="typing" id="typing">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <a class="wa-start" href="https://wa.me/17126574050?text=Hello%20I%20need%20assistance" target="_blank"> Start Chat on WhatsApp </a>
+        </div>
+        <!-- Floating Button -->
+        <div class="wa-button" onclick="toggleWA()">
+          <div class="wa-badge" id="waBadge">1</div>
+          <!-- WhatsApp SVG Logo -->
+          <svg viewBox="0 0 32 32" width="30" height="30" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#ffffff" d="M19.11 17.47c-.27-.13-1.59-.78-1.84-.87-.25-.09-.43-.13-.61.13-.18.27-.7.87-.86 1.05-.16.18-.31.2-.58.07-.27-.13-1.13-.42-2.15-1.35-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.55.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.33-.02-.47-.07-.13-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.47-.16-.01-.33-.01-.51-.01-.18 0-.47.07-.71.33-.25.27-.95.93-.95 2.27 0 1.34.97 2.63 1.11 2.82.13.18 1.92 2.94 4.66 4.13.65.28 1.15.45 1.55.57.65.21 1.24.18 1.7.11.52-.08 1.59-.65 1.81-1.27.22-.62.22-1.15.15-1.27-.07-.11-.25-.18-.52-.31z" />
+            <path fill="#ffffff" d="M16.02 3C9.94 3 5 7.94 5 14.02c0 2.26.66 4.36 1.8 6.14L5 29l9.08-1.75c1.71.94 3.66 1.44 5.68 1.44 6.08 0 11.02-4.94 11.02-11.02S22.1 3 16.02 3zm0 20.09c-1.84 0-3.65-.49-5.23-1.41l-.37-.22-5.39 1.04 1.05-5.26-.24-.38a8.96 8.96 0 01-1.39-4.84c0-4.99 4.06-9.05 9.05-9.05s9.05 4.06 9.05 9.05-4.06 9.07-9.05 9.07z" />
+          </svg>
         </div>
       </div>
-      <div><h4 class="text-xs font-semibold">Legal</h4><div class="mt-3 space-y-2 text-[10px] text-slate"><p class="transition hover:text-white">Terms of Service</p><p class="transition hover:text-white">Privacy Policy</p><p class="transition hover:text-white">Risk Disclosure</p><p class="transition hover:text-white">AML Policy</p></div></div>
-    </div>
-  </div>
-  <div class="border-t border-soft"><div class="mx-auto flex max-w-[1440px] flex-col gap-2 px-5 py-3 text-[8px] text-slate sm:flex-row sm:items-center sm:justify-between lg:px-8"><span>© 2024 Veylentra Group. All rights reserved.</span><span>Built for a secure and transparent future. <span class="text-gold">♢</span></span></div></div>
-</footer>
+      <style>
+        /* ====== WHATSAPP WIDGET STYLES ====== */
+        .wa-widget {
+          position: fixed;
+          bottom: 25px;
+          left: 25px;
+          z-index: 9999;
+          font-family: system-ui, -apple-system, sans-serif;
+        }
 
+        /* Floating Button */
+        .wa-button {
+          width: 65px;
+          height: 65px;
+          background: #25D366;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+          border: 4px solid #fff;
+          position: relative;
+          transition: 0.3s ease;
+        }
+
+        .wa-button:hover {
+          transform: scale(1.07);
+        }
+
+        /* Notification Badge */
+        .wa-badge {
+          position: absolute;
+          top: -3px;
+          right: -3px;
+          background: red;
+          color: #fff;
+          font-size: 11px;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+          animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+
+          50% {
+            transform: translateY(-4px);
+          }
+        }
+
+        /* Chat Box */
+        .wa-box {
+          width: 320px;
+          background: #fff;
+          border-radius: 16px;
+          box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+          position: absolute;
+          bottom: 85px;
+          left: 0;
+          overflow: hidden;
+          display: none;
+          transform: translateY(20px);
+          opacity: 0;
+          transition: 0.3s ease;
+        }
+
+        .wa-box.active {
+          display: block;
+          transform: translateY(0);
+          opacity: 1;
+        }
+
+        /* Header */
+        .wa-header {
+          background: #075E54;
+          color: #fff;
+          padding: 15px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .wa-status {
+          font-size: 12px;
+          opacity: 0.85;
+        }
+
+        .wa-close {
+          cursor: pointer;
+          font-size: 16px;
+        }
+
+        /* Body */
+        .wa-body {
+          padding: 15px;
+          font-size: 14px;
+          background: #e5ddd5;
+        }
+
+        .wa-message {
+          background: #fff;
+          padding: 10px 12px;
+          border-radius: 10px;
+          display: inline-block;
+          max-width: 85%;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          margin-bottom: 10px;
+        }
+
+        /* Typing Animation */
+        .typing {
+          display: inline-flex;
+          gap: 4px;
+          padding: 8px 10px;
+          background: #fff;
+          border-radius: 10px;
+        }
+
+        .typing span {
+          width: 6px;
+          height: 6px;
+          background: #999;
+          border-radius: 50%;
+          animation: blink 1.4s infinite both;
+        }
+
+        .typing span:nth-child(2) {
+          animation-delay: .2s;
+        }
+
+        .typing span:nth-child(3) {
+          animation-delay: .4s;
+        }
+
+        @keyframes blink {
+          0% {
+            opacity: .2;
+          }
+
+          20% {
+            opacity: 1;
+          }
+
+          100% {
+            opacity: .2;
+          }
+        }
+
+        /* Start Button */
+        .wa-start {
+          display: block;
+          text-align: center;
+          background: #25D366;
+          color: #fff;
+          padding: 12px;
+          margin: 10px;
+          border-radius: 10px;
+          text-decoration: none;
+          font-weight: 600;
+          transition: 0.3s;
+        }
+
+        .wa-start:hover {
+          background: #1ebe5d;
+        }
+
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+          .wa-box {
+            background: #1e1e1e;
+          }
+
+          .wa-body {
+            background: #2a2a2a;
+          }
+
+          .wa-message {
+            background: #333;
+            color: #fff;
+          }
+        }
+      </style>
+      <script>
+        /* ====== WHATSAPP WIDGET JAVASCRIPT ====== */
+        window.addEventListener("load", function() {
+          const waBox = document.getElementById("waBox");
+          const waBadge = document.getElementById("waBadge");
+          const typing = document.getElementById("typing");
+          const waBody = document.getElementById("waBody");
+          window.toggleWA = function() {
+            waBox.classList.toggle("active");
+            waBadge.style.display = "none";
+          };
+          /* Auto open once per session */
+          if (!sessionStorage.getItem("waShown")) {
+            setTimeout(() => {
+              waBox.classList.add("active");
+              sessionStorage.setItem("waShown", "true");
+              playSound();
+            }, 4000);
+          }
+          /* Typing effect then message */
+          setTimeout(() => {
+            if (typing) {
+              typing.remove();
+              const msg = document.createElement("div");
+              msg.className = "wa-message";
+              msg.innerHTML = "Hello 👋 < br > How can we help you today ? ";
+              waBody.appendChild(msg);
+            }
+          }, 3000);
+          /* Notification Sound */
+          function playSound() {
+            const audio = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-software-interface-start-2574.mp3");
+            audio.play().catch(() => {});
+          }
+        });
+      </script>
+    </main>
+    <!-- FOOTER (side-by-side on mobile) -->
+    <footer id="contact" class="border-t border-soft">
+      <div class="mx-auto max-w-[1440px] px-5 py-8 lg:px-8">
+        <div class="footer-grid-mobile grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+          <div>
+            <div class="mb-3 text-xs font-semibold text-gold">Company</div>
+            <div class="space-y-2 text-[10px] text-slate">
+              <a href="#about" class="block transition hover:text-white">About Us</a>
+              <a class="block transition hover:text-white">Leadership</a>
+              <a class="block transition hover:text-white">Careers</a>
+              <a class="block transition hover:text-white">Press & Media</a>
+              <a class="block transition hover:text-white">Partners</a>
+            </div>
+          </div>
+          <div id="resources">
+            <div class="mb-3 text-xs font-semibold text-gold">Services</div>
+            <div class="space-y-2 text-[10px] text-slate">
+              <a class="block transition hover:text-white">Digital Assets</a>
+              <a class="block transition hover:text-white">Financial Technology</a>
+              <a class="block transition hover:text-white">Technology Ventures</a>
+              <a class="block transition hover:text-white">Market Research</a>
+            </div>
+          </div>
+          <div>
+            <div class="mb-3 text-xs font-semibold text-gold">Investments</div>
+            <div class="space-y-2 text-[10px] text-slate">
+              <a class="block transition hover:text-white">Investment Approach</a>
+              <a class="block transition hover:text-white">Asset Classes</a>
+              <a class="block transition hover:text-white">Performance</a>
+              <a class="block transition hover:text-white">Risk Management</a>
+            </div>
+          </div>
+          <div>
+            <div class="mb-3 text-xs font-semibold text-gold">Lending <span class="rounded bg-gold px-1 text-[7px] text-navy">NEW</span>
+            </div>
+            <div class="space-y-2 text-[10px] text-slate">
+              <a class="block transition hover:text-white">Loan Overview</a>
+              <a class="block transition hover:text-white">Personal Loans</a>
+              <a class="block transition hover:text-white">Business Loans</a>
+              <a class="block transition hover:text-white">Loan Calculator</a>
+            </div>
+          </div>
+          <div>
+            <div class="mb-3 text-xs font-semibold text-gold">Support</div>
+            <div class="space-y-2 text-[10px] text-slate">
+              <a class="block transition hover:text-white">Help Center</a>
+              <a class="block transition hover:text-white">Contact Us</a>
+              <a class="block transition hover:text-white">Security Center</a>
+              <a class="block transition hover:text-white">Report an Issue</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mx-auto max-w-[1440px] border-t border-soft px-5 py-7 lg:px-8">
+        <div class="grid gap-7 lg:grid-cols-[1.2fr_1fr_1fr_1fr]">
+          <div id="about">
+            <div class="flex items-center gap-2">
+              <span class="text-2xl text-gold">◈</span>
+              <span class="text-sm font-semibold tracking-[.18em]">VEY LENTRA</span>
+              <span class="text-[8px] tracking-[.35em] text-gold">GROUP</span>
+            </div>
+            <p class="mt-3 max-w-md text-[10px] leading-5 text-slate">Veylentra Group is a financial technology and digital asset research firm. We provide data, insights, and solutions to help clients navigate a changing financial world.</p>
+          </div>
+          <div>
+            <h4 class="text-xs font-semibold">Contact Us</h4>
+            <div class="mt-3 space-y-2 text-[10px] text-slate">
+              <p>Email: support@veylentragroup.com</p>
+              <p>Phone: +1 (712) 657-4050</p>
+              <p>One Raffles Quay, #37-01, <br /> Singapore 048583 </p>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-xs font-semibold">Follow Us</h4>
+            <div class="mt-3 flex gap-2">
+              <a href="https://x.com/veylentragroup?s=11&t=GwZ4iHWLoOQaWaAx11HJGA" target="_blank" rel="noopener noreferrer" class="flex h-7 w-7 items-center justify-center rounded-full border border-white/15 text-[10px] transition hover:border-gold hover:text-gold hover:bg-gold/10" aria-label="Twitter/X">
+                <i class="fab fa-x-twitter"></i>
+              </a>
+              <a href="https://t.me/VeylentraGroup" target="_blank" rel="noopener noreferrer" class="flex h-7 w-7 items-center justify-center rounded-full border border-white/15 text-[10px] transition hover:border-gold hover:text-gold hover:bg-gold/10" aria-label="Telegram">
+                <i class="fab fa-telegram-plane"></i>
+              </a>
+              <a href="#" class="flex h-7 w-7 items-center justify-center rounded-full border border-white/15 text-[10px] transition hover:border-gold hover:text-gold hover:bg-gold/10" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" class="flex h-7 w-7 items-center justify-center rounded-full border border-white/15 text-[10px] transition hover:border-gold hover:text-gold hover:bg-gold/10" aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-xs font-semibold">Legal</h4>
+            <div class="mt-3 space-y-2 text-[10px] text-slate">
+              <p class="transition hover:text-white">Terms of Service</p>
+              <p class="transition hover:text-white">Privacy Policy</p>
+              <p class="transition hover:text-white">Risk Disclosure</p>
+              <p class="transition hover:text-white">AML Policy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-soft">
+        <div class="mx-auto flex max-w-[1440px] flex-col gap-2 px-5 py-3 text-[8px] text-slate sm:flex-row sm:items-center sm:justify-between lg:px-8">
+          <span>© 2024 Veylentra Group. All rights reserved.</span>
+          <span>Built for a secure and transparent future. <span class="text-gold">♢</span>
+          </span>
+        </div>
+      </div>
+    </footer>
     <script>
       (function() {
         const btn = document.getElementById('menuBtn');
